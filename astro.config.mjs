@@ -1,4 +1,15 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-// https://astro.build/config
-export default defineConfig({});
+import tailwind from "@astrojs/tailwind";
+
+import compress from "astro-compress";
+
+import image from "@astrojs/image";
+
+export default defineConfig({
+  integrations: [
+    tailwind(),
+    image({ serviceEntryPoint: "@astrojs/image/sharp" }),
+    compress(),
+  ],
+});

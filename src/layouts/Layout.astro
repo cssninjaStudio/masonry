@@ -25,8 +25,8 @@ const { title = "", description = "", ...props } = Astro.props;
 
     <GoogleFontsOptimizer
       url={[
-        "https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600;700&display=swap",
-        "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap",
+        "https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600",
+        "https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap",
       ]}
     />
 
@@ -43,6 +43,7 @@ const { title = "", description = "", ...props } = Astro.props;
 
       body {
         @apply h-full flex flex-col;
+        font-family: "Roboto Flex", sans-serif;
       }
     </style>
   </body>

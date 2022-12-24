@@ -1,0 +1,94 @@
+---
+interface Props {
+  options: string[];
+  placeholder: string;
+  id: string;
+}
+const { id = "", options, placeholder = "" } = Astro.props;
+---
+
+<div
+  id={id + "Select"}
+  data-open="false"
+  aria-label="Select Box"
+  class="select relative"
+>
+  <!-- options -->
+  {
+    options.length > 0 && (
+      <div
+        aria-label="Select Option"
+        class="options bg-white shadow-sm border transition-all duration-200 z-20 border-gray-300 text-gray-600 rounded-xl absolute top-full mt-2 left-0 w-full overflow-hidden"
+      >
+        {options.map((option) => (
+          <div
+            class="option py-2 px-3 hover:bg-gray-100 cursor-pointer"
+            data-option={option}
+          >
+            {option}
+          </div>
+        ))}
+      </div>
+    )
+  }
+
+  <div
+    class="flex justify-between items-center bg-white px-6 py-4 rounded-lg cursor-pointer w-full h-full relative z-20"
+  >
+    <!-- input -->
+    <input
+      aria-label="Select Input"
+      id={id}
+      name={id}
+      type="text"
+      class="focus:outline-none cursor-pointer text-[#93A5BE] w-5/6"
+      placeholder={placeholder}
+      readonly
+    />
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="#93A5BE"
+      class="w-6 h-6 transition-all duration-200"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+    </svg>
+  </div>
+</div>
+
+<style>
+  [data-open="false"] .options {
+    @apply max-h-0 opacity-0;
+  }
+  [data-open="true"] .options {
+    @apply max-h-[200px] opacity-100;
+  }
+  [data-open="true"] svg {
+    @apply rotate-180;
+  }
+</style>
+
+<script>
+  [...document.querySelectorAll(".option")].forEach((option) => {
+    option.addEventListener("click", () => {
+      option.parentElement.nextElementSibling.querySelector("input").value =
+        option.dataset.option;
+    });
+  });
+  [...document.querySelectorAll(".select")].forEach((select) => {
+    select.addEventListener("click", () => {
+      const OPEN = select.dataset.open === "true";
+      if (OPEN) {
+        select.dataset.open = "false";
+      } else {
+        select.dataset.open = "true";
+      }
+    });
+  });
+</script>

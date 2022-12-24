@@ -1,16 +1,17 @@
 ---
 interface Props {
   label: string;
+  selected?: boolean;
 }
 
-const { label } = Astro.props;
+const { label, selected = false } = Astro.props;
 ---
 
 <div id={label + "Tab"} class="tab">
-  <input type="radio" name="tab" id={label} class="hidden" />
+  <input type="radio" name="tab" id={label} class="hidden" checked={selected} />
   <label
     for={label}
-    class="py-2 px-4 text-[#a2a5b9] rounded-t-[4px] cursor-pointer border-b border-[#e3e3e3]"
+    class="py-2 px-4 flex justify-center items-center min-w-[90px] text-[#a2a5b9] rounded-t-[4px] cursor-pointer border-b border-[#e3e3e3]"
     >{label}</label
   >
 </div>

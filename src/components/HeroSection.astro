@@ -4,7 +4,7 @@ import SelectBox from "./ui/SelectBox.astro";
 import Tab from "./ui/Tab.astro";
 ---
 
-<section id="Hero" class="h-[750px] bg-semi-white relative">
+<section id="Hero" class="h-[750px] bg-semi-white relative overflow-hidden">
   <div
     class="hero-content container flex flex-col gap-6 justify-center h-full relative z-10"
   >
@@ -21,15 +21,17 @@ import Tab from "./ui/Tab.astro";
     </div>
 
     <form action="">
-      <ul aria-label="Tabs" class="flex">
+      <ul aria-label="Tabs" class="flex relative z-10">
         <li aria-label="Tab">
-          <Tab label="Buy" />
+          <Tab label="Buy" selected={true} />
         </li>
         <li aria-label="Tab">
           <Tab label="Rent" />
         </li>
       </ul>
-      <div class="p-3 bg-white relative flex gap-2 items-center w-max">
+      <div
+        class="p-3 bg-white relative -mt-px z-0 flex gap-2 items-center w-max border border-[#e3e3e3]"
+      >
         <!-- select -->
         <SelectBox
           placeholder="Property Type"
@@ -44,16 +46,18 @@ import Tab from "./ui/Tab.astro";
 
         <!-- search input -->
         <div
-          class="input-group flex items-center h-full border-l border-dark flex-row-reverse"
+          class="input-group flex items-center h-full border-l border-[#e3e3e3] flex-row-reverse"
         >
-          <!-- icon -->
           <input
             type="text"
             placeholder="Search by location"
             class="focus:outline-none"
           />
 
-          <div class="h-[60px] aspect-square flex justify-center items-center">
+          <!-- icon -->
+          <div
+            class="h-[60px] aspect-square text-[#93A5BE] flex justify-center items-center"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

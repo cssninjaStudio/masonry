@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon";
 interface Props {
   options: string[];
   placeholder: string;
@@ -33,15 +34,16 @@ const { id = "", options, placeholder = "" } = Astro.props;
   }
 
   <div
-    class="flex justify-between items-center bg-white px-6 py-4 rounded-lg cursor-pointer w-full h-full relative z-20"
+    class="flex justify-between items-center gap-2 bg-white px-4 py-4 rounded-lg cursor-pointer w-full h-full relative z-20"
   >
+    <Icon name="lucide:home" class="w-5 aspect-auto text-[#93A5BE]" />
     <!-- input -->
     <input
       aria-label="Select Input"
       id={id}
       name={id}
       type="text"
-      class="focus:outline-none cursor-pointer text-[#93A5BE] w-5/6"
+      class="focus:outline-none cursor-pointer text-[#93A5BE] flex-1"
       placeholder={placeholder}
       readonly
     />
@@ -69,7 +71,7 @@ const { id = "", options, placeholder = "" } = Astro.props;
   [data-open="true"] .options {
     @apply max-h-[200px] opacity-100;
   }
-  [data-open="true"] svg {
+  [data-open="true"] svg:last-child {
     @apply rotate-180;
   }
 </style>

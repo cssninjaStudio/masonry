@@ -1,5 +1,92 @@
-<section id="Hero" class="h-[750px] bg-semi-white relative">
-  <div class="hero-content"></div>
+---
+import { Image } from "@astrojs/image/components";
+import SelectBox from "./ui/SelectBox.astro";
+import Tab from "./ui/Tab.astro";
+---
 
-  <div class="hero-bg w-1/2 h-full absolute right-0 top-0"></div>
+<section id="Hero" class="h-[750px] bg-semi-white relative">
+  <div
+    class="hero-content container flex flex-col gap-6 justify-center h-full relative z-10"
+  >
+    <div class="max-w-[370px] flex flex-col gap-6">
+      <h1
+        class="font-TitilliumWeb font-light text-[48px] leading-[54px] text-dark"
+      >
+        Find the house of your dreams.
+      </h1>
+      <p class="paragraph break-words">
+        We help you find the perfect space that will make you and your family
+        happy.
+      </p>
+    </div>
+
+    <form action="">
+      <ul aria-label="Tabs" class="flex">
+        <li aria-label="Tab">
+          <Tab label="Buy" />
+        </li>
+        <li aria-label="Tab">
+          <Tab label="Rent" />
+        </li>
+      </ul>
+      <div class="p-3 bg-white relative flex gap-2 items-center w-max">
+        <!-- select -->
+        <SelectBox
+          placeholder="Property Type"
+          options={[
+            "Private residence",
+            "Private house",
+            "Aparment",
+            "Mansion",
+          ]}
+          id="PropertyType"
+        />
+
+        <!-- search input -->
+        <div
+          class="input-group flex items-center h-full border-l border-dark flex-row-reverse"
+        >
+          <!-- icon -->
+          <input
+            type="text"
+            placeholder="Search by location"
+            class="focus:outline-none"
+          />
+
+          <div class="h-[60px] aspect-square flex justify-center items-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-3.5 h-3.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+
+        <button
+          type="submit"
+          class="h-[60px] min-w-[150px] font-medium text-lg px-4 py-2 rounded flex justify-center items-center transition-all duration-300 bg-primary text-white hover:[box-shadow:rgba(46,49,255,0.42)_0px_14px_26px_-12px,rgba(0,0,0,0.12)_0px_4px_23px_0px,rgba(46,49,255,0.2)_0px_8px_10px_-5px]"
+          >Search</button
+        >
+      </div>
+    </form>
+  </div>
+
+  <div class="hero-bg w-1/2 h-full absolute right-0 top-0 z-0">
+    <Image
+      src={"/images/photo/hero/3.webp"}
+      width={900}
+      height={1000}
+      alt="hero"
+      format="webp"
+    />
+  </div>
 </section>

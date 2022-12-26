@@ -11,20 +11,20 @@ import Layout from "@layouts/Layout.astro";
 
     <!-- POPULAR 3-->
 
-    <PopularSection properties={property} />
+    <PopularSection properties={property.slice(0, 3)} />
 
     <!-- COCO BEACH -->
 
     <!-- WHAT WE CAN DO -->
 
     <!-- POPULAR 6 -->
+    <PopularSection properties={property.slice(3)} />
 
     <!-- TALENTED -->
 
     <!-- WHAT THEY SAY -->
 
     <!-- LOGOS -->
-    <div class="h-96"></div>
   </main>
 </Layout>
 

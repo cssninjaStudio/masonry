@@ -1,6 +1,7 @@
 ---
 import HeroSection from "@components/HeroSection.astro";
 import PopularSection from "@components/PopularSection.astro";
+import { property } from "@data/property";
 import Layout from "@layouts/Layout.astro";
 ---
 
@@ -10,7 +11,7 @@ import Layout from "@layouts/Layout.astro";
 
     <!-- POPULAR 3-->
 
-    <PopularSection />
+    <PopularSection properties={property} />
 
     <!-- COCO BEACH -->
 

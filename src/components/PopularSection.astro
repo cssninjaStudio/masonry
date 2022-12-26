@@ -1,6 +1,12 @@
 ---
 import { Icon } from "astro-icon";
 import PropertyCard from "./ui/PropertyCard.astro";
+
+interface Props {
+  properties: Property[];
+}
+
+const { properties } = Astro.props;
 ---
 
 <section class="bg-white p-12">
@@ -36,8 +42,8 @@ import PropertyCard from "./ui/PropertyCard.astro";
 
     <!-- CARDS -->
 
-    <div class="py-8 grid grid-cols-3 gap-6">
-      {[1, 2, 3].map((c) => <PropertyCard />)}
+    <div class="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {properties.map((property) => <PropertyCard {...property} />)}
     </div>
   </div>
 </section>

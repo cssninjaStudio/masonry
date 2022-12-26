@@ -1,107 +1,128 @@
 ---
-import { Icon } from "astro-icon";
+import { currency } from "@utils/utils";
+import { Picture } from "@astrojs/image/components";
+
+interface Props extends Property {}
+
+const props = Astro.props;
 ---
 
-<article class="property-card">
-  <div class="property-image bg-gray-100 h-[257px]"></div>
-
-  <div class="property-details p-5 bg-white">
-    <div class="flex flex-col">
-      <h4 class="text-dark font-bold text-xl font-TitilliumWeb">
-        $240,000 USD
-      </h4>
-      <p class="text-[15px] text-[#a2a5b9]">14, Greenwalk passage, San Diego</p>
+<a href="">
+  <article
+    class="property-card [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+  >
+    <div class="property-image bg-gray-100 h-[257px]">
+      <Picture
+        class="h-full"
+        alt={props.address}
+        src={props.photo}
+        widths={[370, 380, 500]}
+        aspectRatio={500 / 350}
+        sizes={`(min-width: 1024px) 500px,
+          (min-width: 768px) 370px, 380px`}
+      />
     </div>
-    <hr class="h-px text-[#e3e3e3] my-5" />
-    <div class="grid grid-cols-3">
-      <!-- bedroom -->
-      <div class="bedroom flex flex-col">
-        <div class="flex items-center gap-2">
-          <svg
-            class="w-4 aspect-square"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style="--darkreader-inline-stroke: currentColor;"
-            data-darkreader-inline-stroke=""
-            ><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"></path><path
-              d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"></path><path
-              d="M12 4v6"></path><path d="M2 18h20"></path>
-          </svg>
 
-          <p class="text-lg font-bold">3</p>
-        </div>
-
-        <p class="text-sm text-[#a2a5b9]">Bedrooms</p>
+    <div class="property-details p-5 bg-white">
+      <div class="flex flex-col">
+        <h4 class="text-dark font-bold text-xl font-TitilliumWeb">
+          {currency(props.price)}
+        </h4>
+        <p class="text-[15px] text-[#a2a5b9]">
+          {props.address}
+        </p>
       </div>
-      <!-- bathroom -->
-      <div class="bathroom flex flex-col">
-        <div class="flex items-center gap-2">
-          <svg
-            class="w-4 aspect-square"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style="--darkreader-inline-stroke: currentColor;"
-            data-darkreader-inline-stroke=""
-            ><path
-              d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"
-            ></path><line x1="10" y1="5" x2="8" y2="7"></line><line
-              x1="2"
-              y1="12"
-              x2="22"
-              y2="12"></line><line x1="7" y1="19" x2="7" y2="21"></line><line
-              x1="17"
-              y1="19"
-              x2="17"
-              y2="21"></line>
-          </svg>
+      <hr class="h-px text-[#e3e3e3] my-5" />
+      <div class="grid grid-cols-3">
+        <!-- bedroom -->
+        <div class="bedroom flex flex-col">
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-4 aspect-square"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="--darkreader-inline-stroke: currentColor;"
+              data-darkreader-inline-stroke=""
+              ><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"></path><path
+                d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"></path><path
+                d="M12 4v6"></path><path d="M2 18h20"></path>
+            </svg>
 
-          <p class="text-lg font-bold">1</p>
+            <p class="text-lg font-bold">{props.bedrooms}</p>
+          </div>
+
+          <p class="text-sm text-[#a2a5b9]">Bedrooms</p>
         </div>
+        <!-- bathroom -->
+        <div class="bathroom flex flex-col">
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-4 aspect-square"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="--darkreader-inline-stroke: currentColor;"
+              data-darkreader-inline-stroke=""
+              ><path
+                d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"
+              ></path><line x1="10" y1="5" x2="8" y2="7"></line><line
+                x1="2"
+                y1="12"
+                x2="22"
+                y2="12"></line><line x1="7" y1="19" x2="7" y2="21"></line><line
+                x1="17"
+                y1="19"
+                x2="17"
+                y2="21"></line>
+            </svg>
 
-        <p class="text-sm text-[#a2a5b9]">Bathroom</p>
-      </div>
-      <!-- living area -->
-      <div class="living-area flex flex-col">
-        <div class="flex items-center gap-2">
-          <svg
-            class="w-4 aspect-square"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            style="--darkreader-inline-stroke: currentColor;"
-            data-darkreader-inline-stroke=""
-            ><path d="M5 3a2 2 0 0 0-2 2"></path><path d="M19 3a2 2 0 0 1 2 2"
-            ></path><path d="M21 19a2 2 0 0 1-2 2"></path><path
-              d="M5 21a2 2 0 0 1-2-2"></path><path d="M9 3h1"></path><path
-              d="M9 21h1"></path><path d="M14 3h1"></path><path d="M14 21h1"
-            ></path><path d="M3 9v1"></path><path d="M21 9v1"></path><path
-              d="M3 14v1"></path><path d="M21 14v1"></path>
-          </svg>
-          <p class="text-lg font-bold">190m²</p>
+            <p class="text-lg font-bold">{props.bathroom}</p>
+          </div>
+
+          <p class="text-sm text-[#a2a5b9]">Bathroom</p>
         </div>
+        <!-- living area -->
+        <div class="living-area flex flex-col">
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-4 aspect-square"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="--darkreader-inline-stroke: currentColor;"
+              data-darkreader-inline-stroke=""
+              ><path d="M5 3a2 2 0 0 0-2 2"></path><path d="M19 3a2 2 0 0 1 2 2"
+              ></path><path d="M21 19a2 2 0 0 1-2 2"></path><path
+                d="M5 21a2 2 0 0 1-2-2"></path><path d="M9 3h1"></path><path
+                d="M9 21h1"></path><path d="M14 3h1"></path><path d="M14 21h1"
+              ></path><path d="M3 9v1"></path><path d="M21 9v1"></path><path
+                d="M3 14v1"></path><path d="M21 14v1"></path>
+            </svg>
+            <p class="text-lg font-bold">{props.livingArea}m²</p>
+          </div>
 
-        <p class="text-sm text-[#a2a5b9]">Living Area</p>
+          <p class="text-sm text-[#a2a5b9]">Living Area</p>
+        </div>
       </div>
     </div>
-  </div>
-</article>
+  </article>
+</a>

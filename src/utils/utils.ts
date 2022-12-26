@@ -9,3 +9,13 @@ export function setTitle(title: string) {
 export function setDescription(desc: string) {
   return desc === "" ? APP.description : desc;
 }
+
+export function currency(amount: number) {
+  return (
+    new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+      maximumFractionDigits: 0,
+    }).format(amount) + " USD"
+  );
+}

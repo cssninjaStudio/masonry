@@ -7,9 +7,10 @@ import Tab from "./ui/Tab.astro";
 
 <section id="Hero" class="h-[750px] bg-semi-white relative overflow-hidden">
   <div
-    class="hero-content container flex flex-col gap-6 justify-center h-full relative z-10"
+    id="HeroContent"
+    class="container flex flex-col gap-6 justify-center h-full relative z-10"
   >
-    <div class="max-w-[370px] flex flex-col gap-6">
+    <div class="max-w-[380px] flex flex-col gap-6">
       <h1
         class="font-TitilliumWeb font-light text-[48px] leading-[54px] text-dark"
       >
@@ -90,11 +91,10 @@ import Tab from "./ui/Tab.astro";
         <label class="inline-flex relative items-center cursor-pointer">
           <input type="checkbox" value="" class="sr-only peer" />
           <div
-            class="w-11 h-6 bg-white shadow-inner peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:drop-shadow-md after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+            class="w-11 h-6 bg-white peer-focus:outline-none [box-shadow:inset_0_0_5px_0_#c7c7c7] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:[box-shadow:0_2px_2px_rgba(0,0,0,.24)] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
           >
           </div>
-          <span
-            class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"
+          <span class="ml-3 text-sm font-medium text-[#a2a5b9]"
             >Only include new properties</span
           >
         </label>

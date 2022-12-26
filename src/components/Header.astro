@@ -6,7 +6,7 @@ import Logo from "./ui/Logo.astro";
 
 <div
   id="HeaderWrapper"
-  data-scrolled="true"
+  data-scrolled="false"
   class="fixed top-0 left-0 w-full z-[1000]"
 >
   <header class="container flex justify-between py-3">
@@ -106,7 +106,8 @@ import Logo from "./ui/Logo.astro";
       <!-- dark/light mode switch -->
       <li class="h-max">
         <button
-          class="group relative w-9 aspect-square border border-blue-gray rounded-full"
+          id="darkToggle"
+          class="group relative w-9 aspect-square rounded-full"
         >
           <!-- sun -->
           <Icon
@@ -141,7 +142,7 @@ import Logo from "./ui/Logo.astro";
   [data-scrolled="true"] {
     @apply border-b border-[#e3e3e3];
   }
-  [data-scrolled="true"] header {
+  [data-scrolled="true"] {
     @apply [box-shadow:0_0_8px_0_rgba(0,0,0,.08)];
   }
   [data-scrolled="true"] header ul#RightLinks li:nth-child(2) {
@@ -152,9 +153,45 @@ import Logo from "./ui/Logo.astro";
   [data-scrolled="true"] header ul#RightLinks li svg {
     @apply text-dark;
   }
+  [data-scrolled="true"] header ul#RightLinks li button#darkToggle {
+    @apply border border-blue-gray;
+  }
+  [data-scrolled="true"] header ul#RightLinks li button svg {
+    @apply text-[#ffd770];
+  }
   [data-scrolled="true"] header ul#RightLinks li:last-child a {
     @apply [box-shadow:rgba(46,49,255,0.42)_0px_14px_26px_-12px,rgba(0,0,0,0.12)_0px_4px_23px_0px,rgba(46,49,255,0.2)_0px_8px_10px_-5px];
   }
 </style>
 
-<script></script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const headWrapper = document.querySelector("#HeaderWrapper");
+    const targets = [
+      document.querySelector("#HeroContent h1"),
+      ...document.querySelectorAll("div"),
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const scrollThreshold = 40;
+            if (
+              document.documentElement.scrollTop > scrollThreshold ||
+              document.body.scrollTop > scrollThreshold
+            ) {
+              headWrapper.dataset.scrolled = "true";
+            } else {
+              headWrapper.dataset.scrolled = "false";
+            }
+          }
+        });
+      },
+      { rootMargin: "-300px" }
+    );
+    targets.forEach((target) => {
+      observer.observe(target);
+    });
+  });
+</script>

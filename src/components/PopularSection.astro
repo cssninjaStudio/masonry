@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon";
+import PropertyCard from "./ui/PropertyCard.astro";
+---
+
+<section class="bg-white p-12">
+  <div class="container flex flex-col">
+    <!-- HEADER -->
+    <div class="flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <div
+          class="outer h-16 aspect-square flex justify-center items-center rounded-full"
+        >
+          <div
+            class="inner h-12 aspect-square flex justify-center items-center rounded-full [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+          >
+            <Icon name="ph:house-duotone" class="w-5 aspect-square" />
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <h2 class="title">Popular properties</h2>
+          <p class="paragraph">This is a nice subtitle and longet text</p>
+        </div>
+      </div>
+
+      <a
+        href="/"
+        class="h-10 aspect-square hover:bg-[#f5f6fa] group flex justify-center items-center rounded-full transition-all duration-300"
+      >
+        <Icon
+          name="lucide:arrow-right"
+          class="w-6 aspect-square text-[#a2a5b9] group-hover:text-dark"
+        />
+      </a>
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="py-8 grid grid-cols-3 gap-6">
+      {[1, 2, 3].map((c) => <PropertyCard />)}
+    </div>
+  </div>
+</section>

@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon";
 import Logo from "./ui/Logo.astro";
 ---
 
@@ -7,13 +8,37 @@ import Logo from "./ui/Logo.astro";
     <div class="grid grid-cols-6">
       <div class="col-span-2 pr-[98px]">
         <a href="/" class="flex gap-4 items-center">
-          <Logo class="h-10 aspect-square" />
+          <Logo class="h-8 aspect-square" />
         </a>
         <p class="text-sm text-blue-gray mt-4">
           We are a Real Estate company. We bring freshness of modern design into
           your house and at your work.
         </p>
-        <div class="socials"></div>
+
+        <!-- socials -->
+        <div class="socials mt-4 flex gap-5 items-center">
+          <a href="#">
+            <Icon
+              name="fa:instagram"
+              class="w-3.5 aspect-square text-blue-gray"
+            />
+          </a>
+          <a href="#">
+            <Icon
+              name="fa:facebook"
+              class="w-3.5 aspect-square text-blue-gray"
+            />
+          </a>
+          <a href="#">
+            <Icon
+              name="fa:pinterest"
+              class="w-3.5 aspect-square text-blue-gray"
+            />
+          </a>
+          <a href="#">
+            <Icon name="fa:medium" class="w-3.5 aspect-square text-blue-gray" />
+          </a>
+        </div>
       </div>
       <!-- company links -->
       <div class="">
@@ -102,7 +127,7 @@ import Logo from "./ui/Logo.astro";
 
     <form
       action=""
-      class="mt-16 bg-semi-white w-max flex items-center rounded pl-4 pr-3"
+      class="mt-16 bg-semi-white flex justify-between items-center rounded pl-4 pr-3 w-[340px]"
     >
       <input
         type="text"

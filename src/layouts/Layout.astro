@@ -5,6 +5,7 @@ import type { Props as IAstroSEO } from "astro-seo";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
+import ScrollTop from "@components/ui/ScrollTop.astro";
 interface Props extends IAstroSEO {}
 const { title = "", description = "", ...props } = Astro.props;
 ---
@@ -33,8 +34,10 @@ const { title = "", description = "", ...props } = Astro.props;
     <slot name="head" />
   </head>
   <body>
+    <div id="Top"></div>
     <Header />
     <slot />
+    <ScrollTop />
     <Footer />
     <style is:global>
       html {

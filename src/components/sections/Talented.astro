@@ -1,0 +1,72 @@
+---
+import Video from "@components/ui/Video.astro";
+import { Icon } from "astro-icon";
+---
+
+<section class="p-12">
+  <div class="container flex flex-col">
+    <h1 class="title-2">Talented and experienced Agents</h1>
+    <div class="flex py-8 gap-6">
+      <!-- player -->
+      <div class="player w-1/2">
+        <Video />
+      </div>
+      <div class="w-1/2 flex items-center">
+        <div class="grid grid-cols-2 gap-8">
+          <div class="feature-1">
+            <Icon
+              name="ph:buildings-duotone"
+              class="w-9 aspect-square text-primary"
+            />
+            <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
+              Solid Expertise
+            </h5>
+            <p class="text-sm text-blue-gray max-w-[15rem]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              videbimus.
+            </p>
+          </div>
+          <div class="feature-2">
+            <Icon
+              name="ph:medal-duotone"
+              class="w-9 aspect-square text-primary"
+            />
+            <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
+              Award Winning
+            </h5>
+            <p class="text-sm text-blue-gray max-w-[15rem]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              videbimus.
+            </p>
+          </div>
+          <div class="feature-3">
+            <Icon
+              name="ph:sparkle-duotone"
+              class="w-9 aspect-square text-primary"
+            />
+            <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
+              Creativity
+            </h5>
+            <p class="text-sm text-blue-gray max-w-[15rem]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              videbimus.
+            </p>
+          </div>
+          <div class="feature-4">
+            <Icon
+              name="ph:gear-six-duotone"
+              class="w-9 aspect-square text-primary"
+            />
+            <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
+              Technicity
+            </h5>
+            <p class="text-sm text-blue-gray max-w-[15rem]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              videbimus.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

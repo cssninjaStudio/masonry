@@ -12,13 +12,13 @@ const { properties } = Astro.props;
 <section class="bg-white py-12 px-6 lg:p-12">
   <div class="container flex flex-col">
     <!-- HEADER -->
-    <div class="flex justify-between items-center">
-      <div class="flex items-center gap-3">
+    <div class="flex justify-between md:items-center">
+      <div class="flex flex-col md:flex-row md:items-center gap-3">
         <div
-          class="outer h-16 aspect-square flex justify-center items-center rounded-full"
+          class="outer h-16 w-16 flex justify-center items-center rounded-full"
         >
           <div
-            class="inner h-12 aspect-square flex justify-center items-center rounded-full [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+            class="inner h-12 w-12 flex justify-center items-center rounded-full [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
           >
             <Icon name="ph:house-duotone" class="w-5 aspect-square" />
           </div>
@@ -31,11 +31,11 @@ const { properties } = Astro.props;
 
       <a
         href="/"
-        class="h-10 aspect-square hover:bg-[#f5f6fa] group flex justify-center items-center rounded-full transition-all duration-300"
+        class="h-16 w-16 md:h-10 md:w-10 hover:bg-[#f5f6fa] group flex justify-center items-center rounded-full transition-all duration-300"
       >
         <Icon
           name="lucide:arrow-right"
-          class="w-6 aspect-square text-ice-blue group-hover:text-dark"
+          class="w-6 h-6 text-ice-blue group-hover:text-dark"
         />
       </a>
     </div>

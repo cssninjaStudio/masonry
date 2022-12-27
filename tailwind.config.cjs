@@ -24,6 +24,7 @@ module.exports = {
 
         "semi-white": "#f5f6fa",
         "blue-gray": "#747990",
+        "ice-blue": "#a2a5b9",
       },
     },
   },

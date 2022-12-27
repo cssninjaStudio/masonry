@@ -4,10 +4,13 @@ import SelectBox from "@components/ui/SelectBox.astro";
 import Tab from "@components/ui/Tab.astro";
 ---
 
-<section id="Hero" class="h-[750px] bg-semi-white relative overflow-hidden">
+<section
+  id="Hero"
+  class="lg:h-[750px] bg-semi-white relative flex lg:flex-row flex-col overflow-hidden"
+>
   <div
     id="HeroContent"
-    class="container flex flex-col gap-6 justify-center h-full relative z-10"
+    class="container flex flex-col gap-6 justify-center w-full h-full relative pt-28 pb-10 lg:py-0 px-5 lg:px-0 z-10"
   >
     <div class="max-w-[380px] flex flex-col gap-6">
       <h1
@@ -101,7 +104,9 @@ import Tab from "@components/ui/Tab.astro";
     </form>
   </div>
 
-  <div class="hero-bg w-1/2 h-full absolute right-0 top-0 z-0">
+  <div
+    class="hero-bg w-full lg:w-1/2 h-[492px] lg:h-full lg:absolute right-0 top-0 z-0"
+  >
     <Image
       src={"/images/photo/hero/3.webp"}
       width={900}

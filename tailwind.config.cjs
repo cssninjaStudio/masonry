@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
+
       screens: {
         lg: "960px",
         xl: "1152px",

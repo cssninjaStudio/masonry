@@ -3,20 +3,22 @@ import Video from "@components/ui/Video.astro";
 import { Icon } from "astro-icon";
 ---
 
-<section class="p-12">
+<section class="py-12 px-6 lg:p-12">
   <div class="container flex flex-col">
     <h1 class="title-2">Talented and experienced Agents</h1>
-    <div class="flex py-8 gap-6">
+    <div class="flex lg:flex-row flex-col py-8 gap-6">
       <!-- player -->
-      <div class="player w-1/2">
+      <div class="player w-full lg:w-1/2">
         <Video />
       </div>
-      <div class="w-1/2 flex items-center">
-        <div class="grid grid-cols-2 gap-8">
+      <div
+        class="w-full lg:w-1/2 flex justify-center lg:justify-start items-center"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-8">
           <div class="feature-1">
             <Icon
               name="ph:buildings-duotone"
-              class="w-9 aspect-square text-primary"
+              class="w-14 md:w-9 aspect-square text-primary"
             />
             <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
               Solid Expertise
@@ -29,7 +31,7 @@ import { Icon } from "astro-icon";
           <div class="feature-2">
             <Icon
               name="ph:medal-duotone"
-              class="w-9 aspect-square text-primary"
+              class="w-14 md:w-9 aspect-square text-primary"
             />
             <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
               Award Winning
@@ -42,7 +44,7 @@ import { Icon } from "astro-icon";
           <div class="feature-3">
             <Icon
               name="ph:sparkle-duotone"
-              class="w-9 aspect-square text-primary"
+              class="w-14 md:w-9 aspect-square text-primary"
             />
             <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
               Creativity
@@ -55,7 +57,7 @@ import { Icon } from "astro-icon";
           <div class="feature-4">
             <Icon
               name="ph:gear-six-duotone"
-              class="w-9 aspect-square text-primary"
+              class="w-14 md:w-9 aspect-square text-primary"
             />
             <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
               Technicity

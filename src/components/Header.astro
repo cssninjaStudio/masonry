@@ -9,7 +9,9 @@ import Logo from "./ui/Logo.astro";
   data-scrolled="false"
   class="fixed top-0 left-0 w-full z-[1000]"
 >
-  <header class="container flex justify-between">
+  <header
+    class="container flex justify-between bg-white lg:transparent px-3 md:px-0"
+  >
     <div class="flex items-center gap-3 py-3">
       <a href="/" class="flex gap-4 items-center">
         <Logo class="h-10 aspect-square" />
@@ -18,7 +20,7 @@ import Logo from "./ui/Logo.astro";
         </p>
       </a>
 
-      <ul id="LeftLinks" class="flex items-center">
+      <ul id="LeftLinks" class="hidden lg:flex items-center">
         <li>
           <a
             href="/about"
@@ -66,7 +68,7 @@ import Logo from "./ui/Logo.astro";
       </ul>
     </div>
 
-    <ul id="RightLinks" class="flex items-center gap-6">
+    <ul id="RightLinks" class="hidden lg:flex items-center gap-6">
       <li class="h-max flex justify-center items-center">
         <a href="/" class="py-2 leading-6 text-base text-white">Sign In</a>
       </li>
@@ -132,6 +134,8 @@ import Logo from "./ui/Logo.astro";
         >
       </li>
     </ul>
+
+    <button class="lg:hidden"> </button>
   </header>
 </div>
 

@@ -3,9 +3,9 @@ import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 ---
 
-<section class="p-12">
-  <div class="container flex items-center">
-    <div class="w-1/2 pl-[98px] flex flex-col gap-2">
+<section class="py-12 px-6 lg:p-12">
+  <div class="container flex flex-col md:flex-row items-center">
+    <div class="w-full md:w-1/2 px-[5%] lg:pl-[98px] flex flex-col gap-2">
       <span
         class="uppercase text-primary h-8 px-3 rounded border border-primary w-max grid place-items-center text-xs"
         >new offer</span
@@ -115,7 +115,7 @@ import { Icon } from "astro-icon";
         />
       </a>
     </div>
-    <div class="w-1/2 relative pt-8 flex justify-center">
+    <div class="w-full md:w-1/2 relative pt-8 flex justify-center">
       <Picture
         class="h-full relative z-[2]"
         alt="Coco Beach® private lofts"

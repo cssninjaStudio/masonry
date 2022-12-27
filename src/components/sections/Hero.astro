@@ -6,7 +6,7 @@ import Tab from "@components/ui/Tab.astro";
 
 <section
   id="Hero"
-  class="lg:h-[750px] bg-semi-white relative flex lg:flex-row flex-col overflow-hidden"
+  class="lg:h-[750px] bg-semi-white dark:bg-dark-blue relative flex lg:flex-row flex-col overflow-hidden"
 >
   <div
     id="HeroContent"
@@ -14,7 +14,7 @@ import Tab from "@components/ui/Tab.astro";
   >
     <div class="max-w-[380px] flex flex-col gap-6">
       <h1
-        class="font-TitilliumWeb font-light text-[32px] md:text-[48px] leading-9 text-center md:text-left md:leading-[54px] text-dark"
+        class="font-TitilliumWeb dark:text-white font-light text-[32px] md:text-[48px] leading-9 text-center md:text-left md:leading-[54px] text-dark"
       >
         Find the house of your dreams.
       </h1>
@@ -38,7 +38,7 @@ import Tab from "@components/ui/Tab.astro";
       </ul>
 
       <div
-        class="p-3 bg-white relative -mt-px z-[5] flex flex-col md:flex-row gap-2 items-center lg:w-max border border-[#e3e3e3]"
+        class="p-3 bg-white dark:bg-dark-purple-2 relative -mt-px z-[5] flex justify-between flex-col md:flex-row gap-2 items-center lg:w-max border border-[#e3e3e3] dark:border-dark-purple-3"
       >
         <!-- select -->
         <SelectBox
@@ -54,12 +54,12 @@ import Tab from "@components/ui/Tab.astro";
 
         <!-- search input -->
         <div
-          class="input-group flex items-center h-full md:border-l w-full md:w-max border-[#e3e3e3] flex-row-reverse"
+          class="input-group flex items-center h-full md:border-l w-full md:w-max border-[#e3e3e3] dark:border-dark-purple-3 flex-row-reverse"
         >
           <input
             type="text"
             placeholder="Search by location"
-            class="focus:outline-none h-[60px] w-full"
+            class="focus:outline-none h-[60px] w-full dark:bg-dark-purple-2"
           />
 
           <!-- icon -->
@@ -95,7 +95,7 @@ import Tab from "@components/ui/Tab.astro";
         <label class="inline-flex relative items-center cursor-pointer">
           <input type="checkbox" value="" class="sr-only peer" />
           <div
-            class="w-11 h-6 bg-white peer-focus:outline-none [box-shadow:inset_0_0_5px_0_#c7c7c7] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:[box-shadow:0_2px_2px_rgba(0,0,0,.24)] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+            class="w-11 h-6 bg-white dark:bg-dark-purple-1 peer-focus:outline-none [box-shadow:inset_0_0_5px_0_#c7c7c7] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:[box-shadow:0_2px_2px_rgba(0,0,0,.24)] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
           >
           </div>
           <span class="ml-3 text-sm font-medium text-ice-blue"

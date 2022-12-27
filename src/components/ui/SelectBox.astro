@@ -19,11 +19,11 @@ const { id = "", options, placeholder = "" } = Astro.props;
     options.length > 0 && (
       <div
         aria-label="Select Option"
-        class="options bg-white shadow-sm border transition-all duration-200 z-20 border-gray-300 text-gray-600 rounded-xl absolute top-full mt-2 left-0 w-full overflow-hidden"
+        class="options bg-white dark:bg-dark-purple-2 shadow-sm border transition-all duration-200 z-20 border-gray-300 text-gray-600 rounded-xl absolute top-full mt-2 left-0 w-full overflow-hidden"
       >
         {options.map((option) => (
           <div
-            class="option py-2 px-3 hover:bg-gray-100 cursor-pointer"
+            class="option py-2 px-3 hover:bg-gray-100 dark:text-[#93A5BE]  cursor-pointer"
             data-option={option}
           >
             {option}
@@ -34,7 +34,7 @@ const { id = "", options, placeholder = "" } = Astro.props;
   }
 
   <div
-    class="flex justify-between items-center gap-2 bg-white px-4 py-4 rounded-lg cursor-pointer w-full h-full relative z-20"
+    class="flex justify-between items-center gap-2 dark:bg-dark-purple-2 bg-white px-4 py-4 rounded-lg cursor-pointer w-full h-full relative z-20"
   >
     <Icon name="lucide:home" class="w-5 aspect-auto text-[#93A5BE]" />
     <!-- input -->
@@ -43,7 +43,7 @@ const { id = "", options, placeholder = "" } = Astro.props;
       id={id}
       name={id}
       type="text"
-      class="focus:outline-none cursor-pointer text-[#93A5BE] flex-1"
+      class="focus:outline-none cursor-pointer dark:bg-dark-purple-2 text-[#93A5BE] flex-1"
       placeholder={placeholder}
       readonly
     />

@@ -11,12 +11,12 @@ const { label, selected = false } = Astro.props;
   <input type="radio" name="tab" id={label} class="hidden" checked={selected} />
   <label
     for={label}
-    class="py-2 px-4 flex justify-center items-center min-w-[90px] text-ice-blue rounded-t-[4px] cursor-pointer border-b border-[#e3e3e3]"
+    class="py-2 px-4 flex justify-center items-center min-w-[90px] text-ice-blue rounded-t-[4px] cursor-pointer border-b border-[#e3e3e3] dark:border-dark-purple-3"
     >{label}</label
   >
 </div>
 <style>
   .tab input[type="radio"]:checked + label {
-    @apply bg-white border border-[#e3e3e3] border-b-0 text-dark;
+    @apply bg-white  border border-[#e3e3e3] dark:border-dark-purple-3 border-b-0 text-dark dark:bg-dark-purple-2;
   }
 </style>

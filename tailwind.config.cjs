@@ -27,6 +27,13 @@ module.exports = {
         "semi-white": "#f5f6fa",
         "blue-gray": "#747990",
         "ice-blue": "#a2a5b9",
+        "dark-blue": "#0c0c18",
+        "dark-purple": {
+          1: "#0f0f1f",
+          2: "#18182f",
+          3: "#1f1f3c",
+          4: "#1e1e3b",
+        },
       },
     },
   },

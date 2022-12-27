@@ -5,13 +5,15 @@ import { property } from "@data/property";
 import Layout from "@layouts/Layout.astro";
 import PrivateLoft from "@components/sections/PrivateLoft.astro";
 import WhatWeDo from "@components/sections/WhatWeDo.astro";
-import Video from "@components/ui/Video.astro";
-import { Icon } from "astro-icon";
-import { Picture, Image } from "@astrojs/image/components";
+import Partnership from "@components/sections/Partnership.astro";
+import Ranking from "@components/sections/Ranking.astro";
+import Talented from "@components/sections/Talented.astro";
+import Testimonials from "@components/sections/Testimonials.astro";
 ---
 
 <Layout>
   <main id="Home">
+    <!-- HERO -->
     <Hero />
 
     <!-- POPULAR 3-->
@@ -29,225 +31,16 @@ import { Picture, Image } from "@astrojs/image/components";
     <Popular properties={property.slice(3)} />
 
     <!-- TALENTED -->
-    <section class="p-12">
-      <div class="container flex flex-col">
-        <h1 class="title-2">Talented and experienced Agents</h1>
-        <div class="flex py-8 gap-6">
-          <!-- player -->
-          <div class="player w-1/2">
-            <Video />
-          </div>
-          <div class="w-1/2 flex items-center">
-            <div class="grid grid-cols-2 gap-8">
-              <div class="feature-1">
-                <Icon
-                  name="ph:buildings-duotone"
-                  class="w-9 aspect-square text-primary"
-                />
-                <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
-                  Solid Expertise
-                </h5>
-                <p class="text-sm text-blue-gray max-w-[15rem]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  videbimus.
-                </p>
-              </div>
-              <div class="feature-2">
-                <Icon
-                  name="ph:medal-duotone"
-                  class="w-9 aspect-square text-primary"
-                />
-                <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
-                  Award Winning
-                </h5>
-                <p class="text-sm text-blue-gray max-w-[15rem]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  videbimus.
-                </p>
-              </div>
-              <div class="feature-3">
-                <Icon
-                  name="ph:sparkle-duotone"
-                  class="w-9 aspect-square text-primary"
-                />
-                <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
-                  Creativity
-                </h5>
-                <p class="text-sm text-blue-gray max-w-[15rem]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  videbimus.
-                </p>
-              </div>
-              <div class="feature-4">
-                <Icon
-                  name="ph:gear-six-duotone"
-                  class="w-9 aspect-square text-primary"
-                />
-                <h5 class="text-base font-TitilliumWeb font-semibold text-dark">
-                  Technicity
-                </h5>
-                <p class="text-sm text-blue-gray max-w-[15rem]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  videbimus.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Talented />
 
     <!-- RANKING -->
-    <section class="p-12">
-      <div class="container flex gap-6 items-center">
-        <div class="w-1/2 p-3 pl-[98px]">
-          <h3 class="title-2 font-light">Highest ranking standards</h3>
-          <p class="text-blue-gray text-base py-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Illud non
-            continuo, ut aeque incontentae. Duo Reges: constructio interrete. Si
-            qua in iis corrigere voluit, deteriora fecit. Sit enim idem caecus,
-            debilis.
-          </p>
-
-          <ul class="py-4 pl-6">
-            <li class="flex items-center gap-2 py-2">
-              <Icon
-                name="lucide:check"
-                class="w-5 text-success aspect-square"
-              />
-              <span class="text-ice-blue">AA+ construction standard</span>
-            </li>
-            <li class="flex items-center gap-2 py-2">
-              <Icon
-                name="lucide:check"
-                class="w-5 text-success aspect-square"
-              />
-              <span class="text-ice-blue">All-Risk insurance</span>
-            </li>
-            <li class="flex items-center gap-2 py-2">
-              <Icon
-                name="lucide:check"
-                class="w-5 text-success aspect-square"
-              />
-              <span class="text-ice-blue">Project live tracking</span>
-            </li>
-          </ul>
-        </div>
-        <div class="w-1/2 flex justify-center">
-          <div class="max-w-[340px] relative">
-            <Picture
-              class="h-full relative z-0"
-              alt="Highest ranking standards"
-              src="/images/photo/buildings/6.webp"
-              widths={[246, 340]}
-              aspectRatio={340 / 416}
-              sizes={`(min-width: 1024px) 340px,
-          (min-width: 768px) 246px, 340px`}
-            />
-
-            <!-- composition -->
-            <div
-              class="absolute z-[2] border border-gray-500/20 -left-8 -bottom-8 py-10 px-5 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] w-[200px] bg-white"
-            >
-              <div
-                class="bg-success w-10 aspect-square mx-auto rounded-full grid place-items-center"
-              >
-                <Icon name="ion:flash" class="w-5 text-white aspect-square" />
-              </div>
-              <p
-                class="text-center my-2 text-dark font-TitilliumWeb text-base font-semibold"
-              >
-                AA+ Standard
-              </p>
-              <p class="text-center text-ice-blue text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <Ranking />
 
     <!-- PARTNERSHIP -->
-    <section class="p-12">
-      <div class="container flex gap-6 items-center">
-        <div class="w-1/2 flex justify-center">
-          <div class="max-w-[340px] relative">
-            <Picture
-              class="h-full relative z-0"
-              alt="A robust partnership"
-              src="/images/photo/buildings/8.webp"
-              widths={[246, 400]}
-              aspectRatio={400 / 490}
-              sizes={`(min-width: 1024px) 340px,
-          (min-width: 768px) 246px, 340px`}
-            />
-
-            <!-- composition -->
-            <div
-              class="absolute z-[2] border border-gray-500/20 -right-12 -bottom-8 p-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] w-[280px] bg-white"
-            >
-              <p
-                class="mb-2 text-dark font-TitilliumWeb text-base font-semibold"
-              >
-                Simply incredible
-              </p>
-              <p class="text-blue-gray text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
-              <div class="flex items-center gap-2 mt-4">
-                <Image
-                  src="/images/avatars/5.webp"
-                  alt="Author"
-                  width={310}
-                  aspectRatio={1 / 1}
-                  format="webp"
-                  class="h-8 w-8 rounded-full"
-                />
-                <span class="text-ice-blue text-sm"
-                  >Chris Stappler — Barton Inc.</span
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="w-1/2 p-3 pr-[98px]">
-          <h3 class="title-2 font-light">A robust partnership</h3>
-          <p class="text-blue-gray text-base py-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Illud non
-            continuo, ut aeque incontentae. Duo Reges: constructio interrete. Si
-            qua in iis corrigere voluit, deteriora fecit. Sit enim idem caecus,
-            debilis.
-          </p>
-
-          <ul class="py-4 pl-6">
-            <li class="flex items-center gap-2 py-2">
-              <Icon
-                name="lucide:check"
-                class="w-5 text-success aspect-square"
-              />
-              <span class="text-ice-blue">Weekly status meetings</span>
-            </li>
-            <li class="flex items-center gap-2 py-2">
-              <Icon
-                name="lucide:check"
-                class="w-5 text-success aspect-square"
-              />
-              <span class="text-ice-blue">Project monitoring</span>
-            </li>
-            <li class="flex items-center gap-2 py-2">
-              <Icon
-                name="lucide:check"
-                class="w-5 text-success aspect-square"
-              />
-              <span class="text-ice-blue">Quarterly process audits</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <Partnership />
 
     <!-- WHAT THEY SAY -->
+    <Testimonials />
 
     <!-- LOGOS -->
   </main>

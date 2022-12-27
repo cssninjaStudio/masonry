@@ -1,1 +1,118 @@
-<footer class="mt-auto">Footer</footer>
+---
+import Logo from "./ui/Logo.astro";
+---
+
+<footer class="mt-auto">
+  <div class="container pt-24 pb-8">
+    <div class="grid grid-cols-6">
+      <div class="col-span-2 pr-[98px]">
+        <a href="/" class="flex gap-4 items-center">
+          <Logo class="h-10 aspect-square" />
+        </a>
+        <p class="text-sm text-blue-gray mt-4">
+          We are a Real Estate company. We bring freshness of modern design into
+          your house and at your work.
+        </p>
+        <div class="socials"></div>
+      </div>
+      <!-- company links -->
+      <div class="">
+        <h4 class="font-TitilliumWeb text-dark font-semibold text-xl">
+          Company
+        </h4>
+        <ul class="footer-menu mt-4 flex flex-col gap-2">
+          <li>
+            <a
+              href="#"
+              class="footer-link text-sm text-blue-gray hover:text-primary transition-all"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer-link text-sm text-blue-gray hover:text-primary transition-all"
+              >How we work</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer-link text-sm text-blue-gray hover:text-primary transition-all"
+              >Get a quote</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer-link text-sm text-blue-gray hover:text-primary transition-all"
+              >Case studies</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- more links -->
+      <div class="">
+        <h4 class="font-TitilliumWeb text-dark font-semibold text-xl">More</h4>
+        <ul class="footer-menu mt-4 flex flex-col gap-2">
+          <li>
+            <a
+              href="#"
+              class="footer-link text-sm text-blue-gray hover:text-primary transition-all"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer-link text-sm text-blue-gray hover:text-primary transition-all"
+              >Company</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer-link text-sm text-blue-gray hover:text-primary transition-all"
+              >Terms Of Service</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="footer-link text-sm text-blue-gray hover:text-primary transition-all"
+              >Assistance</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- find us -->
+      <div class="col-span-2">
+        <h4 class="font-TitilliumWeb text-dark font-semibold text-xl">
+          Find Us
+        </h4>
+        <ul class="footer-menu mt-4 flex flex-col gap-2">
+          <li class="text-sm text-blue-gray">55 San Joaquin Ave. 90893</li>
+          <li class="text-sm text-blue-gray">San Francisco, CA.</li>
+          <li class="text-sm text-blue-gray">hello@masonry.co</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- subscribe -->
+
+    <form
+      action=""
+      class="mt-16 bg-semi-white w-max flex items-center rounded pl-4 pr-3"
+    >
+      <input
+        type="text"
+        placeholder="Subscribe"
+        class="h-[50px] focus:outline-none bg-transparent"
+      />
+      <button
+        class="h-10 rounded bg-white grid place-items-center px-3.5 py-1.5 hover:bg-primary hover:text-white"
+        >Subsribe</button
+      >
+    </form>
+  </div>
+</footer>

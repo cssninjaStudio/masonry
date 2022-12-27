@@ -1,0 +1,47 @@
+<section class="video-wrapper bg-black w-max">
+  <video
+    class="lazy w-[480px] h-[440px]"
+    autoplay
+    loop
+    muted
+    playsinline
+    poster="/images/video/poster-square-2.webp"
+  >
+    <source data-src="/images/video/hands.mp4" type="video/mp4" />
+    <source data-src="/images/video/hands.webm" type="video/webm" />
+  </video>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // get all videos with a class of .lazy
+    const lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
+    const lazyVideoObserver = new IntersectionObserver(function (
+      entries,
+      observer
+    ) {
+      entries.forEach((video) => {
+        if (video.isIntersecting) {
+          //Looping through video <source>
+          for (const sourceIndex in video.target.children) {
+            //get <source> at index sourceIndex
+            const videoSource = video.target.children[sourceIndex];
+            //verify if its <source> tag
+            if (
+              typeof videoSource.tagName === "string" &&
+              videoSource.tagName === "SOURCE"
+            ) {
+              videoSource.src = videoSource.dataset.src;
+            }
+          }
+          video.target.load();
+          video.target.classList.remove("lazy");
+          lazyVideoObserver.unobserve(video.target);
+        }
+      });
+    });
+    lazyVideos.forEach((lazyVideo) => {
+      lazyVideoObserver.observe(lazyVideo);
+    });
+  });
+</script>

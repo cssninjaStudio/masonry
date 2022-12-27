@@ -19,3 +19,20 @@ export function currency(amount: number) {
     }).format(amount) + " USD"
   );
 }
+
+export function setDarkTheme() {
+  document.documentElement.classList.add("dark");
+  localStorage.setItem("mansory-theme", "dark");
+}
+
+export function setLightTheme() {
+  document.documentElement.classList.remove("dark");
+  localStorage.setItem("mansory-theme", "light");
+}
+export function themeIsDark() {
+  return localStorage.getItem("mansory-theme") === "dark";
+}
+
+export function themeIsLight() {
+  return localStorage.getItem("mansory-theme") === "light";
+}

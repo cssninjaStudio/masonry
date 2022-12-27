@@ -60,5 +60,25 @@ const { title = "", description = "", ...props } = Astro.props;
         @apply font-TitilliumWeb text-dark text-[32px];
       }
     </style>
+
+    <script>
+      import { setDarkTheme, setLightTheme } from "@utils/utils";
+
+      const themeToggle = document.querySelector("#darkToggle");
+      // AUTO DARK/LIGHT
+      window.addEventListener("DOMContentLoaded", () => {
+        if (
+          localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          setDarkTheme();
+          themeToggle.dataset.darkMode = "true";
+        } else {
+          setLightTheme();
+          themeToggle.dataset.darkMode = "false";
+        }
+      });
+    </script>
   </body>
 </html>

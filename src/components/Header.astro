@@ -216,7 +216,8 @@ import Logo from "./ui/Logo.astro";
       <li class="h-max flex justify-center items-center">
         <button
           id="darkToggle"
-          class="group relative w-9 aspect-square rounded-full"
+          data-dark-mode="false"
+          class="relative w-9 aspect-square rounded-full"
         >
           <!-- sun -->
           <Icon
@@ -328,5 +329,22 @@ import Logo from "./ui/Logo.astro";
     targets.forEach((target) => {
       observer.observe(target);
     });
+  });
+</script>
+
+<script>
+  import { setDarkTheme, setLightTheme, themeIsDark } from "@utils/utils";
+
+  const themeToggle = document.querySelector("#darkToggle");
+
+  themeToggle.addEventListener("click", () => {
+    if (themeIsDark()) {
+      setLightTheme();
+
+      themeToggle.dataset.darkMode = "false";
+    } else {
+      setDarkTheme();
+      themeToggle.dataset.darkMode = "true";
+    }
   });
 </script>

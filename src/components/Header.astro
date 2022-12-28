@@ -8,7 +8,7 @@ import Logo from "./ui/Logo.astro";
   id="HeaderWrapper"
   data-scrolled="false"
   data-drop-menu="false"
-  class="fixed top-0 left-0 w-full z-[1000] bg-white lg:bg-transparent"
+  class="fixed top-0 left-0 w-full z-[1000] bg-white [&[data-scrolled='true']_#RightLinks_li.search]:dark:border-dark-purple-3 [&[data-scrolled='true']]:dark:bg-dark-purple-2 [&[data-scrolled='true']]:dark:border-dark-purple-3 lg:bg-transparent"
 >
   <header
     class="container flex justify-between shadow lg:shadow-none px-3 lg:px-0"
@@ -73,19 +73,14 @@ import Logo from "./ui/Logo.astro";
 
     <ul id="RightLinks" class="hidden lg:flex items-center gap-6">
       <li class="h-max flex justify-center items-center">
-        <a
-          href="/"
-          class="py-2 leading-6 text-base text-white dark:text-blue-gray"
-          >Sign In</a
-        >
+        <a href="/" class="py-2 leading-6 text-base text-white">Sign In</a>
       </li>
 
       <!-- search -->
-      <li class="h-max pl-6 flex justify-center items-center">
-        <a
-          href=""
-          class="inline-block text-base text-white dark:text-blue-gray"
-        >
+      <li
+        class="search h-max pl-6 flex justify-center items-center dark:border-dark-purple-3"
+      >
+        <a href="" class="inline-block text-base text-white">
           <svg
             class="w-4"
             xmlns="http://www.w3.org/2000/svg"
@@ -110,10 +105,7 @@ import Logo from "./ui/Logo.astro";
 
       <!-- whishlist -->
       <li class="h-max flex justify-center items-center">
-        <a
-          href="/about"
-          class="inline-block text-base text-white dark:text-blue-gray"
-        >
+        <a href="/about" class="inline-block text-base text-white">
           <Icon name="lucide:heart" class="w-4 aspect-auto" />
         </a>
       </li>
@@ -288,7 +280,7 @@ import Logo from "./ui/Logo.astro";
 
   [data-scrolled="true"] header ul#RightLinks li:first-child a,
   [data-scrolled="true"] header ul#RightLinks li svg {
-    @apply text-dark;
+    @apply text-blue-gray;
   }
   [data-scrolled="true"] header ul#RightLinks li button#darkToggle {
     @apply border border-blue-gray;

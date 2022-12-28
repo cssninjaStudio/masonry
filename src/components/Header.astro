@@ -120,19 +120,19 @@ import MegaMenu from "./ui/MegaMenu.astro";
         <!-- dark/light mode switch -->
         <li class="h-max flex justify-center items-center">
           <button
-            id="darkToggle"
-            class="group relative w-9 aspect-square rounded-full"
+            data-dark-mode="false"
+            class="darkToggle relative w-9 aspect-square rounded-full"
           >
             <!-- sun -->
             <Icon
               name="feather:sun"
-              class="w-4 text-white aspect-auto absolute opacity-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              class="lightIcon w-4 text-white aspect-auto absolute"
             />
 
             <!-- moon -->
             <Icon
               name="feather:moon"
-              class="w-4 text-white aspect-auto absolute -top-full left-1/2 opacity-0"
+              class="darkIcon w-4 text-white aspect-auto absolute"
             />
           </button>
         </li>
@@ -176,7 +176,10 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
   <MegaMenu />
 
-  <div id="MobileNav" class="hidden pt-5 pb-8 px-3">
+  <div
+    id="MobileNav"
+    class="hidden pt-5 pb-8 px-3 dark:bg-dark-purple-2 bg-white"
+  >
     <ul class="lg:hidden flex flex-col items-center gap-1 w-full">
       <li>
         <a
@@ -229,22 +232,22 @@ import MegaMenu from "./ui/MegaMenu.astro";
       <!-- dark/light mode switch -->
       <li class="h-max flex justify-center items-center">
         <button
-          id="darkToggle"
+          id=""
           data-dark-mode="false"
-          class="relative w-9 aspect-square rounded-full"
+          class="darkToggle relative w-9 aspect-square rounded-full"
         >
           <!-- sun -->
           <Icon
-            id="lightIcon"
+            id=""
             name="feather:sun"
-            class="w-4 text-blue-gray aspect-auto absolute"
+            class="lightIcon w-4 text-blue-gray aspect-auto absolute"
           />
 
           <!-- moon -->
           <Icon
-            id="darkIcon"
+            id=""
             name="feather:moon"
-            class="w-4 text-blue-gray aspect-auto absolute"
+            class="darkIcon w-4 text-blue-gray aspect-auto absolute"
           />
         </button>
       </li>
@@ -262,12 +265,12 @@ import MegaMenu from "./ui/MegaMenu.astro";
 </div>
 
 <style>
-  [data-dark-mode="false"] #darkIcon,
-  [data-dark-mode="true"] #lightIcon {
+  [data-dark-mode="false"] .darkIcon,
+  [data-dark-mode="true"] .lightIcon {
     @apply opacity-0 -top-full left-1/2;
   }
-  [data-dark-mode="true"] #darkIcon,
-  [data-dark-mode="false"] #lightIcon {
+  [data-dark-mode="true"] .darkIcon,
+  [data-dark-mode="false"] .lightIcon {
     @apply opacity-100 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
   }
   [data-drop-menu="true"] header button#MenuToggle #OpenIcon,
@@ -353,16 +356,16 @@ import MegaMenu from "./ui/MegaMenu.astro";
 <script>
   import { setDarkTheme, setLightTheme, themeIsDark } from "@utils/utils";
 
-  const themeToggle = document.querySelector("#darkToggle");
+  [...document.querySelectorAll(".darkToggle")].forEach((themeToggle) => {
+    themeToggle.addEventListener("click", () => {
+      if (themeIsDark()) {
+        setLightTheme();
 
-  themeToggle.addEventListener("click", () => {
-    if (themeIsDark()) {
-      setLightTheme();
-
-      themeToggle.dataset.darkMode = "false";
-    } else {
-      setDarkTheme();
-      themeToggle.dataset.darkMode = "true";
-    }
+        themeToggle.dataset.darkMode = "false";
+      } else {
+        setDarkTheme();
+        themeToggle.dataset.darkMode = "true";
+      }
+    });
   });
 </script>

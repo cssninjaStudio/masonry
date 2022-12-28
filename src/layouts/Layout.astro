@@ -64,7 +64,7 @@ const { title = "", description = "", ...props } = Astro.props;
     <script>
       import { setDarkTheme, setLightTheme } from "@utils/utils";
 
-      const themeToggle = document.querySelector("#darkToggle");
+      const themeToggles = [...document.querySelectorAll(".darkToggle")];
       // AUTO DARK/LIGHT
       window.addEventListener("DOMContentLoaded", () => {
         if (
@@ -73,10 +73,11 @@ const { title = "", description = "", ...props } = Astro.props;
             window.matchMedia("(prefers-color-scheme: dark)").matches)
         ) {
           setDarkTheme();
-          themeToggle.dataset.darkMode = "true";
+          themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "true"));
         } else {
           setLightTheme();
-          themeToggle.dataset.darkMode = "false";
+
+          themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "false"));
         }
       });
     </script>

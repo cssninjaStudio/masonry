@@ -1,0 +1,275 @@
+---
+import { Picture } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+---
+
+<section>
+  <div
+    id="propertiesMega"
+    class="mega absolute bg-white transition-all duration-300 translate-y-5 pointer-events-none opacity-0 dark:bg-dark-purple-2 w-full py-[60px]"
+  >
+    <ul class="container flex gap-5">
+      <li class="w-[35%]">
+        <div class="megamenu-block">
+          <div class="flex gap-4">
+            <div>
+              <Icon
+                name="ph:buildings-duotone"
+                class="w-10 aspect-square text-primary"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <h3
+                class="font-TitilliumWeb font-semibold text-xl dark:text-white text-dark mb-3"
+              >
+                Properties
+              </h3>
+              <p class="mb-4 text-ice-blue text-base">
+                Masonry makes it easy to browse homes. When you’re ready, you
+                can also connect with a local agent to explore financing
+                solutions
+              </p>
+              <a href="#" class="flex text-primary">
+                <span>Explore all properties</span>
+                <Icon name="lucide:arrow-right" class="w-5 aspect-square" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="w-[15%]">
+        <div class="megamenu-block has-margin">
+          <h4
+            class="text-sm font-TitilliumWeb font-semibold text-dark dark:text-white uppercase"
+          >
+            Categories
+          </h4>
+          <ul class="flex flex-col gap-2 mt-3">
+            <li>
+              <a href="#" class="text-base text-ice-blue">
+                <span>Residences</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-base text-ice-blue">
+                <span>Apartments</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-base text-ice-blue">
+                <span>Houses</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-base text-ice-blue">
+                <span>Mansions</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="w-1/2">
+        <div class="megamenu-block flex gap-5">
+          <a href="#" class="showcase-item">
+            <Picture
+              class="h-[190px]"
+              alt="showcase"
+              src="/images/photo/megamenu/1.webp"
+              widths={[370, 380, 500]}
+              aspectRatio={500 / 350}
+              sizes={`(min-width: 1024px) 500px,
+              (min-width: 768px) 370px, 380px`}
+            />
+            <div class="flex justify-between">
+              <div>
+                <h5
+                  class="font-TitilliumWeb text-base text-dark dark:text-white"
+                >
+                  Barnaby Tower
+                </h5>
+                <p class="text-ice-blue text-sm">Private residence</p>
+              </div>
+              <Icon
+                name="ph:house-duotone"
+                class="w-5 aspect-square dark:text-ice-blue"
+              />
+            </div>
+          </a>
+          <a href="#" class="showcase-item">
+            <Picture
+              class="h-[190px]"
+              alt="showcase"
+              src="/images/photo/megamenu/2.webp"
+              widths={[370, 380, 500]}
+              aspectRatio={500 / 350}
+              sizes={`(min-width: 1024px) 500px,
+              (min-width: 768px) 370px, 380px`}
+            />
+            <div class="flex justify-between">
+              <div>
+                <h5
+                  class="font-TitilliumWeb text-base text-dark dark:text-white"
+                >
+                  High Hils
+                </h5>
+                <p class="text-ice-blue text-sm">Private residence</p>
+              </div>
+              <Icon
+                name="ph:house-duotone"
+                class="w-5 aspect-square dark:text-ice-blue"
+              />
+            </div>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div
+    id="rentalsMega"
+    class="mega absolute bg-white transition-all duration-300 translate-y-5 pointer-events-none opacity-0 dark:bg-dark-purple-2 w-full py-[60px]"
+  >
+    <ul class="container flex gap-5">
+      <li class="w-[35%]">
+        <div class="megamenu-block">
+          <div class="flex gap-4">
+            <div>
+              <Icon
+                name="ph:house-duotone"
+                class="w-10 aspect-square text-primary"
+              />
+            </div>
+
+            <div class="flex flex-col">
+              <h3
+                class="font-TitilliumWeb font-semibold text-xl dark:text-white text-dark mb-3"
+              >
+                Rentals
+              </h3>
+              <p class="mb-4 text-ice-blue text-base">
+                Masonry makes it easy to browse homes. When you’re ready, you
+                can also connect with a local agent to explore financing
+                solutions
+              </p>
+              <a href="#" class="flex text-primary">
+                <span>Explore all properties</span>
+                <Icon name="lucide:arrow-right" class="w-5 aspect-square" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="w-[15%]">
+        <div class="megamenu-block has-margin">
+          <h4
+            class="text-sm font-TitilliumWeb font-semibold text-dark dark:text-white uppercase"
+          >
+            Categories
+          </h4>
+          <ul class="flex flex-col gap-2 mt-3">
+            <li>
+              <a href="#" class="text-base text-ice-blue">
+                <span>Residences</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-base text-ice-blue">
+                <span>Apartments</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-base text-ice-blue">
+                <span>Houses</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-base text-ice-blue">
+                <span>Mansions</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li class="w-1/2">
+        <div class="megamenu-block flex gap-5">
+          <a href="#" class="showcase-item">
+            <Picture
+              class="h-[190px]"
+              alt="showcase"
+              src="/images/photo/megamenu/3.webp"
+              widths={[370, 380, 500]}
+              aspectRatio={500 / 350}
+              sizes={`(min-width: 1024px) 500px,
+              (min-width: 768px) 370px, 380px`}
+            />
+            <div class="flex justify-between">
+              <div>
+                <h5
+                  class="font-TitilliumWeb text-base text-dark dark:text-white"
+                >
+                  Cozy Beach House
+                </h5>
+                <p class="text-ice-blue text-sm">Private residence</p>
+              </div>
+              <Icon
+                name="ph:house-duotone"
+                class="w-5 aspect-square dark:text-ice-blue"
+              />
+            </div>
+          </a>
+          <a href="#" class="showcase-item">
+            <Picture
+              class="h-[190px]"
+              alt="showcase"
+              src="/images/photo/megamenu/4.webp"
+              widths={[370, 380, 500]}
+              aspectRatio={500 / 350}
+              sizes={`(min-width: 1024px) 500px,
+              (min-width: 768px) 370px, 380px`}
+            />
+            <div class="flex justify-between">
+              <div>
+                <h5
+                  class="font-TitilliumWeb text-base text-dark dark:text-white"
+                >
+                  Stanislas tower
+                </h5>
+                <p class="text-ice-blue text-sm">Luxury Apartments</p>
+              </div>
+              <Icon
+                name="ph:house-duotone"
+                class="w-5 aspect-square dark:text-ice-blue"
+              />
+            </div>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  const megamenu = [...document.querySelectorAll("[data-megamenu-toggle]")];
+
+  megamenu.forEach((mega) => {
+    let id = `#${mega.dataset.toggle}`;
+    const menu = document.querySelector(id);
+
+    if (menu == null) return;
+    mega.addEventListener("mouseenter", () => {
+      menu.classList.remove("absolute");
+      menu.classList.remove("opacity-0");
+      menu.classList.remove("translate-y-5");
+      menu.classList.add("translate-y-0");
+      menu.classList.add("opacity-100");
+    });
+    mega.addEventListener("mouseleave", () => {
+      menu.classList.add("opacity-0");
+      menu.classList.add("translate-y-5");
+      menu.classList.remove("translate-y-0");
+      menu.classList.remove("opacity-100");
+      menu.classList.add("absolute");
+    });
+  });
+</script>

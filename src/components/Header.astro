@@ -13,6 +13,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
 >
   <div id="header">
     <header
+      id="MainHeader"
       class="container flex justify-between shadow lg:shadow-none px-3 lg:px-0"
     >
       <div class="flex items-center gap-3 py-3">
@@ -339,6 +340,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
               document.body.scrollTop > scrollThreshold
             ) {
               headWrapper.dataset.scrolled = "true";
+              headWrapper.dataset.pastThreshHold = "true";
             } else {
               headWrapper.dataset.scrolled = "false";
             }

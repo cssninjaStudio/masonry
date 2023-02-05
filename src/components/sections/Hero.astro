@@ -6,13 +6,13 @@ import Tab from "@components/ui/Tab.astro";
 
 <section
   id="Hero"
-  class="lg:h-[750px] bg-semi-white dark:bg-dark-blue relative flex lg:flex-row flex-col overflow-hidden"
+  class="lg:h-[750px] 2xl:h-screen bg-semi-white dark:bg-dark-blue relative flex lg:flex-row flex-col overflow-hidden"
 >
   <div
     id="HeroContent"
     class="container flex flex-col gap-6 justify-center w-full h-full relative pt-48 md:pt-28 pb-20 md:pb-10 lg:py-0 px-5 lg:px-0 z-10"
   >
-    <div class="max-w-[380px] flex flex-col gap-6">
+    <div class="max-w-[370px] flex flex-col gap-6">
       <h1
         class="font-TitilliumWeb dark:text-white font-light text-[32px] md:text-[48px] leading-9 text-center md:text-left md:leading-[54px] text-dark"
       >
@@ -93,9 +93,9 @@ import Tab from "@components/ui/Tab.astro";
       <!-- only new -->
       <div class="text-[#93A5BE] mt-6">
         <label class="inline-flex relative items-center cursor-pointer">
-          <input type="checkbox" value="" class="sr-only peer" />
+          <input type="checkbox" value="" class="appearance-none peer" />
           <div
-            class="w-11 h-6 bg-white dark:bg-dark-purple-1 peer-focus:outline-none [box-shadow:inset_0_0_5px_0_#c7c7c7] rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:[box-shadow:0_2px_2px_rgba(0,0,0,.24)] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+            class="w-11 h-6 bg-white dark:bg-dark-purple-1 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:[box-shadow:0_2px_2px_rgba(0,0,0,.24)] after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
           >
           </div>
           <span class="ml-3 text-sm font-medium text-ice-blue"
@@ -111,6 +111,7 @@ import Tab from "@components/ui/Tab.astro";
   >
     <Image
       src={"/images/photo/hero/3.webp"}
+      class="2xl:min-h-full 2xl:min-w-full"
       width={900}
       height={1000}
       alt="hero"
@@ -118,9 +119,3 @@ import Tab from "@components/ui/Tab.astro";
     />
   </div>
 </section>
-
-<style>
-  .switch input[type="checkbox"]:checked + .switch-inner {
-    @apply translate-x-full bg-blue-500;
-  }
-</style>

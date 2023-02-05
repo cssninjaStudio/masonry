@@ -8,15 +8,16 @@ const { label, selected = false } = Astro.props;
 ---
 
 <div id={label + "Tab"} class="tab">
-  <input type="radio" name="tab" id={label} class="hidden" checked={selected} />
+  <input
+    type="radio"
+    name="tab"
+    id={label}
+    class="appearance-none peer"
+    checked={selected}
+  />
   <label
     for={label}
-    class="py-2 px-4 flex justify-center items-center min-w-[90px] text-ice-blue rounded-t-[4px] cursor-pointer border-b border-[#e3e3e3] dark:border-dark-purple-3"
+    class="py-2 px-4 flex justify-center items-center min-w-[90px] text-ice-blue rounded-t-[4px] cursor-pointer peer-checked:border peer-checked:border-[#e3e3e3] dark:peer-checked:border-dark-purple-3 peer-checked:bg-white dark:peer-checked:bg-dark-purple-2 peer-checked:text-dark dark:peer-checked:text-white peer-checked:border-b-0"
     >{label}</label
   >
 </div>
-<style>
-  .tab input[type="radio"]:checked + label {
-    @apply bg-white  border border-[#e3e3e3] dark:border-dark-purple-3 border-b-0 text-dark dark:bg-dark-purple-2;
-  }
-</style>

@@ -1,11 +1,12 @@
 ---
 import { Picture } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
+import MegaMenuLink from "./MegaMenuLink.astro";
 ---
 
 <section
   id="MegaMenuWrapper"
-  class="relative top-0 pointer-events-none transition-all bg-white dark:bg-dark-purple-2 grid [grid-template-areas:'megamenu'] [&>*]:[grid-area:megamenu] duration-300"
+  class="relative top-0 pointer-events-none transition-all bg-white dark:bg-dark-purple-2 grid duration-300"
   data-hover-sustained="false"
 >
   <div
@@ -52,24 +53,16 @@ import { Icon } from "astro-icon";
           </h4>
           <ul class="flex flex-col gap-2 mt-3">
             <li>
-              <a href="#" class="text-base text-ice-blue">
-                <span>Residences</span>
-              </a>
+              <MegaMenuLink title="Residences" href="#" />
             </li>
             <li>
-              <a href="#" class="text-base text-ice-blue">
-                <span>Apartments</span>
-              </a>
+              <MegaMenuLink title="Apartments" href="#" />
             </li>
             <li>
-              <a href="#" class="text-base text-ice-blue">
-                <span>Houses</span>
-              </a>
+              <MegaMenuLink title="Houses" href="#" />
             </li>
             <li>
-              <a href="#" class="text-base text-ice-blue">
-                <span>Mansions</span>
-              </a>
+              <MegaMenuLink title="Mansions" href="#" />
             </li>
           </ul>
         </div>
@@ -175,24 +168,16 @@ import { Icon } from "astro-icon";
           </h4>
           <ul class="flex flex-col gap-2 mt-3">
             <li>
-              <a href="#" class="text-base text-ice-blue">
-                <span>Residences</span>
-              </a>
+              <MegaMenuLink title="Residences" href="#" />
             </li>
             <li>
-              <a href="#" class="text-base text-ice-blue">
-                <span>Apartments</span>
-              </a>
+              <MegaMenuLink title="Apartments" href="#" />
             </li>
             <li>
-              <a href="#" class="text-base text-ice-blue">
-                <span>Houses</span>
-              </a>
+              <MegaMenuLink title="Houses" href="#" />
             </li>
             <li>
-              <a href="#" class="text-base text-ice-blue">
-                <span>Mansions</span>
-              </a>
+              <MegaMenuLink title="Mansions" href="#" />
             </li>
           </ul>
         </div>
@@ -256,6 +241,12 @@ import { Icon } from "astro-icon";
 </section>
 
 <style>
+  #MegaMenuWrapper {
+    grid-template-areas: "megamenu";
+  }
+  #MegaMenuWrapper > * {
+    grid-area: megamenu;
+  }
   [data-hover-sustained="true"] {
     @apply translate-y-0  opacity-100 pointer-events-auto;
   }

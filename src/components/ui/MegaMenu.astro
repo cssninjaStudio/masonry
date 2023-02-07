@@ -251,13 +251,13 @@ import MegaMenuLink from "./MegaMenuLink.astro";
     @apply translate-y-0  opacity-100 pointer-events-auto;
   }
   .mega[data-mega-menu-open="true"] {
-    @apply opacity-100 pointer-events-auto;
+    @apply block opacity-100 pointer-events-auto;
   }
   [data-hover-sustained="false"] {
     @apply translate-y-2.5 opacity-0;
   }
   .mega[data-mega-menu-open="false"] {
-    @apply opacity-0;
+    @apply opacity-0 hidden;
   }
 </style>
 

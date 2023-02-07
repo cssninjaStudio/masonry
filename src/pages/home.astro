@@ -1,37 +1,17 @@
 ---
-import Hero from "@components/sections/Hero.astro";
-import Popular from "@components/sections/Popular.astro";
-import { property } from "@data/property";
 import Layout from "@layouts/Layout.astro";
-import PrivateLoft from "@components/sections/PrivateLoft.astro";
-import WhatWeDo from "@components/sections/WhatWeDo.astro";
 import Partnership from "@components/sections/Partnership.astro";
 import Ranking from "@components/sections/Ranking.astro";
-import Talented from "@components/sections/Talented.astro";
+import Talented2 from "@components/sections/Talented2.astro";
 import Testimonials from "@components/sections/Testimonials.astro";
 ---
 
 <Layout>
   <main id="Home">
-    <!-- HERO -->
-    <Hero />
+    <!-- TALENTED Architects  -->
+    <Talented2 />
 
-    <!-- POPULAR 3-->
-
-    <Popular properties={property.slice(0, 3)} />
-
-    <!-- COCO BEACH -->
-
-    <PrivateLoft />
-
-    <!-- WHAT WE CAN DO -->
-    <WhatWeDo />
-
-    <!-- POPULAR 6 -->
-    <Popular properties={property.slice(3)} />
-
-    <!-- TALENTED -->
-    <Talented />
+    <!-- INVEST IN OUR PROJECTS -->
 
     <!-- RANKING -->
     <Ranking />

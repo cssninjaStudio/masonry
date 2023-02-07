@@ -1,3 +1,11 @@
+---
+interface Props {
+  poster: string;
+  sources: { src: string; type: string }[];
+}
+const { poster, sources } = Astro.props;
+---
+
 <section
   class="video-wrapper relative bg-black flex justify-center lg:justify-start w-full lg:w-max"
 >
@@ -6,10 +14,13 @@
     loop
     muted
     playsinline
-    poster="/images/video/poster-square-2.webp"
+    poster={poster}
   >
-    <source data-src="/images/video/hands.mp4" type="video/mp4" />
-    <source data-src="/images/video/hands.webm" type="video/webm" />
+    {
+      sources.map((source) => (
+        <source data-src={source.src} type={source.type} />
+      ))
+    }
   </video>
 
   <!-- PLAY BUTTON -->
@@ -35,63 +46,4 @@
   .playBtn[data-is-playing="false"] {
     @apply opacity-100;
   }
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // get all videos with a class of .lazy
-    const lazyVideos = [].slice.call(document.querySelectorAll("video.lazy"));
-    const lazyVideoObserver = new IntersectionObserver(function (
-      entries,
-      observer
-    ) {
-      entries.forEach((videoEntry) => {
-        if (videoEntry.isIntersecting) {
-          // Get the video element
-          const video = videoEntry.target as HTMLVideoElement;
-
-          // Looping through video <source>
-          for (const sourceIndex in video.children) {
-            // get <source> at index sourceIndex
-            const videoSource = video.children[sourceIndex];
-            // verify if its <source> tag
-            if (
-              typeof videoSource.tagName === "string" &&
-              videoSource.tagName === "SOURCE"
-            ) {
-              videoSource.src = videoSource.dataset.src;
-            }
-          }
-
-          video.load();
-
-          const playBtn = video.nextElementSibling as HTMLButtonElement;
-          playBtn.onclick = (e) => {
-            video.play();
-          };
-
-          // ON VIDEO PAUSED
-          video.onpause = (event) => {
-            playBtn.dataset.isPlaying = `false`;
-            // HIDE CONTROLS
-            video.controls = false;
-          };
-
-          // ON VIDEO PLAY
-          video.onplay = (event) => {
-            playBtn.dataset.isPlaying = `true`;
-            // SHOW CONTROLS
-            video.controls = true;
-          };
-
-          video.classList.remove("lazy");
-          lazyVideoObserver.unobserve(video);
-        }
-      });
-    });
-
-    lazyVideos.forEach((lazyVideo) => {
-      lazyVideoObserver.observe(lazyVideo);
-    });
-  });
-</script>
+</style><

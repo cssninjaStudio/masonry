@@ -1,9 +1,8 @@
 <section
-  class="video-wrapper bg-black flex justify-center lg:justify-start w-full lg:w-max"
+  class="video-wrapper relative bg-black flex justify-center lg:justify-start w-full lg:w-max"
 >
   <video
-    class="lazy w-full aspect-video md:aspect-auto md:w-[480px] md:h-[440px]"
-    autoplay
+    class="lazy w-full accent-yellow-500 aspect-video md:aspect-auto md:w-[480px] md:h-[440px]"
     loop
     muted
     playsinline
@@ -12,7 +11,31 @@
     <source data-src="/images/video/hands.mp4" type="video/mp4" />
     <source data-src="/images/video/hands.webm" type="video/webm" />
   </video>
+
+  <!-- PLAY BUTTON -->
+  <button
+    class="playBtn transition-all duration-200 grid place-items-center w-12 cursor-pointer aspect-square absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full hover:bg-primary group bg-white border border-primary text-white"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-8 h-8 text-white stroke-primary"
+      viewBox="0 0 24 24"
+      ><path
+        fill="currentColor"
+        d="M8 6.82v10.36c0 .79.87 1.27 1.54.84l8.14-5.18a1 1 0 0 0 0-1.69L9.54 5.98A.998.998 0 0 0 8 6.82z"
+      ></path></svg
+    >
+  </button>
 </section>
+
+<style>
+  .playBtn[data-is-playing="true"] {
+    @apply opacity-0;
+  }
+  .playBtn[data-is-playing="false"] {
+    @apply opacity-100;
+  }
+</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -22,13 +45,16 @@
       entries,
       observer
     ) {
-      entries.forEach((video) => {
-        if (video.isIntersecting) {
-          //Looping through video <source>
-          for (const sourceIndex in video.target.children) {
-            //get <source> at index sourceIndex
-            const videoSource = video.target.children[sourceIndex];
-            //verify if its <source> tag
+      entries.forEach((videoEntry) => {
+        if (videoEntry.isIntersecting) {
+          // Get the video element
+          const video = videoEntry.target as HTMLVideoElement;
+
+          // Looping through video <source>
+          for (const sourceIndex in video.children) {
+            // get <source> at index sourceIndex
+            const videoSource = video.children[sourceIndex];
+            // verify if its <source> tag
             if (
               typeof videoSource.tagName === "string" &&
               videoSource.tagName === "SOURCE"
@@ -36,12 +62,34 @@
               videoSource.src = videoSource.dataset.src;
             }
           }
-          video.target.load();
-          video.target.classList.remove("lazy");
-          lazyVideoObserver.unobserve(video.target);
+
+          video.load();
+
+          const playBtn = video.nextElementSibling as HTMLButtonElement;
+          playBtn.onclick = (e) => {
+            video.play();
+          };
+
+          // ON VIDEO PAUSED
+          video.onpause = (event) => {
+            playBtn.dataset.isPlaying = `false`;
+            // HIDE CONTROLS
+            video.controls = false;
+          };
+
+          // ON VIDEO PLAY
+          video.onplay = (event) => {
+            playBtn.dataset.isPlaying = `true`;
+            // SHOW CONTROLS
+            video.controls = true;
+          };
+
+          video.classList.remove("lazy");
+          lazyVideoObserver.unobserve(video);
         }
       });
     });
+
     lazyVideos.forEach((lazyVideo) => {
       lazyVideoObserver.observe(lazyVideo);
     });

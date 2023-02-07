@@ -9,7 +9,7 @@ import image from "@astrojs/image";
 export default defineConfig({
   vite: {
     ssr: {
-      noExternal: ["astro-google-fonts-optimizer"],
+      noExternal: ["astro-google-fonts-optimizer", "plyr"],
     },
   },
   integrations: [

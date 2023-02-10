@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon";
+import SwiperSlide from "./SwiperSlide.astro";
+
+---
+
+<div 
+class="carousel-container relative"
+>
+<div class="swiper-container relative max-h-[440px]" >
+  <div class="swiper-caption bg-white absolute bottom-8 max-w-[380px] z-[2]">
+    <div class="swiper-caption-inner relative w-full h-full p-8">
+      <h3 class="title is-4 is-leading is-thin">High-end properties</h3>
+      <p class="text-sm mb-3">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non enim
+        quaero quid verum, sed quid cuique dicendum sit.
+      </p>
+
+      <div class="caption-actions flex items-center justify-between">
+        <a href="#" class="slide-link">Learn More</a>
+        <div class="carousel-controls flex justify-end">
+          <button   class="flex items-center justify-center outline-none h-8 w-8 text-lg rounded-full cursor-pointer transition-colors duration-300
+          ">
+            <!-- <i class="iconify" data-icon="lucide:arrow-left"></i> -->
+
+            <Icon name="lucide:arrow-left" class="text-white"/>
+          </button>
+
+          <button   class="flex items-center justify-center outline-none h-8 w-8 text-lg rounded-full cursor-pointer transition-colors duration-300
+          ">
+            <!-- <i class="iconify" data-icon="lucide:arrow-right"></i> -->
+            <Icon name="lucide:arrow-right" class="text-white"/>
+
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel-pagination absolute top-1/2 -translate-y-1/2 rotate-90 z-[3]"></div>
+
+  <div class="swiper-wrapper">
+
+    <!-- Slides -->
+
+    {["/images/photo/buildings/4.webp","/images/photo/buildings/3.webp" ,"/images/photo/buildings/1.webp","/images/photo/buildings/2.webp" ].map(slide => (<SwiperSlide imageUrl={slide} />))}
+  
+  </div>
+</div>
+</div>

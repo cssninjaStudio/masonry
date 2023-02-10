@@ -1,0 +1,20 @@
+---
+interface Props {
+    imageUrl: string;
+    alt?: string;
+}
+
+const { imageUrl, alt = "Slide image" } = Astro.props;
+---
+
+<div class="swiper-slide">
+    <div class="slide-inner">
+        <div class="slide-content">
+            <img
+                class="w-full object-cover h-[280px] lg:h-auto"
+                src={imageUrl}
+                alt={alt}
+            />
+        </div>
+    </div>
+</div>

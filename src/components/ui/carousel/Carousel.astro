@@ -3,7 +3,44 @@ import { Icon } from "astro-icon";
 import SwiperSlide from "./SwiperSlide.astro";
 ---
 
-<div class="carousel-container relative" x-data="initHomeSwiper()">
+<div
+  class="carousel-container relative"
+  x-data="{
+  swiper: null, 
+}"
+  x-init="
+  this.swiper = new Swiper(this.$refs.container, {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    slidesPerView: 1,
+    spaceBetween: 0,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+    },
+    pagination: {
+      el: '.carousel-pagination',
+      type: 'bullets',
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+      768: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      },
+      1024: {
+        slidesPerView: 1,
+        spaceBetween: 0,
+      }
+    },
+  })
+"
+>
   <div class="swiper-container relative max-h-[440px]" x-ref="container">
     <div class="swiper-caption bg-white absolute bottom-8 max-w-[380px] z-[2]">
       <div class="swiper-caption-inner relative w-full h-full p-8">
@@ -55,77 +92,75 @@ import SwiperSlide from "./SwiperSlide.astro";
 </div>
 
 <script>
-  import Swiper from "swiper";
+  // document.addEventListener("alpine:init", () => {
+  //   Alpine.data("homeSwiper", () => ({
+  //     swiper: null,
+  //     init() {
+  //       this.swiper = new Swiper(this.$refs.container, {
+  //         loop: true,
+  //         autoplay: {
+  //           delay: 5000,
+  //         },
+  //         slidesPerView: 1,
+  //         spaceBetween: 0,
+  //         effect: "fade",
+  //         fadeEffect: {
+  //           crossFade: true,
+  //         },
+  //         pagination: {
+  //           el: ".carousel-pagination",
+  //           type: "bullets",
+  //         },
+  //         breakpoints: {
+  //           640: {
+  //             slidesPerView: 1,
+  //             spaceBetween: 0,
+  //           },
+  //           768: {
+  //             slidesPerView: 1,
+  //             spaceBetween: 0,
+  //           },
+  //           1024: {
+  //             slidesPerView: 1,
+  //             spaceBetween: 0,
+  //           },
+  //         },
+  //       });
+  //     },
+  //   }));
+  // });
 
-  function initHomeSwiper() {
-    return {
-      swiper: null,
-      init() {
-        this.swiper = new Swiper(this.$refs.container, {
-          loop: true,
-          autoplay: {
-            delay: 5000,
-          },
-          slidesPerView: 1,
-          spaceBetween: 0,
-          effect: "fade",
-          fadeEffect: {
-            crossFade: true,
-          },
-          pagination: {
-            el: ".carousel-pagination",
-            type: "bullets",
-          },
-          breakpoints: {
-            640: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-            768: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-            1024: {
-              slidesPerView: 1,
-              spaceBetween: 0,
-            },
-          },
-        });
-      },
-    };
-  }
-
-  function initProjectsSwiper() {
-    return {
-      swiper: null,
-      init() {
-        this.swiper = new Swiper(this.$refs.container, {
-          loop: true,
-          autoplay: {
-            delay: 5000,
-          },
-          slidesPerView: 4,
-          spaceBetween: 20,
-          pagination: {
-            el: ".carousel-pagination",
-            type: "bullets",
-          },
-          breakpoints: {
-            340: {
-              slidesPerView: 1.5,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 20,
-            },
-          },
-        });
-      },
-    };
-  }
+  // function initProjectsSwiper() {
+  //   return {
+  //     swiper: null,
+  //     init() {
+  //       this.swiper = new Swiper(this.$refs.container, {
+  //         loop: true,
+  //         autoplay: {
+  //           delay: 5000,
+  //         },
+  //         slidesPerView: 4,
+  //         spaceBetween: 20,
+  //         pagination: {
+  //           el: ".carousel-pagination",
+  //           type: "bullets",
+  //         },
+  //         breakpoints: {
+  //           340: {
+  //             slidesPerView: 1.5,
+  //             spaceBetween: 20,
+  //           },
+  //           768: {
+  //             slidesPerView: 3,
+  //             spaceBetween: 20,
+  //           },
+  //           1024: {
+  //             slidesPerView: 4,
+  //             spaceBetween: 20,
+  //           },
+  //         },
+  //       });
+  //     },
+  //   };
+  // }
 </script>

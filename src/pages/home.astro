@@ -8,16 +8,18 @@ import Carousel from "@components/ui/carousel/Carousel.astro";
 ---
 
 <Layout>
+  <script slot="head" src="https://unpkg.com/swiper@6.8.4/swiper-bundle.min.js"
+  ></script>
   <main id="Home">
-    <section class="section min-h-screen pb-12">
+    <section class="p-12 dark:bg-dark-purple-1 min-h-screen">
       <div class="container">
-        <div class="grid grid-cols-2 gap-12 pt-16 pb-8">
+        <div class="grid grid-cols-2 items-center gap-12 pt-16 pb-8">
           <h1
-            class="title is-1 is-narrow font-TitilliumWeb dark:text-white font-light text-[32px] md:text-[48px] leading-9 text-center md:text-left md:leading-[54px] text-dark"
+            class="font-TitilliumWeb dark:text-white font-normal text-[32px] md:text-5xl text-center md:text-left md:leading-[1.125] text-dark"
           >
             The home of excellence in the construction industry
           </h1>
-          <p>
+          <p class="mb-3 text-base text-ice-blue">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non enim
             quaero quid verum, sed quid cuique dicendum sit. Quid affers, cur
             Thorius, cur Caius.

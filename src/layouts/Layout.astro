@@ -62,6 +62,14 @@ const { title = "", description = "", ...props } = Astro.props;
     </style>
 
     <script>
+      import Alpine from "alpinejs";
+
+      window.Alpine = Alpine;
+
+      Alpine.start();
+    </script>
+
+    <script>
       import { setDarkTheme, setLightTheme } from "@utils/utils";
 
       const themeToggles = [...document.querySelectorAll(".darkToggle")];

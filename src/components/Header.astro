@@ -358,8 +358,9 @@ import MegaMenu from "./ui/MegaMenu.astro";
       },
       { rootMargin: "-300px" }
     );
+
     targets.forEach((target) => {
-      observer.observe(target);
+      target && observer.observe(target);
     });
   });
 </script>

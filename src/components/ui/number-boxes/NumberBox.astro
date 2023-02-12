@@ -1,0 +1,47 @@
+---
+import { Icon } from "astro-icon";
+
+interface Props {
+  number: string;
+  title: string;
+  text?: string;
+}
+
+const sampleText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sic, et quidem
+      diligentius saepiusque ista loquemur inter nos agemusque communiter. Quid
+      enim necesse est, tamquam meretricem .`;
+
+const { number, title, text = sampleText } = Astro.props;
+---
+
+<div
+  class="number-box bg-white dark:bg-dark-purple-2 dark:border-dark-purple-3 border border-ice-blue relative flex flex-col z-[1] [box-shadow: rgba(0,0,0,0.06) -1px_3px_10px_0px]"
+>
+  <div class="box-head p-8 pb-3">
+    <span class="box-number text-[1.35rem] text-blue-gray">{number}</span>
+  </div>
+  <div
+    class="box-title px-8 before:absolute before:w-[5px] before:bg-primary before:h-full relative before:left-0 before:top-0"
+  >
+    <h3
+      class="dark:text-white font-TitilliumWeb text-dark font-semibold text-2xl"
+    >
+      {title}
+    </h3>
+  </div>
+  <div class="box-text p-8 pt-3">
+    <p class="text-base text-ice-blue">{text}</p>
+  </div>
+  <div class="box-action mt-auto p-8 pt-0">
+    <a
+      href="#"
+      class="slide-link inline-flex group items-center text-primary relative after:content-[''] after:absolute after:h-[2px] after:bg-primary after:transition-['width'] after:duration-300 after:w-0 after:hover:w-full after:-bottom-[0.15rem] after:left-0"
+    >
+      <span class="whitespace-nowrap mr-1">Learn More</span>
+      <Icon
+        name="lucide:arrow-right"
+        class="group-hover:translate-x-1 transition-transform duration-300 h-5 aspect-auto text-primary fill-primary"
+      />
+    </a>
+  </div>
+</div>

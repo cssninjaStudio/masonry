@@ -1,0 +1,90 @@
+---
+import PolkaDots from "../PolkaDots.astro";
+---
+
+<div class="projects-carousel">
+  <!-- Polka dots -->
+  <div class="polka-dots-wrap is-start"><PolkaDots /></div>
+  <div class="polka-dots-wrap is-end"><PolkaDots /></div>
+
+  <div x-data="initProjectsSwiper()" class="carousel-container">
+    <div class="carousel-controls">
+      <button @click="swiper.slidePrev()">
+        <i class="iconify" data-icon="lucide:arrow-left"></i>
+      </button>
+
+      <button @click="swiper.slideNext()">
+        <i class="iconify" data-icon="lucide:arrow-right"></i>
+      </button>
+    </div>
+    <div class="swiper-container" x-ref="container">
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <a class="slide-inner">
+            <div class="slide-content">
+              <img
+                class="h-48 w-full object-cover"
+                src="/img/photo/buildings/carousel/1.jpg"
+                alt="Slide image"
+              />
+              <div class="slide-overlay-content">
+                <div class="slide-overlay">
+                  <div class="slide-icon">
+                    <img
+                      src="/img/flags/united-states-of-america.svg"
+                      alt="Slide icon"
+                    />
+                  </div>
+                  <div class="overlay-content">
+                    <div class="text-content">
+                      <h3 class="title is-5 is-narrow is-thin is-inverted">
+                        Schaeffer Tower
+                      </h3>
+                      <p>Philadelphia &#8212; USA</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // function initProjectsSwiper() {
+  //   return {
+  //     swiper: null,
+  //     init() {
+  //       this.swiper = new Swiper(this.$refs.container, {
+  //         loop: true,
+  //         autoplay: {
+  //           delay: 5000,
+  //         },
+  //         slidesPerView: 4,
+  //         spaceBetween: 20,
+  //         pagination: {
+  //           el: ".carousel-pagination",
+  //           type: "bullets",
+  //         },
+  //         breakpoints: {
+  //           340: {
+  //             slidesPerView: 1.5,
+  //             spaceBetween: 20,
+  //           },
+  //           768: {
+  //             slidesPerView: 3,
+  //             spaceBetween: 20,
+  //           },
+  //           1024: {
+  //             slidesPerView: 4,
+  //             spaceBetween: 20,
+  //           },
+  //         },
+  //       });
+  //     },
+  //   };
+</script>

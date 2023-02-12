@@ -9,36 +9,7 @@ import SwiperSlide from "./SwiperSlide.astro";
   swiper: null, 
 }"
   x-init="
-  this.swiper = new Swiper(this.$refs.container, {
-    loop: true,
-    autoplay: {
-      delay: 5000,
-    },
-    slidesPerView: 1,
-    spaceBetween: 0,
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true,
-    },
-    pagination: {
-      el: '.carousel-pagination',
-      type: 'bullets',
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-      },
-      768: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-      },
-      1024: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-      }
-    },
-  })
+  this.swiper = initHomeSwiper(this.$refs.container)
 "
 >
   <div class="swiper-container relative max-h-[440px]" x-ref="container">
@@ -91,7 +62,42 @@ import SwiperSlide from "./SwiperSlide.astro";
   </div>
 </div>
 
-<script>
+<script slot="head">
+  import Swiper from "swiper";
+
+  function initHomeSwiper(element) {
+    console.log(element);
+    return new Swiper(element, {
+      loop: true,
+      autoplay: {
+        delay: 5000,
+      },
+      slidesPerView: 1,
+      spaceBetween: 0,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      pagination: {
+        el: ".carousel-pagination",
+        type: "bullets",
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        768: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        1024: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+      },
+    });
+  }
   // document.addEventListener("alpine:init", () => {
   //   Alpine.data("homeSwiper", () => ({
   //     swiper: null,

@@ -1,6 +1,5 @@
 ---
 import { Icon } from "astro-icon";
-import SwiperSlide from "./SwiperSlide.astro";
 ---
 
 <div
@@ -56,7 +55,19 @@ import SwiperSlide from "./SwiperSlide.astro";
           "/images/photo/buildings/3.webp",
           "/images/photo/buildings/1.webp",
           "/images/photo/buildings/2.webp",
-        ].map((slide) => <SwiperSlide imageUrl={slide} />)
+        ].map((url) => (
+          <div class="swiper-slide">
+            <div class="slide-inner">
+              <div class="slide-content">
+                <img
+                  class="w-full object-cover h-[280px] lg:h-auto"
+                  src={url}
+                  alt="Slide Image"
+                />
+              </div>
+            </div>
+          </div>
+        ))
       }
     </div>
   </div>
@@ -136,37 +147,5 @@ import SwiperSlide from "./SwiperSlide.astro";
   //   }));
   // });
 
-  // function initProjectsSwiper() {
-  //   return {
-  //     swiper: null,
-  //     init() {
-  //       this.swiper = new Swiper(this.$refs.container, {
-  //         loop: true,
-  //         autoplay: {
-  //           delay: 5000,
-  //         },
-  //         slidesPerView: 4,
-  //         spaceBetween: 20,
-  //         pagination: {
-  //           el: ".carousel-pagination",
-  //           type: "bullets",
-  //         },
-  //         breakpoints: {
-  //           340: {
-  //             slidesPerView: 1.5,
-  //             spaceBetween: 20,
-  //           },
-  //           768: {
-  //             slidesPerView: 3,
-  //             spaceBetween: 20,
-  //           },
-  //           1024: {
-  //             slidesPerView: 4,
-  //             spaceBetween: 20,
-  //           },
-  //         },
-  //       });
-  //     },
-  //   };
   // }
 </script>

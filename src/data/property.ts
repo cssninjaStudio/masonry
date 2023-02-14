@@ -72,3 +72,35 @@ export const property: Property[] = [
     livingArea: 225,
   },
 ];
+
+export const projects: {
+  image: string;
+  flag: string;
+  title: string;
+  location: string;
+}[] = [
+  {
+    image: "/images/photo/buildings/carousel/1.webp",
+    flag: "/images/flags/united-states-of-america.svg",
+    title: "Schaeffer Tower",
+    location: "Philadelphia - USA",
+  },
+  {
+    image: "/images/photo/buildings/carousel/2.webp",
+    flag: "/images/flags/germany.svg",
+    title: "Klauff Smart City",
+    location: "Berlin - Germany",
+  },
+  {
+    image: "/images/photo/buildings/carousel/3.webp",
+    flag: "/images/flags/united-states-of-america.svg",
+    title: "Imperial Tower",
+    location: "New York - USA",
+  },
+  {
+    image: "/images/photo/buildings/carousel/4.webp",
+    flag: "/images/flags/france.svg",
+    title: "Tour Crayon",
+    location: "Lyon - France",
+  },
+];

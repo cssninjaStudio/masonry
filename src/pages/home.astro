@@ -7,6 +7,8 @@ import Testimonials from "@components/sections/Testimonials.astro";
 import Carousel from "@components/ui/carousel/Carousel.astro";
 import NumberBox from "@components/ui/number-boxes/NumberBox.astro";
 import ProjectCarousel from "@components/ui/carousel/ProjectCarousel.astro";
+import { investProjects } from "@data/property";
+import { Icon } from "astro-icon";
 ---
 
 <Layout>
@@ -69,13 +71,14 @@ import ProjectCarousel from "@components/ui/carousel/ProjectCarousel.astro";
 
     <section class="p-12 dark:bg-dark-purple-1">
       <div class="container">
-        <div class="section-title is-side">
+        <div class="section-title max-w-[940px]">
           <h2
             class="font-TitilliumWeb dark:text-white font-light text-[2rem] text-center md:text-left md:leading-[1.125] text-dark"
           >
             Some of our recent projects
           </h2>
         </div>
+        <!-- TODO: swiper initialization -->
 
         <ProjectCarousel />
       </div>
@@ -84,13 +87,80 @@ import ProjectCarousel from "@components/ui/carousel/ProjectCarousel.astro";
     <!-- TALENTED ARCHITECTS  -->
     <Talented2 />
 
-    <!-- INVEST IN OUR PROJECTS -->
-
     <!-- RANKING -->
     <Ranking />
 
     <!-- PARTNERSHIP -->
     <Partnership />
+
+    <!-- INVEST IN OUR PROJECTS -->
+
+    <section class="p-12 dark:bg-dark-purple-1">
+      <div class="container">
+        <div class="section-title max-w-[940px]">
+          <h2
+            class="font-TitilliumWeb dark:text-white font-light text-[2rem] text-center md:text-left md:leading-[1.125] text-dark"
+          >
+            Invest in one of our projects
+          </h2>
+        </div>
+
+        <div class="invest-projects relative py-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+              investProjects.map((project) => (
+                <div class="block">
+                  <a
+                    href="#"
+                    class="invest-project group relative block overflow-hidden"
+                  >
+                    <img
+                      src={project.image}
+                      class="group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 block w-full grayscale-[.5] opacity-90 transition-all duration-300"
+                      alt={project.title}
+                    />
+                    <div class="overlay absolute top-0 left-0 h-full w-full">
+                      <div class="overlay-inner relative w-full h-full flex flex-col justify-end p-6">
+                        <div class="overlay-content p-6 bg-white dark:bg-dark-purple-2">
+                          <div class="text-content flex justify-between">
+                            <div>
+                              <h3 class="title is-5 is-narrow is-thin">
+                                {project.title}
+                              </h3>
+                              <p class="text-base text-ice-blue">
+                                {project.type}
+                              </p>
+                            </div>
+                            <Icon
+                              class="h-6 text-primary"
+                              name="ph:house-duotone"
+                            />
+                          </div>
+                          <div class="stat-content grid gap-3 md:gap-0 grid-cols-1 md:grid-cols-3 mt-4">
+                            <div class="stat-block text-ice-blue gap-1 flex items-center ">
+                              <Icon class="h-5" name="ph:bank-duotone" />
+                              <span class="text-base">{project.price}</span>
+                            </div>
+                            <div class="stat-block text-ice-blue gap-1 flex items-center ">
+                              <Icon class="h-5" name="ph:buildings-duotone" />
+                              <span class="text-base">{project.units}</span>
+                            </div>
+                            <div class="stat-block text-ice-blue gap-1 flex items-center ">
+                              <Icon class="h-5" name="ph:map-pin-duotone" />
+                              <span class="text-base">{project.location}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- WHAT THEY SAY -->
     <Testimonials />

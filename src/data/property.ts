@@ -104,3 +104,61 @@ export const projects: {
     location: "Lyon - France",
   },
 ];
+
+export const investProjects: {
+  image: string;
+  title: string;
+  type: string;
+  price: string;
+  units: string;
+  location: string;
+}[] = [
+  {
+    image: "/images/photo/buildings/9.webp",
+    title: "Concrete Island",
+    type: "Private residence",
+    price: "$120M",
+    units: "250 app.",
+    location: "UK",
+  },
+  {
+    image: "/images/photo/buildings/10.webp",
+    title: "Cornwillis Center",
+    type: "Office tower",
+    price: "$870M",
+    units: "2K off.",
+    location: "USA",
+  },
+  {
+    image: "/images/photo/buildings/11.webp",
+    title: "Siegfried Tower",
+    type: "Office tower",
+    price: "$650M",
+    units: "1.3K off.",
+    location: "Germany",
+  },
+  {
+    image: "/images/photo/buildings/13.webp",
+    title: "Banapula Tower",
+    type: "Office tower",
+    price: "$550M",
+    units: "1.7K off.",
+    location: "Indonesia",
+  },
+  {
+    image: "/images/photo/buildings/12.webp",
+    title: "Eldridge Riverside",
+    type: "Private residence",
+    price: "$150M",
+    units: "275 app.",
+    location: "USA",
+  },
+  {
+    image: "/images/photo/buildings/14.webp",
+    title: "Twin Center",
+    type: "Office tower",
+    price: "$450M",
+    units: "1.2K off.",
+    location: "Morocco",
+  },
+];

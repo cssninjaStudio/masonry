@@ -38,7 +38,7 @@ import { Icon } from "astro-icon";
       <div class="container">
         <div class="max-w-[940px]">
           <h2
-            class="font-TitilliumWeb dark:text-white font-normal text-[32px] md:text-[2rem] text-center md:text-left md:leading-[1.125] text-dark is-3 is-narrow is-thin"
+            class="font-TitilliumWeb dark:text-white font-normal text-[2rem] text-center md:text-left md:leading-[1.125] text-dark is-3 is-narrow is-thin"
           >
             We make sure our lovely customers are always involved so, every
             transaction flow process in our company is a must for them.
@@ -46,7 +46,7 @@ import { Icon } from "astro-icon";
         </div>
 
         <div class="number-boxes py-8">
-          <div class="grid grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
               class="column py-3 relative before:content-[''] before:absolute before:top-0 before:rounded-[100rem] before:bg-primary before:opacity-[0.07] before:h-[125%] before:w-40 before:z-0 before:rotate-45 before:-translate-y-16 before:translate-x-10"
             >
@@ -106,7 +106,7 @@ import { Icon } from "astro-icon";
         </div>
 
         <div class="invest-projects relative py-8">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {
               investProjects.map((project) => (
                 <div class="block">

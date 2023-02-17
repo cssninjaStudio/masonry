@@ -9,11 +9,7 @@ import PolkaDots from "../PolkaDots.astro";
   <div class="absolute top-3 -left-11"><PolkaDots /></div>
   <div class="absolute -bottom-10 -right-11"><PolkaDots /></div>
 
-  <div
-    x-data="{swiper:null}"
-    x-init="this.swiper = initProjectsSwiper(this.$refs.container)"
-    class="carousel-container relative z-[2]"
-  >
+  <div x-data="projectsSwiper" class="carousel-container relative z-[2]">
     <div class="carousel-controls flex justify-end mb-6">
       <button
         @click="swiper.slidePrev()"
@@ -44,9 +40,9 @@ import PolkaDots from "../PolkaDots.astro";
               <a class="slide-inner">
                 <div class="slide-content relative">
                   <img
-                    class="h-48 w-full object-cover"
+                    class="h-[352px] lg:h-[390px] w-full object-cover"
                     src={project.image}
-                    alt="Slide image"
+                    alt={project.title}
                   />
                   <div class="slide-overlay-content hover:opacity-100 absolute top-0 h-full w-full opacity-0 transition-opacity duration-300 left-0">
                     <div class="slide-overlay absolute top-0 h-full w-full bg-gradient-to-t from-[#161616] z-0 left-0">
@@ -78,35 +74,3 @@ import PolkaDots from "../PolkaDots.astro";
     </div>
   </div>
 </div>
-
-<script>
-  import Swiper from "swiper";
-  function initProjectsSwiper(element) {
-    return new Swiper(element, {
-      loop: true,
-      autoplay: {
-        delay: 5000,
-      },
-      slidesPerView: 4,
-      spaceBetween: 20,
-      pagination: {
-        el: ".carousel-pagination",
-        type: "bullets",
-      },
-      breakpoints: {
-        340: {
-          slidesPerView: 1.5,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 3,
-          spaceBetween: 20,
-        },
-        1024: {
-          slidesPerView: 4,
-          spaceBetween: 20,
-        },
-      },
-    });
-  }
-</script>

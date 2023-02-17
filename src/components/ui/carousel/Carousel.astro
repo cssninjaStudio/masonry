@@ -2,39 +2,40 @@
 import { Icon } from "astro-icon";
 ---
 
-<div
-  class="carousel-container relative"
-  x-data="{
-  swiper: null, 
-}"
-  x-init="
-  this.swiper = initHomeSwiper(this.$refs.container)
-"
->
-  <div class="swiper-container relative max-h-[440px]" x-ref="container">
-    <div class="swiper-caption bg-white absolute bottom-8 max-w-[380px] z-[2]">
+<div class="carousel-container relative" x-data="homeSwiper">
+  <div
+    class="swiper-container relative max-h-[440px] overflow-hidden"
+    x-ref="container"
+  >
+    <div
+      class="swiper-caption bg-white dark:bg-dark-purple-3 absolute bottom-8 right-8 max-w-[380px] z-[2]"
+    >
       <div class="swiper-caption-inner relative w-full h-full p-8">
-        <h3 class="title is-4 is-leading is-thin">High-end properties</h3>
-        <p class="text-sm mb-3">
+        <h3
+          class="dark:text-white text-2xl font-TitilliumWeb text-dark mb-2 is-thin"
+        >
+          High-end properties
+        </h3>
+        <p class="text-sm mb-3 text-blue-gray">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non enim
           quaero quid verum, sed quid cuique dicendum sit.
         </p>
 
         <div class="caption-actions flex items-center justify-between">
-          <a href="#" class="slide-link">Learn More</a>
+          <a href="#" class="slide-link text-primary">Learn More</a>
           <div class="carousel-controls flex justify-end">
             <button
               @click="swiper.slidePrev()"
-              class="flex items-center justify-center outline-none h-8 w-8 text-lg rounded-full cursor-pointer transition-colors duration-300"
+              class="flex items-center justify-center outline-none h-8 aspect-square text-lg rounded-full cursor-pointer transition-colors duration-300 text-dark dark:text-white hover:bg-ice-blue hover:dark:bg-dark-purple-3"
             >
-              <Icon name="lucide:arrow-left" class="text-white" />
+              <Icon name="lucide:arrow-left" class="h-[18px] aspect-auto" />
             </button>
 
             <button
               @click="swiper.slideNext()"
-              class="flex items-center justify-center outline-none h-8 w-8 text-lg rounded-full cursor-pointer transition-colors duration-300"
+              class="flex items-center justify-center outline-none h-8 aspect-square text-lg rounded-full cursor-pointer transition-colors duration-300 text-dark dark:text-white hover:bg-ice-blue hover:dark:bg-dark-purple-3"
             >
-              <Icon name="lucide:arrow-right" class="text-white" />
+              <Icon name="lucide:arrow-right" class="h-[18px] aspect-auto" />
             </button>
           </div>
         </div>
@@ -42,7 +43,7 @@ import { Icon } from "astro-icon";
     </div>
 
     <div
-      class="carousel-pagination absolute top-1/2 -translate-y-1/2 rotate-90 z-[3]"
+      class="carousel-pagination absolute top-1/2 left-4 -translate-y-1/2 rotate-90 z-[3]"
     >
     </div>
 
@@ -73,79 +74,15 @@ import { Icon } from "astro-icon";
   </div>
 </div>
 
-<script>
-  import Swiper from "swiper";
+<style lang="scss">
+  .swiper-pagination-bullet {
+    background: none;
+    border: 2px solid var(--white);
+    opacity: 1;
+    transition: background-color 0.3s;
 
-  function initHomeSwiper(element) {
-    console.log(element);
-    return new Swiper(element, {
-      loop: true,
-      autoplay: {
-        delay: 5000,
-      },
-      slidesPerView: 1,
-      spaceBetween: 0,
-      effect: "fade",
-      fadeEffect: {
-        crossFade: true,
-      },
-      pagination: {
-        el: ".carousel-pagination",
-        type: "bullets",
-      },
-      breakpoints: {
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 0,
-        },
-        768: {
-          slidesPerView: 1,
-          spaceBetween: 0,
-        },
-        1024: {
-          slidesPerView: 1,
-          spaceBetween: 0,
-        },
-      },
-    });
+    &.swiper-pagination-bullet-active {
+      background: var(--white);
+    }
   }
-  // document.addEventListener("alpine:init", () => {
-  //   Alpine.data("homeSwiper", () => ({
-  //     swiper: null,
-  //     init() {
-  //       this.swiper = new Swiper(this.$refs.container, {
-  //         loop: true,
-  //         autoplay: {
-  //           delay: 5000,
-  //         },
-  //         slidesPerView: 1,
-  //         spaceBetween: 0,
-  //         effect: "fade",
-  //         fadeEffect: {
-  //           crossFade: true,
-  //         },
-  //         pagination: {
-  //           el: ".carousel-pagination",
-  //           type: "bullets",
-  //         },
-  //         breakpoints: {
-  //           640: {
-  //             slidesPerView: 1,
-  //             spaceBetween: 0,
-  //           },
-  //           768: {
-  //             slidesPerView: 1,
-  //             spaceBetween: 0,
-  //           },
-  //           1024: {
-  //             slidesPerView: 1,
-  //             spaceBetween: 0,
-  //           },
-  //         },
-  //       });
-  //     },
-  //   }));
-  // });
-
-  // }
-</script>
+</style>

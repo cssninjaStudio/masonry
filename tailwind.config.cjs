@@ -23,6 +23,9 @@ module.exports = {
         success: "#06d6a0",
         warning: "#faae42",
         danger: "#e62965",
+        yellow: "#ffd770",
+        purple: "#8168b1",
+        orange: "#ffa880",
 
         "semi-white": "#f5f6fa",
         "blue-gray": "#747990",

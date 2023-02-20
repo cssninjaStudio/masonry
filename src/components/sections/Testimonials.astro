@@ -1,10 +1,25 @@
 ---
 import TestimonialCard from "@components/ui/TestimonialCard.astro";
+
+interface Props {
+  centerText?: boolean;
+}
+
+const { centerText = false } = Astro.props;
 ---
 
 <section class="py-12 px-6 lg:p-12 dark:bg-dark-purple-1">
   <div class="container flex flex-col">
-    <h1 class="title-2 mb-8">What they say about us</h1>
+    <div class:list={["mb-8", { "flex flex-col items-center": centerText }]}>
+      <h1 class="title-2">What they say about us</h1>
+      {
+        centerText && (
+          <p class="text-xl text-[#9da0b4] text-center">
+            Yeah, we know... That's a bunch of happy people
+          </p>
+        )
+      }
+    </div>
 
     <!-- testimonials -->
     <div

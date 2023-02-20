@@ -1,14 +1,92 @@
 ---
+import { Image } from "@astrojs/image/components";
 import EngageCTA from "@components/sections/EngageCTA.astro";
 import IconMatrix from "@components/sections/IconMatrix.astro";
 import Logos from "@components/sections/Logos.astro";
 import PropertyGrid from "@components/sections/PropertyGrid.astro";
 import Testimonials from "@components/sections/Testimonials.astro";
 import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon";
 ---
 
 <Layout title="About">
   <main id="About">
+    <!-- FOUNDER -->
+    <section class="py-12 dark:bg-dark-purple-1 px-6">
+      <div class="container pb-16 mb-4 border-b border-blue-gray">
+        <div class="flex items-center">
+          <div class="p-3 ml-[8.3%] w-2/5">
+            <span
+              class="grid place-items-center rounded text-xs leading-[2.5] px-3 text-primary mb-2 border border-primary w-max uppercase h-10"
+              >ABOUT US</span
+            >
+            <h3
+              class="font-TitilliumWeb font-light text-[2rem] text-dark dark:text-semi-white-2 leading-[1.125]"
+            >
+              Joshua Stevens, our Founder
+            </h3>
+            <p class="py-2 max-w-[27.5rem] text-blue-gray">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Illud non
+              continuo, ut aeque incontentae. Duo Reges: constructio interrete.
+              Si qua in iis corrigere voluit.
+            </p>
+
+            <div class="property-details grid grid-cols-3 py-8">
+              <div class="property-detail">
+                <div
+                  class="detail-head flex gap-2 items-center text-semi-white-2"
+                >
+                  <Icon class="h-5 aspect-auto" name="lucide:building" />
+                  <span>30K</span>
+                </div>
+                <div class="detail-content">
+                  <p class="text-base text-ice-blue">Housings sold</p>
+                </div>
+              </div>
+              <div class="property-detail">
+                <div
+                  class="detail-head flex gap-2 items-center text-semi-white-2"
+                >
+                  <Icon class="h-5 aspect-auto" name="lucide:crown" />
+                  <span>50K</span>
+                </div>
+                <div class="detail-content">
+                  <p class="text-base text-ice-blue">Happy clients</p>
+                </div>
+              </div>
+              <div class="property-detail">
+                <div
+                  class="detail-head flex gap-2 items-center text-semi-white-2"
+                >
+                  <Icon class="h-5 aspect-auto" name="lucide:building-2" />
+                  <span>247</span>
+                </div>
+                <div class="detail-content">
+                  <p class="text-base text-ice-blue">Live projects</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3 w-1/2">
+            <div
+              class="relative flex flex-col justify-end max-w-[480px] min-h-[450px] -mt-8 mx-auto"
+            >
+              <Image
+                height={676}
+                width={500}
+                class="block absolute bottom-0 left-1/2 -translate-x-1/2 max-w-[320px] z-[2]"
+                src="/images/photo/person-clip.webp"
+                alt=""
+              />
+
+              <div class="relative w-full pt-[58%] opacity-20 bg-yellow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- BOXES SECTION -->
     <section class="boxes-section dark:bg-dark-purple-1 px-6 py-12 pb-[60px]">
       <div class="container flex flex-col md:flex-row items-center gap-6">

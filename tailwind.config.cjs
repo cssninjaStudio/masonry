@@ -27,7 +27,7 @@ module.exports = {
         purple: "#8168b1",
         orange: "#ffa880",
 
-        "semi-white": "#f5f6fa",
+        "semi-white": { 1: "#f5f6fa", 2: "#f7f7f8" },
         "blue-gray": "#747990",
         "ice-blue": "#a2a5b9",
         "dark-blue": "#0c0c18",

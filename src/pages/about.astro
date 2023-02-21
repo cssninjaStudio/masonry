@@ -15,25 +15,29 @@ import { Icon } from "astro-icon";
     <section
       class="min-h-screen dark:bg-dark-blue bg-semi-white-1 relative flex flex-col justify-between items-stretch"
     >
-      <div class="flex items-center p-12 flex-grow flex-shrink-0">
+      <div
+        class="flex items-center px-6 py-12 md:px-12 flex-grow flex-shrink-0"
+      >
         <div class="container">
-          <div class="flex items-center">
-            <div class="w-1/3 p-3">
+          <div class="flex flex-col md:flex-row md:items-center">
+            <div class="md:w-1/3 md:p-3">
               <div class="hero-caption">
                 <h1
-                  class="dark:text-semi-white-2 text-5xl mb-6 font-TitilliumWeb text-dark"
+                  class="dark:text-semi-white-2 text-center md:text-left text-[2rem] font-light leading-none md:text-5xl mb-6 font-TitilliumWeb text-dark"
                 >
                   Find the house of your dreams.
                 </h1>
                 <h2
-                  class="mb-6 text-xl text-blue-gray dark:text-ice-blue leading-[1.25]"
+                  class="mb-6 text-xl text-blue-gray text-center md:text-left dark:text-ice-blue leading-[1.25]"
                 >
                   We help you find the perfect space that will make you and your
                   family happy.
                 </h2>
 
                 <!-- buttons -->
-                <div class="flex items-center gap-2">
+                <div
+                  class="flex justify-center md:justify-start items-center gap-2"
+                >
                   <a
                     href="#start-section"
                     class="h-[44px] transition-all duration-300 px-4 py-2 text-center whitespace-nowrap flex justify-center items-center mb-2 bg-primary text-white text-[.9rem] font-medium rounded-[.2rem] min-w-[8rem]"
@@ -47,7 +51,7 @@ import { Icon } from "astro-icon";
                 </div>
               </div>
             </div>
-            <div class="p-3 w-3/5 ml-[8.3%]">
+            <div class="md:p-3 md:w-3/5 md:ml-[8.3%]">
               <figure class="block relative">
                 <img
                   src="/images/illustrations/hero-next.svg"
@@ -160,12 +164,12 @@ import { Icon } from "astro-icon";
 
           <div class="p-3 md:w-1/2">
             <div
-              class="relative flex flex-col justify-end max-w-[480px] min-h-[450px] -mt-8 mx-auto"
+              class="relative flex flex-col justify-end max-w-[480px] min-h-[380px] md:min-h-[450px] -mt-8 mx-auto"
             >
               <Image
                 height={676}
                 width={500}
-                class="block absolute bottom-0 left-1/2 -translate-x-1/2 max-w-[320px] z-[2]"
+                class="block absolute bottom-0 left-1/2 -translate-x-1/2 max-w-[280px] md:max-w-[320px] z-[2]"
                 src="/images/photo/person-clip.webp"
                 alt=""
               />

@@ -70,21 +70,28 @@ const { title = "", description = "", ...props } = Astro.props;
     </script>
 
     <script>
-      import { setDarkTheme, setLightTheme } from "@utils/utils";
+      import {
+        MANSORY_THEME,
+        setDarkTheme,
+        setLightTheme,
+        themeIsDark,
+      } from "@utils/utils";
 
-      const themeToggles = [...document.querySelectorAll(".darkToggle")];
+      const themeToggles = [
+        ...document.querySelectorAll(".darkToggle"),
+      ] as HTMLButtonElement[];
+
       // AUTO DARK/LIGHT
       window.addEventListener("DOMContentLoaded", () => {
         if (
-          localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
+          themeIsDark() ||
+          (!(MANSORY_THEME in localStorage) &&
             window.matchMedia("(prefers-color-scheme: dark)").matches)
         ) {
           setDarkTheme();
           themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "true"));
         } else {
           setLightTheme();
-
           themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "false"));
         }
       });

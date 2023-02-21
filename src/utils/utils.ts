@@ -1,5 +1,7 @@
 import { APP } from "@data/config";
 
+export const MANSORY_THEME = "mansory-theme";
+
 // set page title
 export function setTitle(title: string) {
   return title === "" ? APP.name : APP.name + " - " + title;
@@ -22,17 +24,17 @@ export function currency(amount: number) {
 
 export function setDarkTheme() {
   document.documentElement.classList.add("dark");
-  localStorage.setItem("mansory-theme", "dark");
+  localStorage.setItem(MANSORY_THEME, "dark");
 }
 
 export function setLightTheme() {
   document.documentElement.classList.remove("dark");
-  localStorage.setItem("mansory-theme", "light");
-}
-export function themeIsDark() {
-  return localStorage.getItem("mansory-theme") === "dark";
+  localStorage.setItem(MANSORY_THEME, "light");
 }
 
+export function themeIsDark() {
+  return localStorage.getItem(MANSORY_THEME) === "dark";
+}
 export function themeIsLight() {
-  return localStorage.getItem("mansory-theme") === "light";
+  return localStorage.getItem(MANSORY_THEME) === "light";
 }

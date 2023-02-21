@@ -1,14 +1,313 @@
 ---
+import { Image } from "@astrojs/image/components";
 import EngageCTA from "@components/sections/EngageCTA.astro";
 import IconMatrix from "@components/sections/IconMatrix.astro";
 import Logos from "@components/sections/Logos.astro";
 import PropertyGrid from "@components/sections/PropertyGrid.astro";
 import Testimonials from "@components/sections/Testimonials.astro";
 import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon";
 ---
 
 <Layout title="About">
   <main id="About">
+    <!-- HERO -->
+    <section
+      class="min-h-screen dark:bg-dark-blue bg-semi-white-1 relative flex flex-col justify-between items-stretch"
+    >
+      <div
+        class="flex items-center px-6 py-12 md:px-12 flex-grow flex-shrink-0"
+      >
+        <div class="container">
+          <div class="flex flex-col md:flex-row md:items-center">
+            <div class="md:w-1/3 md:p-3">
+              <div class="hero-caption">
+                <h1
+                  class="dark:text-semi-white-2 text-center md:text-left text-[2rem] font-light leading-none md:text-5xl mb-6 font-TitilliumWeb text-dark"
+                >
+                  Find the house of your dreams.
+                </h1>
+                <h2
+                  class="mb-6 text-xl text-blue-gray text-center md:text-left dark:text-ice-blue leading-[1.25]"
+                >
+                  We help you find the perfect space that will make you and your
+                  family happy.
+                </h2>
+
+                <!-- buttons -->
+                <div
+                  class="flex justify-center md:justify-start items-center gap-2"
+                >
+                  <a
+                    href="#start-section"
+                    class="h-[44px] transition-all duration-300 px-4 py-2 text-center whitespace-nowrap flex justify-center items-center mb-2 bg-primary text-white text-[.9rem] font-medium rounded-[.2rem] min-w-[8rem]"
+                    >Learn more</a
+                  >
+                  <a
+                    href="#quote-section"
+                    class="h-[44px] border border-[rgb(227,227,227)] dark:border-dark-purple-5 text-dark dark:text-white rounded-[.2rem] bg-white dark:bg-dark-purple-2 transition-all duration-300 px-4 py-2 text-center whitespace-nowrap flex justify-center items-center mb-2 is-solid min-w-[8rem]"
+                    >Get a quote</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="md:p-3 md:w-3/5 md:ml-[8.3%]">
+              <figure class="block relative">
+                <img
+                  src="/images/illustrations/hero-next.svg"
+                  alt="Hero image"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-foot flex-grow-0 flex-shrink-0">
+        <div class="container">
+          <div
+            class="flex items-stretch justify-between overflow-hidden overflow-x-auto whitespace-nowrap"
+          >
+            <ul class="flex justify-center items-center list-none gap-5 w-full">
+              <li>
+                <img
+                  class="max-w-[120px] min-h-[20px] invert-[1]"
+                  src="/images/logos/vonmo.svg"
+                  alt="Customer logo"
+                />
+              </li>
+              <li>
+                <img
+                  class="max-w-[120px] min-h-[20px] invert-[1]"
+                  src="/images/logos/asuna.svg"
+                  alt="Customer logo"
+                />
+              </li>
+              <li>
+                <img
+                  class="max-w-[120px] min-h-[20px] invert-[1]"
+                  src="/images/logos/bobcot.svg"
+                  alt="Customer logo"
+                />
+              </li>
+              <li>
+                <img
+                  class="max-w-[120px] min-h-[20px] invert-[1]"
+                  src="/images/logos/infinite.svg"
+                  alt="Customer logo"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUNDER -->
+    <section class="py-12 md:pt-36 dark:bg-dark-purple-1 px-6">
+      <div
+        class="container pb-16 mb-4 border-b dark:border-[#26264b] border-[#e3e3e3]"
+      >
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="p-3 md:ml-[8.3%] md:w-2/5">
+            <span
+              class="grid place-items-center rounded text-xs leading-[2.5] px-3 text-primary mb-2 border border-primary w-max uppercase h-10"
+              >ABOUT US</span
+            >
+            <h3
+              class="font-TitilliumWeb font-light text-[2rem] text-dark dark:text-semi-white-2 leading-[1.125]"
+            >
+              Joshua Stevens, our Founder
+            </h3>
+            <p class="py-2 max-w-[27.5rem] text-blue-gray">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Illud non
+              continuo, ut aeque incontentae. Duo Reges: constructio interrete.
+              Si qua in iis corrigere voluit.
+            </p>
+
+            <div class="property-details grid grid-cols-3 py-8">
+              <div class="property-detail">
+                <div
+                  class="detail-head flex gap-2 items-center text-dark dark:text-semi-white-2"
+                >
+                  <Icon class="h-5 aspect-auto" name="lucide:building" />
+                  <span class="font-bold text-xl">30K</span>
+                </div>
+                <div class="detail-content">
+                  <p class="text-base text-ice-blue">Housings sold</p>
+                </div>
+              </div>
+              <div class="property-detail">
+                <div
+                  class="detail-head flex gap-2 items-center text-dark dark:text-semi-white-2"
+                >
+                  <Icon class="h-5 aspect-auto" name="lucide:crown" />
+                  <span class="font-bold text-xl">50K</span>
+                </div>
+                <div class="detail-content">
+                  <p class="text-base text-ice-blue">Happy clients</p>
+                </div>
+              </div>
+              <div class="property-detail">
+                <div
+                  class="detail-head flex gap-2 items-center text-dark dark:text-semi-white-2"
+                >
+                  <Icon class="h-5 aspect-auto" name="lucide:building-2" />
+                  <span class="font-bold text-xl">247</span>
+                </div>
+                <div class="detail-content">
+                  <p class="text-base text-ice-blue">Live projects</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3 md:w-1/2">
+            <div
+              class="relative flex flex-col justify-end max-w-[480px] min-h-[380px] md:min-h-[450px] -mt-8 mx-auto"
+            >
+              <Image
+                height={676}
+                width={500}
+                class="block absolute bottom-0 left-1/2 -translate-x-1/2 max-w-[280px] md:max-w-[320px] z-[2]"
+                src="/images/photo/person-clip.webp"
+                alt=""
+              />
+
+              <div class="relative w-full pt-[58%] opacity-20 bg-yellow"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOXES SECTION -->
+    <section class="boxes-section dark:bg-dark-purple-1 px-6 py-12 pb-[60px]">
+      <div class="container flex flex-col md:flex-row items-center gap-6">
+        <div class="w-full md:w-1/3">
+          <h3
+            class="font-TitilliumWeb font-light text-[2rem] text-dark dark:text-semi-white-2 leading-[1.125] mb-6"
+          >
+            We help you customize everything
+          </h3>
+          <p class="text-blue-gray text-base">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prioris
+            generis est docilitas, memoria; Cur haec eadem Democritus? Memini
+            vero, inquam; Duo Reges: constructio interrete.
+          </p>
+        </div>
+        <div class="w-full md:w-1/3 flex flex-col gap-5 mb-5 md:-mt-[90px]">
+          <div class="box-wrap">
+            <div
+              class="icon-box dark:bg-dark-purple-2 p-8 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+            >
+              <img
+                class="w-[54px] h-auto dark:hidden"
+                src="/images/icons/f1.svg"
+                alt=""
+              />
+              <img
+                class="w-[54px] h-auto hidden dark:block"
+                src="/images/icons/f1-dark.svg"
+                alt=""
+              />
+              <h4
+                class="box-title py-1.5 text-lg text-dark dark:text-semi-white-2"
+              >
+                Furnitures
+              </h4>
+              <p class="text-[.9rem] text-blue-gray">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prioris
+                generis est docilitas, memoria; Cur haec eadem Democritus?
+                Memini vero, inquam.
+              </p>
+            </div>
+          </div>
+          <div class="box-wrap">
+            <div
+              class="icon-box dark:bg-dark-purple-2 p-8 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+            >
+              <img
+                class="w-[54px] h-auto dark:hidden"
+                src="/images/icons/f2.svg"
+                alt=""
+              />
+              <img
+                class="w-[54px] h-auto hidden dark:block"
+                src="/images/icons/f2-dark.svg"
+                alt=""
+              />
+              <h4
+                class="box-title py-1.5 text-lg text-dark dark:text-semi-white-2"
+              >
+                Windows & Light
+              </h4>
+              <p class="text-[.9rem] text-blue-gray">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prioris
+                generis est docilitas, memoria; Cur haec eadem Democritus?
+                Memini vero, inquam.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 flex flex-col gap-5 mb-5 mt-5 md:mt-10">
+          <div class="box-wrap">
+            <div
+              class="icon-box dark:bg-dark-purple-2 p-8 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+            >
+              <img
+                class="w-[54px] h-auto dark:hidden"
+                src="/images/icons/f3.svg"
+                alt=""
+              />
+              <img
+                class="w-[54px] h-auto hidden dark:block"
+                src="/images/icons/f3-dark.svg"
+                alt=""
+              />
+              <h4
+                class="box-title py-1.5 text-lg text-dark dark:text-semi-white-2"
+              >
+                Bathrooms
+              </h4>
+              <p class="text-[.9rem] text-blue-gray">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prioris
+                generis est docilitas, memoria; Cur haec eadem Democritus?
+                Memini vero, inquam.
+              </p>
+            </div>
+          </div>
+          <div class="box-wrap">
+            <div
+              class="icon-box dark:bg-dark-purple-2 p-8 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+            >
+              <img
+                class="w-[54px] h-auto dark:hidden"
+                src="/images/icons/f4.svg"
+                alt=""
+              />
+              <img
+                class="w-[54px] h-auto hidden dark:block"
+                src="/images/icons/f4-dark.svg"
+                alt=""
+              />
+              <h4
+                class="box-title py-1.5 text-lg text-dark dark:text-semi-white-2"
+              >
+                Kitchens
+              </h4>
+              <p class="text-[.9rem] text-blue-gray">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Prioris
+                generis est docilitas, memoria; Cur haec eadem Democritus?
+                Memini vero, inquam.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIDE FEATURES -->
     <section class="dark:bg-dark-purple-1 pb-12 px-6">
       <!-- moving fees  -->
       <div

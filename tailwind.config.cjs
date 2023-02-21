@@ -27,7 +27,7 @@ module.exports = {
         purple: "#8168b1",
         orange: "#ffa880",
 
-        "semi-white": "#f5f6fa",
+        "semi-white": { 1: "#f5f6fa", 2: "#f7f7f8" },
         "blue-gray": "#747990",
         "ice-blue": "#a2a5b9",
         "dark-blue": "#0c0c18",
@@ -36,6 +36,7 @@ module.exports = {
           2: "#18182f",
           3: "#1f1f3c",
           4: "#1e1e3b",
+          5: "#151829",
         },
       },
     },

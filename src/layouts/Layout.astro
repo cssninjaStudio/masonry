@@ -129,13 +129,15 @@ const { title = "", description = "", ...props } = Astro.props;
               // Looping through video <source>
               for (const sourceIndex in video.children) {
                 // get <source> at index sourceIndex
-                const videoSource = video.children[sourceIndex];
+                const videoSource = video.children[
+                  sourceIndex
+                ] as HTMLSourceElement;
                 // verify if its <source> tag
                 if (
                   typeof videoSource.tagName === "string" &&
                   videoSource.tagName === "SOURCE"
                 ) {
-                  videoSource.src = videoSource.dataset.src;
+                  videoSource.src = videoSource.dataset.src as string;
                 }
               }
 

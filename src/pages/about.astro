@@ -11,8 +11,96 @@ import { Icon } from "astro-icon";
 
 <Layout title="About">
   <main id="About">
+    <!-- HERO -->
+    <section
+      class="min-h-screen dark:bg-dark-blue bg-semi-white-1 relative flex flex-col justify-between items-stretch"
+    >
+      <div class="flex items-center p-12 flex-grow flex-shrink-0">
+        <div class="container">
+          <div class="flex items-center">
+            <div class="w-1/3 p-3">
+              <div class="hero-caption">
+                <h1
+                  class="dark:text-semi-white-2 text-5xl mb-6 font-TitilliumWeb text-dark"
+                >
+                  Find the house of your dreams.
+                </h1>
+                <h2
+                  class="mb-6 text-xl text-blue-gray dark:text-ice-blue leading-[1.25]"
+                >
+                  We help you find the perfect space that will make you and your
+                  family happy.
+                </h2>
+
+                <!-- buttons -->
+                <div class="flex items-center gap-2">
+                  <a
+                    href="#start-section"
+                    class="h-[44px] transition-all duration-300 px-4 py-2 text-center whitespace-nowrap flex justify-center items-center mb-2 bg-primary text-white text-[.9rem] font-medium rounded-[.2rem] min-w-[8rem]"
+                    >Learn more</a
+                  >
+                  <a
+                    href="#quote-section"
+                    class="h-[44px] border border-[rgb(227,227,227)] dark:border-dark-purple-5 text-dark dark:text-white rounded-[.2rem] bg-white dark:bg-dark-purple-2 transition-all duration-300 px-4 py-2 text-center whitespace-nowrap flex justify-center items-center mb-2 is-solid min-w-[8rem]"
+                    >Get a quote</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="p-3 w-3/5 ml-[8.3%]">
+              <figure class="block relative">
+                <img
+                  src="/images/illustrations/hero-next.svg"
+                  alt="Hero image"
+                />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-foot flex-grow-0 flex-shrink-0">
+        <div class="container">
+          <div
+            class="flex items-stretch justify-between overflow-hidden overflow-x-auto whitespace-nowrap"
+          >
+            <ul class="flex justify-center items-center list-none gap-5 w-full">
+              <li>
+                <img
+                  class="max-w-[120px] min-h-[20px] invert-[1]"
+                  src="/images/logos/vonmo.svg"
+                  alt="Customer logo"
+                />
+              </li>
+              <li>
+                <img
+                  class="max-w-[120px] min-h-[20px] invert-[1]"
+                  src="/images/logos/asuna.svg"
+                  alt="Customer logo"
+                />
+              </li>
+              <li>
+                <img
+                  class="max-w-[120px] min-h-[20px] invert-[1]"
+                  src="/images/logos/bobcot.svg"
+                  alt="Customer logo"
+                />
+              </li>
+              <li>
+                <img
+                  class="max-w-[120px] min-h-[20px] invert-[1]"
+                  src="/images/logos/infinite.svg"
+                  alt="Customer logo"
+                />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FOUNDER -->
-    <section class="py-12 dark:bg-dark-purple-1 px-6">
+    <section class="py-12 pt-36 dark:bg-dark-purple-1 px-6">
       <div class="container pb-16 mb-4 border-b border-blue-gray">
         <div class="flex items-center">
           <div class="p-3 ml-[8.3%] w-2/5">
@@ -34,10 +122,10 @@ import { Icon } from "astro-icon";
             <div class="property-details grid grid-cols-3 py-8">
               <div class="property-detail">
                 <div
-                  class="detail-head flex gap-2 items-center text-semi-white-2"
+                  class="detail-head flex gap-2 items-center text-dark dark:text-semi-white-2"
                 >
                   <Icon class="h-5 aspect-auto" name="lucide:building" />
-                  <span>30K</span>
+                  <span class="font-bold text-xl">30K</span>
                 </div>
                 <div class="detail-content">
                   <p class="text-base text-ice-blue">Housings sold</p>
@@ -45,10 +133,10 @@ import { Icon } from "astro-icon";
               </div>
               <div class="property-detail">
                 <div
-                  class="detail-head flex gap-2 items-center text-semi-white-2"
+                  class="detail-head flex gap-2 items-center text-dark dark:text-semi-white-2"
                 >
                   <Icon class="h-5 aspect-auto" name="lucide:crown" />
-                  <span>50K</span>
+                  <span class="font-bold text-xl">50K</span>
                 </div>
                 <div class="detail-content">
                   <p class="text-base text-ice-blue">Happy clients</p>
@@ -56,10 +144,10 @@ import { Icon } from "astro-icon";
               </div>
               <div class="property-detail">
                 <div
-                  class="detail-head flex gap-2 items-center text-semi-white-2"
+                  class="detail-head flex gap-2 items-center text-dark dark:text-semi-white-2"
                 >
                   <Icon class="h-5 aspect-auto" name="lucide:building-2" />
-                  <span>247</span>
+                  <span class="font-bold text-xl">247</span>
                 </div>
                 <div class="detail-content">
                   <p class="text-base text-ice-blue">Live projects</p>

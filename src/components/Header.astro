@@ -317,51 +317,30 @@ import MegaMenu from "./ui/MegaMenu.astro";
 </style>
 
 <script>
-  const menuBtn = document.querySelector("#MenuToggle");
-  const headWrapper = document.querySelector("#HeaderWrapper");
-
-  menuBtn.addEventListener("click", () => {
-    const DROPPED = headWrapper.dataset.dropMenu === "true";
-
-    if (DROPPED) {
-      headWrapper.dataset.dropMenu = "false";
-    } else {
-      headWrapper.dataset.dropMenu = "true";
-    }
-  });
-</script>
-
-<script>
   window.addEventListener("DOMContentLoaded", () => {
-    const headWrapper = document.querySelector("#HeaderWrapper");
-    const targets = [
-      document.querySelector("#HeroContent h1"),
-      ...document.querySelectorAll("div"),
-    ];
+    const menuBtn = document.querySelector("#MenuToggle") as HTMLButtonElement;
+    const headWrapper = document.querySelector("#HeaderWrapper") as HTMLElement;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const scrollThreshold = 40;
-            if (
-              document.documentElement.scrollTop > scrollThreshold ||
-              document.body.scrollTop > scrollThreshold
-            ) {
-              headWrapper.dataset.scrolled = "true";
-              headWrapper.dataset.pastThreshHold = "true";
-            } else {
-              headWrapper.dataset.scrolled = "false";
-            }
-          }
-        });
-      },
-      { rootMargin: "-300px" }
-    );
+    // SCROLL DETECTING
+    window.onscroll = function () {
+      if (window.scrollY > 40) {
+        headWrapper.dataset.scrolled = "true";
+        headWrapper.dataset.pastThreshHold = "true";
+      } else {
+        headWrapper.dataset.scrolled = "false";
+      }
+    };
 
-    targets.forEach((target) => {
-      target && observer.observe(target);
-    });
+    // TOGGLE MENU
+    menuBtn.onclick = function () {
+      const DROPPED = headWrapper.dataset.dropMenu === "true";
+
+      if (DROPPED) {
+        headWrapper.dataset.dropMenu = "false";
+      } else {
+        headWrapper.dataset.dropMenu = "true";
+      }
+    };
   });
 </script>
 

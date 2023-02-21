@@ -32,7 +32,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
               href="#"
               data-megamenu-toggle
               data-toggle="propertiesMega"
-              class="py-2 px-3 leading-6 text-base group text-blue-gray hover:text-white flex items-center gap-1"
+              class="py-2 px-3 leading-6 text-base group text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center gap-1"
               >Properties <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -53,7 +53,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
               href="#"
               data-toggle="rentalsMega"
               data-megamenu-toggle
-              class="py-2 px-3 leading-6 group text-base text-blue-gray hover:text-white flex items-center gap-1"
+              class="py-2 px-3 leading-6 group text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center gap-1"
               >Rentals <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -72,7 +72,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           <li>
             <a
               href="/about"
-              class="py-2 px-3 leading-6 text-base text-blue-gray block"
+              class="py-2 px-3 leading-6 text-base text-blue-gray hover:text-dark dark:hover:text-white block transition-all duration-300"
               >About</a
             >
           </li>
@@ -81,14 +81,21 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
       <ul id="RightLinks" class="hidden lg:flex items-center gap-6">
         <li class="h-max flex justify-center items-center">
-          <a href="/" class="py-2 leading-6 text-base text-white">Sign In</a>
+          <a
+            href="/"
+            class="py-2 leading-6 text-base text-white hover:text-dark dark:hover:text-white transition-all duration-300"
+            >Sign In</a
+          >
         </li>
 
         <!-- search -->
         <li
           class="search h-max pl-6 flex justify-center items-center dark:border-dark-purple-3"
         >
-          <a href="" class="inline-block text-base text-white">
+          <a
+            href=""
+            class="inline-block text-base text-white hover:text-dark dark:hover:text-white transition-all duration-300"
+          >
             <svg
               class="w-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +120,10 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
         <!-- whishlist -->
         <li class="h-max flex justify-center items-center">
-          <a href="/about" class="inline-block text-base text-white">
+          <a
+            href="/about"
+            class="inline-block text-base text-white hover:text-dark dark:hover:text-white transition-all duration-300"
+          >
             <Icon name="lucide:heart" class="w-4 aspect-auto" />
           </a>
         </li>
@@ -308,7 +318,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
   [data-scrolled="true"] header ul#RightLinks li:first-child a,
   [data-scrolled="true"] header ul#RightLinks li svg {
-    @apply text-blue-gray;
+    @apply text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300;
   }
 
   [data-scrolled="true"] header ul#RightLinks li:last-child a {
@@ -323,7 +333,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
     // SCROLL DETECTING
     window.onscroll = function () {
-      if (window.scrollY > 40) {
+      if (window.scrollY >= 60) {
         headWrapper.dataset.scrolled = "true";
         headWrapper.dataset.pastThreshHold = "true";
       } else {

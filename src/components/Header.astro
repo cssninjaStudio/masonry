@@ -343,20 +343,3 @@ import MegaMenu from "./ui/MegaMenu.astro";
     };
   });
 </script>
-
-<script>
-  import { setDarkTheme, setLightTheme, themeIsDark } from "@utils/utils";
-
-  [...document.querySelectorAll(".darkToggle")].forEach((themeToggle) => {
-    themeToggle.addEventListener("click", () => {
-      if (themeIsDark()) {
-        setLightTheme();
-
-        themeToggle.dataset.darkMode = "false";
-      } else {
-        setDarkTheme();
-        themeToggle.dataset.darkMode = "true";
-      }
-    });
-  });
-</script>

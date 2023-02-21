@@ -77,12 +77,13 @@ const { title = "", description = "", ...props } = Astro.props;
         themeIsDark,
       } from "@utils/utils";
 
-      const themeToggles = [
-        ...document.querySelectorAll(".darkToggle"),
-      ] as HTMLButtonElement[];
-
-      // AUTO DARK/LIGHT
       window.addEventListener("DOMContentLoaded", () => {
+        const themeToggles = [
+          ...document.querySelectorAll(".darkToggle"),
+        ] as HTMLButtonElement[];
+
+        // REMEMBER PREFERENCE OR AUTO DARK/LIGHT ON LOAD
+
         if (
           themeIsDark() ||
           (!(MANSORY_THEME in localStorage) &&
@@ -94,6 +95,19 @@ const { title = "", description = "", ...props } = Astro.props;
           setLightTheme();
           themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "false"));
         }
+
+        // Handle theme toggle buttons
+        themeToggles.forEach((toggle) => {
+          toggle.onclick = function () {
+            if (themeIsDark()) {
+              setLightTheme();
+              toggle.dataset.darkMode = "false";
+            } else {
+              setDarkTheme();
+              toggle.dataset.darkMode = "true";
+            }
+          };
+        });
       });
     </script>
 

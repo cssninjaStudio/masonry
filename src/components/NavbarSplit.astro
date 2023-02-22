@@ -32,7 +32,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
               href="#"
               data-megamenu-toggle
               data-toggle="propertiesMega"
-              class="py-2 px-3 leading-6 text-base group text-blue-gray hover:text-white flex items-center gap-1"
+              class="py-2 px-3 leading-6 text-base group text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center gap-1"
               >Properties <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -53,7 +53,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
               href="#"
               data-toggle="rentalsMega"
               data-megamenu-toggle
-              class="py-2 px-3 leading-6 group text-base text-blue-gray hover:text-white flex items-center gap-1"
+              class="py-2 px-3 leading-6 group text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center gap-1"
               >Rentals <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -72,7 +72,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           <li>
             <a
               href="/about"
-              class="py-2 px-3 leading-6 text-base text-blue-gray block"
+              class="py-2 px-3 leading-6 text-base text-blue-gray hover:text-dark dark:hover:text-white block transition-all duration-300"
               >About</a
             >
           </li>
@@ -81,14 +81,21 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
       <ul id="RightLinks" class="hidden lg:flex items-center gap-6">
         <li class="h-max flex justify-center items-center">
-          <a href="/" class="py-2 leading-6 text-base text-white">Sign In</a>
+          <a
+            href="/"
+            class="py-2 leading-6 text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300"
+            >Sign In</a
+          >
         </li>
 
         <!-- search -->
         <li
           class="search h-max pl-6 flex justify-center items-center dark:border-dark-purple-3"
         >
-          <a href="" class="inline-block text-base text-white">
+          <a
+            href=""
+            class="inline-block text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300"
+          >
             <svg
               class="w-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +120,10 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
         <!-- whishlist -->
         <li class="h-max flex justify-center items-center">
-          <a href="/about" class="inline-block text-base text-white">
+          <a
+            href="/about"
+            class="inline-block text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300"
+          >
             <Icon name="lucide:heart" class="w-4 aspect-auto" />
           </a>
         </li>
@@ -127,13 +137,13 @@ import MegaMenu from "./ui/MegaMenu.astro";
             <!-- sun -->
             <Icon
               name="feather:sun"
-              class="lightIcon opacity-0 left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
+              class="lightIcon opacity-0 left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current text-yellow transition-all duration-300"
             />
 
             <!-- moon -->
             <Icon
               name="feather:moon"
-              class="darkIcon opacity-0 left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
+              class="darkIcon opacity-0 left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current text-yellow transition-all duration-300"
             />
           </button>
         </li>
@@ -278,14 +288,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
   }
 
   [data-scrolled="true"] header ul#RightLinks .darkToggle {
-    @apply border;
-  }
-  [data-scrolled="true"] header ul#RightLinks .darkToggle svg {
-    @apply text-[#ffd770];
-  }
-
-  [data-scrolled="false"] header ul#RightLinks .darkToggle svg {
-    @apply text-white;
+    @apply border text-dark-purple-1;
   }
 
   [data-drop-menu="true"] header button#MenuToggle #OpenIcon,
@@ -308,7 +311,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
   [data-scrolled="true"] header ul#RightLinks li:first-child a,
   [data-scrolled="true"] header ul#RightLinks li svg {
-    @apply text-blue-gray;
+    @apply text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300;
   }
 
   [data-scrolled="true"] header ul#RightLinks li:last-child a {
@@ -317,67 +320,29 @@ import MegaMenu from "./ui/MegaMenu.astro";
 </style>
 
 <script>
-  const menuBtn = document.querySelector("#MenuToggle");
-  const headWrapper = document.querySelector("#HeaderWrapper");
-
-  menuBtn.addEventListener("click", () => {
-    const DROPPED = headWrapper.dataset.dropMenu === "true";
-
-    if (DROPPED) {
-      headWrapper.dataset.dropMenu = "false";
-    } else {
-      headWrapper.dataset.dropMenu = "true";
-    }
-  });
-</script>
-
-<script>
   window.addEventListener("DOMContentLoaded", () => {
-    const headWrapper = document.querySelector("#HeaderWrapper");
-    const targets = [
-      document.querySelector("#HeroContent h1"),
-      ...document.querySelectorAll("div"),
-    ];
+    const menuBtn = document.querySelector("#MenuToggle") as HTMLButtonElement;
+    const headWrapper = document.querySelector("#HeaderWrapper") as HTMLElement;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const scrollThreshold = 40;
-            if (
-              document.documentElement.scrollTop > scrollThreshold ||
-              document.body.scrollTop > scrollThreshold
-            ) {
-              headWrapper.dataset.scrolled = "true";
-              headWrapper.dataset.pastThreshHold = "true";
-            } else {
-              headWrapper.dataset.scrolled = "false";
-            }
-          }
-        });
-      },
-      { rootMargin: "-300px" }
-    );
-
-    targets.forEach((target) => {
-      target && observer.observe(target);
-    });
-  });
-</script>
-
-<script>
-  import { setDarkTheme, setLightTheme, themeIsDark } from "@utils/utils";
-
-  [...document.querySelectorAll(".darkToggle")].forEach((themeToggle) => {
-    themeToggle.addEventListener("click", () => {
-      if (themeIsDark()) {
-        setLightTheme();
-
-        themeToggle.dataset.darkMode = "false";
+    // SCROLL DETECTING
+    window.onscroll = function () {
+      if (window.scrollY >= 60) {
+        headWrapper.dataset.scrolled = "true";
+        headWrapper.dataset.pastThreshHold = "true";
       } else {
-        setDarkTheme();
-        themeToggle.dataset.darkMode = "true";
+        headWrapper.dataset.scrolled = "false";
       }
-    });
+    };
+
+    // TOGGLE MENU
+    menuBtn.onclick = function () {
+      const DROPPED = headWrapper.dataset.dropMenu === "true";
+
+      if (DROPPED) {
+        headWrapper.dataset.dropMenu = "false";
+      } else {
+        headWrapper.dataset.dropMenu = "true";
+      }
+    };
   });
 </script>

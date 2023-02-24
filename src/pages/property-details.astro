@@ -290,8 +290,8 @@ import { Image } from "@astrojs/image/components";
             <div
               id="small-map"
               class="small-map w-full min-h-[220px] bg-ice-blue/10"
-              x-data="initSmallMap()"
-              x-init="initMap()"
+              x-data="smallMap"
+              x-ref="smallmap"
               data-long="-117.1627728"
               data-lat="32.7174202"
             >
@@ -301,4 +301,55 @@ import { Image } from "@astrojs/image/components";
       </section>
     </div>
   </main>
+
+  <!--  styles -->
+  <link
+    slot="head"
+    href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+    rel="stylesheet"
+  />
+
+  <!-- mapbox js -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"
+  ></script>
+
+  <!-- init mapbox map -->
+  <script>
+    import { MAPBOX_TOKEN } from "@/constants";
+
+    import { themeIsDark } from "@utils/utils";
+
+    document.addEventListener("alpine:init", () => {
+      // Small Map Data
+      Alpine.data("smallMap", () => ({
+        token: MAPBOX_TOKEN,
+        markerOptions: {
+          color: "red",
+        },
+        init() {
+          mapboxgl.accessToken = this.token;
+
+          const { long, lat } = this.$refs.smallmap.dataset;
+          const longitude = parseFloat(long);
+
+          const latitude = parseFloat(lat);
+
+          const smallMap = new mapboxgl.Map({
+            container: this.$refs.smallmap,
+            style: themeIsDark()
+              ? "mapbox://styles/mapbox/dark-v10"
+              : "mapbox://styles/mapbox/light-v10",
+            center: [longitude, latitude],
+            zoom: 12,
+          });
+
+          smallMap.addControl(new mapboxgl.NavigationControl());
+
+          const marker = new mapboxgl.Marker(this.markerOptions)
+            .setLngLat([longitude, latitude])
+            .addTo(smallMap);
+        },
+      }));
+    });
+  </script>
 </LayoutSplit>

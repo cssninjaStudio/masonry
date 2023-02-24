@@ -92,6 +92,7 @@ import { Image } from "@astrojs/image/components";
         <div class="property-details-inner flex items-stretch gap-8">
           <!-- left -->
           <div class="flex-grow-[2]">
+            <!-- property images -->
             <div class="property-images flex items-stretch gap-4 mb-4">
               <div class="main-image flex-grow-[2]">
                 <Image
@@ -129,6 +130,67 @@ import { Image } from "@astrojs/image/components";
                   data-zoom
                 />
               </div>
+            </div>
+
+            <!-- property content -->
+
+            <div class="property-content" x-data="{ activeTab: 'tab-1' }">
+              <div
+                class="tabs mb-6 flex text-base justify-between overflow-hidden overflow-x-auto"
+              >
+                <ul
+                  class="flex items-center flex-grow border-b border-gray-1 list-none"
+                >
+                  <li
+                    :class="activeTab === 'tab-1' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark'"
+                  >
+                    <a
+                      @click.prevent="activeTab = 'tab-1'"
+                      class="flex justify-center items-center py-2 px-4 border-b border-transparent text-ice-blue cursor-pointer no-underline -mb-px"
+                      >Description</a
+                    >
+                  </li>
+                  <li
+                    :class="activeTab === 'tab-2' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark'"
+                  >
+                    <a
+                      @click.prevent="activeTab = 'tab-2'"
+                      class="flex justify-center items-center py-2 px-4 border-b border-transparent text-ice-blue cursor-pointer no-underline -mb-px"
+                      >Amenities</a
+                    >
+                  </li>
+                  <li
+                    :class="activeTab === 'tab-3' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark'"
+                  >
+                    <a
+                      @click.prevent="activeTab = 'tab-3'"
+                      class="flex justify-center items-center py-2 px-4 border-b border-transparent text-ice-blue cursor-pointer no-underline -mb-px"
+                      >Comments</a
+                    >
+                  </li>
+                </ul>
+              </div>
+
+              <div x-show="activeTab === 'tab-1'" class="tab-content">
+                <p class="text-blue-gray text-base">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis
+                  est tam dissimile homini. Sedulo, inquam, faciam. Quae cum
+                  essent dicta, discessimus. Bona autem corporis huic sunt, quod
+                  posterius posui, similiora. Qui ita affectus, beatum esse
+                  numquam probabis; Restatis igitur vos; Duo Reges: constructio
+                  interrete.
+                </p>
+
+                <p class="text-blue-gray text-base mt-4">
+                  Quae cum essent dicta, discessimus. Bona autem corporis huic
+                  sunt, quod posterius posui, similiora. Qui ita affectus,
+                  beatum esse numquam probabis; Restatis igitur vos; Duo Reges:
+                  constructio interrete. Prodest, inquit, mihi eo esse animo. Ea
+                  possunt paria non esse. Negare non possum.
+                </p>
+              </div>
+
+
             </div>
           </div>
 
@@ -287,9 +349,10 @@ import { Image } from "@astrojs/image/components";
               Apply Now</button
             >
 
+            <!-- mapbox map -->
             <div
               id="small-map"
-              class="small-map w-full min-h-[220px] bg-ice-blue/10"
+              class="small-map w-full min-h-[220px]"
               x-data="smallMap"
               x-ref="smallmap"
               data-long="-117.1627728"
@@ -302,7 +365,7 @@ import { Image } from "@astrojs/image/components";
     </div>
   </main>
 
-  <!--  styles -->
+  <!-- add mapbox styles to head / slot="head" -->
   <link
     slot="head"
     href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"

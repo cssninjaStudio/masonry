@@ -36,6 +36,54 @@ import { Icon } from "astro-icon";
           </ul>
         </nav>
 
+        <div class="property-details-title flex items-end justify-between mb-6">
+          <!-- left -->
+          <div class="left">
+            <h2
+              class="dark:text-semi-white-3 text-[2rem] font-light font-TitilliumWeb text-dark mb-2"
+            >
+              High standing luxury apartment
+            </h2>
+            <div class="flex gap-4 text-base dark:text-semi-white-3 text-dark">
+              <a class="flex items-center gap-1 font-medium">
+                <Icon
+                  class="h-4 aspect-square fill-yellow stroke-yellow text-yellow"
+                  name="lucide:star"
+                />
+                <span>4,92 (263)</span>
+              </a>
+
+              <a
+                class="flex items-center font-medium relative after:content-[''] after:border-b after:border-[#717171] after:absolute after:left-0 after:w-full after:bottom-px"
+                >San Diego, CA</a
+              >
+            </div>
+          </div>
+
+          <!-- right -->
+          <div class="right flex gap-4">
+            <a
+              class="modal-trigger gap-1 flex items-center font-medium"
+              data-modal="listing-share-modal"
+            >
+              <Icon class="h-4 aspect-square" name="lucide:share-2" />
+              <span
+                class="relative text-dark dark:text-semi-white-3 after:content-[''] after:border-b after:border-[#717171] after:absolute after:left-0 after:w-full after:bottom-px"
+                >Share</span
+              >
+            </a>
+            <a
+              class="modal-trigger gap-1 flex items-center font-medium"
+              data-modal="listing-wishlist-modal"
+            >
+              <Icon class="h-4 aspect-square" name="lucide:heart" />
+              <span
+                class="relative text-dark dark:text-semi-white-3 after:content-[''] after:border-b after:border-[#717171] after:absolute after:left-0 after:w-full after:bottom-px"
+                >Save</span
+              >
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   </main>

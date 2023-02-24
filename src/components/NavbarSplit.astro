@@ -132,7 +132,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
         <li class="h-max flex justify-center items-center">
           <button
             data-dark-mode="false"
-            class="darkToggle relative w-9 aspect-square rounded-full border-[#e3e3e3] dark:border-dark-purple-3"
+            class="darkToggle relative w-9 aspect-square rounded-full border-gray-1 dark:border-dark-purple-3"
           >
             <!-- sun -->
             <Icon
@@ -303,10 +303,10 @@ import MegaMenu from "./ui/MegaMenu.astro";
     @apply hidden;
   }
   [data-scrolled="true"] #header {
-    @apply bg-white  border-b border-[#e3e3e3] dark:bg-dark-purple-2  [box-shadow:0_0_10px_0_rgba(0,0,0,.08)]  dark:border-dark-purple-3;
+    @apply bg-white  border-b border-gray-1 dark:bg-dark-purple-2  [box-shadow:0_0_10px_0_rgba(0,0,0,.08)]  dark:border-dark-purple-3;
   }
   [data-scrolled="true"] header ul#RightLinks li:nth-child(2) {
-    @apply border-l border-[#e3e3e3] dark:border-dark-purple-3 h-full;
+    @apply border-l border-gray-1 dark:border-dark-purple-3 h-full;
   }
 
   [data-scrolled="true"] header ul#RightLinks li:first-child a,

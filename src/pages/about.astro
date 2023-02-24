@@ -45,7 +45,7 @@ import { Icon } from "astro-icon";
                   >
                   <a
                     href="#quote-section"
-                    class="h-[44px] border border-[rgb(227,227,227)] dark:border-dark-purple-5 text-dark dark:text-white rounded-[.2rem] bg-white dark:bg-dark-purple-2 transition-all duration-300 px-4 py-2 text-center whitespace-nowrap flex justify-center items-center mb-2 is-solid min-w-[8rem]"
+                    class="h-[44px] border border-gray-1 dark:border-dark-purple-5 text-dark dark:text-white rounded-[.2rem] bg-white dark:bg-dark-purple-2 transition-all duration-300 px-4 py-2 text-center whitespace-nowrap flex justify-center items-center mb-2 is-solid min-w-[8rem]"
                     >Get a quote</a
                   >
                 </div>
@@ -106,7 +106,7 @@ import { Icon } from "astro-icon";
     <!-- FOUNDER -->
     <section class="py-12 md:pt-36 dark:bg-dark-purple-1 px-6">
       <div
-        class="container pb-16 mb-4 border-b dark:border-[#26264b] border-[#e3e3e3]"
+        class="container pb-16 mb-4 border-b dark:border-[#26264b] border-gray-1"
       >
         <div class="flex flex-col md:flex-row items-center">
           <div class="p-3 md:ml-[8.3%] md:w-2/5">
@@ -152,7 +152,28 @@ import { Icon } from "astro-icon";
                 <div
                   class="detail-head flex gap-2 items-center text-dark dark:text-semi-white-2"
                 >
-                  <Icon class="h-5 aspect-auto" name="lucide:building-2" />
+                  <svg
+                    class="h-5 aspect-auto"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    style="--darkreader-inline-stroke: currentColor;"
+                    data-darkreader-inline-stroke=""
+                    ><path
+                      d="M6 22V4c0-.27 0-.55.07-.82a1.477 1.477 0 0 1 1.1-1.11C7.46 2 8.73 2 9 2h7c.27 0 .55 0 .82.07a1.477 1.477 0 0 1 1.11 1.1c.07.28.07.56.07.83v18H6Z"
+                    ></path><path
+                      d="M2 14v6c0 1.1.9 2 2 2h2V12H4c-.27 0-.55 0-.82.07-.27.07-.52.2-.72.4-.19.19-.32.44-.39.71A3.4 3.4 0 0 0 2 14Z"
+                    ></path><path
+                      d="M20.82 9.07A3.4 3.4 0 0 0 20 9h-2v13h2a2 2 0 0 0 2-2v-9c0-.28 0-.55-.07-.82-.07-.27-.2-.52-.4-.72-.19-.19-.44-.32-.71-.39Z"
+                    ></path><path d="M10 6h4"></path><path d="M10 10h4"
+                    ></path><path d="M10 14h4"></path><path d="M10 18h4"
+                    ></path></svg
+                  >
+
                   <span class="font-bold text-xl">247</span>
                 </div>
                 <div class="detail-content">

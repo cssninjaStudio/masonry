@@ -1,0 +1,158 @@
+---
+import PropertySearch from "@components/ui/PropertySearch.astro";
+import LayoutSplit from "@layouts/LayoutSplit.astro";
+import PropertyCard from "@components/ui/PropertyCard.astro";
+import { property as properties } from "@data/property";
+import { Icon } from "astro-icon";
+---
+
+<LayoutSplit title="Properties">
+  <main id="Properties">
+    <!-- PROPERTY SEARCH -->
+    <section
+      class="bg-semi-white-1 dark:bg-dark-purple-1 flex flex-col items-center relative px-6 py-12 md:px-12"
+    >
+      <div class="max-w-[740px]">
+        <div class="pt-16 pb-6">
+          <h1
+            class="dark:text-white text-5xl font-TitilliumWeb text-dark font-light text-center mb-2"
+          >
+            Explore Properties
+          </h1>
+          <h2
+            class="text-xl text-blue-gray dark:text-ice-blue leading-5 text-center"
+          >
+            We help you find the perfect space for you and your family.
+          </h2>
+        </div>
+
+        <!-- search -->
+        <PropertySearch />
+      </div>
+    </section>
+
+    <!-- AVAILABLE PROPERTIES -->
+
+    <section class="bg-semi-white-1 dark:bg-dark-purple-1 px-6 py-12 md:px-12">
+      <div class="container">
+        <div class="icon-title flex items-center">
+          <div class="title-content">
+            <h2 class="dark:text-white text-2xl font-TitilliumWeb text-dark">
+              Available properties
+            </h2>
+            <h4 class="text-base text-blue-gray leading-5">
+              We found 345 matching properties
+            </h4>
+          </div>
+
+          <div
+            class="title-actions hidden md:flex items-center justify-end ml-auto"
+          >
+            <div class="relative">
+              <input
+                type="text"
+                class="pl-10 rounded h-10 border border-gray-1 dark:bg-dark-purple-2 dark:border-dark-purple-5 py-2 pr-3 leading-6 text-base text-blue-gray focus:outline-none peer"
+                placeholder="Filter..."
+              />
+
+              <div
+                class="absolute left-0 top-0 h-10 aspect-square flex justify-center items-center peer-focus:[&>svg]:text-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-[18px] text-[rgb(207,207,207)] aspect-square transition-all stroke-[1.6px] duration-300"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="--darkreader-inline-stroke: currentColor;"
+                  data-darkreader-inline-stroke=""
+                  ><circle cx="11" cy="11" r="8"></circle><line
+                    x1="21"
+                    y1="21"
+                    x2="16.65"
+                    y2="16.65"></line></svg
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- property cards -->
+        <div class="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {properties.map((property) => <PropertyCard {...property} />)}
+        </div>
+
+        <!-- pagination -->
+
+        <div class="py-12">
+          <nav
+            class="pagination flex flex-wrap justify-center md:justify-between items-center text-base gap-2"
+            role="navigation"
+            aria-label="pagination"
+          >
+            <a
+              class="pagination-previous flex-1 md:flex-initial dark:bg-dark-purple-2 dark:text-[whiteSmoke] dark:border-dark-purple-2 dark:hover:border-primary dark:hover:text-primary order-1 md:order-2 min-w-[40px] min-h-[40px] transition-all duration-300 hover:border-primary hover:text-primary border border-gray-1 bg-white items-center justify-center inline-flex p-2 rounded cursor-pointer"
+            >
+              <Icon class="h-4" name="lucide:arrow-left" />
+            </a>
+            <a
+              class="pagination-next flex-1 md:flex-initial dark:bg-dark-purple-2 dark:text-[whiteSmoke] dark:border-dark-purple-2 dark:hover:border-primary dark:hover:text-primary order-2 md:order-3 min-w-[40px] min-h-[40px] transition-all duration-300 hover:border-primary hover:text-primary border border-gray-1 bg-white justify-center items-center inline-flex p-2 rounded cursor-pointer"
+            >
+              <Icon class="h-4" name="lucide:arrow-right" />
+            </a>
+            <ul
+              class="pagination-list flex-grow flex-shrink flex justify-center md:justify-start items-center gap-1 list-none w-full md:w-auto order-3 md:order-1"
+            >
+              <li>
+                <a
+                  class="pagination-link dark:bg-dark-purple-2 dark:text-[whiteSmoke] dark:border-dark-purple-2 cursor-pointer rounded text-dark border border-gray-1 bg-white min-w-[2.5rem] justify-center inline-flex p-2 text-base"
+                  aria-label="Goto page 1">1</a
+                >
+              </li>
+              <li>
+                <span
+                  class="pagination-ellipsis text-[#ccc] text-base p-2 justify-center flex"
+                  >&hellip;</span
+                >
+              </li>
+              <li>
+                <a
+                  class="pagination-link dark:bg-dark-purple-2 dark:text-[whiteSmoke] dark:border-dark-purple-2 cursor-pointer rounded text-dark border border-gray-1 bg-white min-w-[2.5rem] justify-center inline-flex p-2 text-base"
+                  aria-label="Goto page 45">45</a
+                >
+              </li>
+              <li>
+                <a
+                  class="pagination-link cursor-pointer rounded text-white border dark:border-primary border-gray-1 bg-primary min-w-[2.5rem] justify-center inline-flex p-2 text-base is- [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px]"
+                  aria-label="Page 46"
+                  aria-current="page">46</a
+                >
+              </li>
+              <li>
+                <a
+                  class="pagination-link dark:bg-dark-purple-2 dark:text-[whiteSmoke] dark:border-dark-purple-2 cursor-pointer rounded text-dark border border-gray-1 bg-white min-w-[2.5rem] justify-center inline-flex p-2 text-base"
+                  aria-label="Goto page 47">47</a
+                >
+              </li>
+              <li>
+                <span
+                  class="pagination-ellipsis text-[#ccc] text-base p-2 justify-center flex"
+                  >&hellip;</span
+                >
+              </li>
+              <li>
+                <a
+                  class="pagination-link dark:bg-dark-purple-2 dark:text-[whiteSmoke] dark:border-dark-purple-2 cursor-pointer rounded text-dark border border-gray-1 bg-white min-w-[2.5rem] justify-center inline-flex p-2 text-base"
+                  aria-label="Goto page 86">86</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </main>
+</LayoutSplit>

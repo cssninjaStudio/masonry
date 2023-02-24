@@ -1,12 +1,14 @@
 ---
 import LayoutSplit from "@layouts/LayoutSplit.astro";
 import { Icon } from "astro-icon";
+import { Image } from "@astrojs/image/components";
 ---
 
 <LayoutSplit title="Property Details">
   <main id="PropertyDetails" class="dark:bg-dark-purple-2 p-12">
     <div class="container pb-12 mb-12">
-      <section class="relative">
+      <section class="property-details-wrapper relative">
+        <!-- breadcrumb -->
         <nav class="breadcrumb mt-12 mb-6" aria-label="breadcrumbs">
           <ul class="flex items-center">
             <li class="flex items-center">
@@ -36,6 +38,7 @@ import { Icon } from "astro-icon";
           </ul>
         </nav>
 
+        <!-- property details title -->
         <div class="property-details-title flex items-end justify-between mb-6">
           <!-- left -->
           <div class="left">
@@ -82,6 +85,50 @@ import { Icon } from "astro-icon";
                 >Save</span
               >
             </a>
+          </div>
+        </div>
+
+        <!-- property details inner -->
+        <div class="property-details-inner flex items-stretch gap-8">
+          <div class="start flex-grow-[2]">
+            <div class="property-images flex items-stretch gap-4 mb-4">
+              <div class="main-image flex-grow-[2]">
+                <Image
+                  class="block object-cover min-h-[450px]"
+                  src="/images/photo/properties/details-1.webp"
+                  alt="Main image"
+                  width={2000}
+                  height={1333}
+                  data-zoom
+                />
+              </div>
+              <div class="sub-images flex flex-col gap-4 max-w-[180px] w-full">
+                <Image
+                  class="object-cover flex-1"
+                  src="/images/photo/properties/details-2.webp"
+                  alt="Sub image"
+                  width={2000}
+                  height={1333}
+                  data-zoom
+                />
+                <Image
+                  class="object-cover flex-1"
+                  src="/images/photo/properties/details-3.webp"
+                  alt="Sub image"
+                  width={2000}
+                  height={1333}
+                  data-zoom
+                />
+                <Image
+                  class="object-cover flex-1"
+                  src="/images/photo/properties/details-4.webp"
+                  alt="Sub image"
+                  width={2000}
+                  height={1333}
+                  data-zoom
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

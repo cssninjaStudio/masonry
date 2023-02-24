@@ -57,7 +57,7 @@ import { Image } from "@astrojs/image/components";
               </a>
 
               <a
-                class="flex items-center font-medium relative after:content-[''] after:border-b after:border-[#717171] after:absolute after:left-0 after:w-full after:bottom-px"
+                class="flex items-center font-medium relative after:content-[''] after:border-b after:border-gray-2 after:absolute after:left-0 after:w-full after:bottom-px"
                 >San Diego, CA</a
               >
             </div>
@@ -71,7 +71,7 @@ import { Image } from "@astrojs/image/components";
             >
               <Icon class="h-4 aspect-square" name="lucide:share-2" />
               <span
-                class="relative text-dark dark:text-semi-white-3 after:content-[''] after:border-b after:border-[#717171] after:absolute after:left-0 after:w-full after:bottom-px"
+                class="relative text-dark dark:text-semi-white-3 after:content-[''] after:border-b after:border-gray-2 after:absolute after:left-0 after:w-full after:bottom-px"
                 >Share</span
               >
             </a>
@@ -81,7 +81,7 @@ import { Image } from "@astrojs/image/components";
             >
               <Icon class="h-4 aspect-square" name="lucide:heart" />
               <span
-                class="relative text-dark dark:text-semi-white-3 after:content-[''] after:border-b after:border-[#717171] after:absolute after:left-0 after:w-full after:bottom-px"
+                class="relative text-dark dark:text-semi-white-3 after:content-[''] after:border-b after:border-gray-2 after:absolute after:left-0 after:w-full after:bottom-px"
                 >Save</span
               >
             </a>
@@ -90,7 +90,8 @@ import { Image } from "@astrojs/image/components";
 
         <!-- property details inner -->
         <div class="property-details-inner flex items-stretch gap-8">
-          <div class="start flex-grow-[2]">
+          <!-- left -->
+          <div class="flex-grow-[2]">
             <div class="property-images flex items-stretch gap-4 mb-4">
               <div class="main-image flex-grow-[2]">
                 <Image
@@ -128,6 +129,172 @@ import { Image } from "@astrojs/image/components";
                   data-zoom
                 />
               </div>
+            </div>
+          </div>
+
+          <!-- right -->
+          <div class="min-w-[300px]">
+            <h4
+              class="dark:text-semi-white-3 text-xl mb-6 font-light font-TitilliumWeb text-dark"
+            >
+              Amenities
+            </h4>
+
+            <div class="property-amenities mb-6 grid grid-cols-3">
+              <!-- bedroom -->
+              <div class="bedroom flex flex-col">
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 aspect-square dark:text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    style="--darkreader-inline-stroke: currentColor;"
+                    data-darkreader-inline-stroke=""
+                    ><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8"
+                    ></path><path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4"
+                    ></path><path d="M12 4v6"></path><path d="M2 18h20"></path>
+                  </svg>
+
+                  <p class="text-lg text-dark font-bold dark:text-white">3</p>
+                </div>
+
+                <p class="text-sm text-ice-blue">Bedrooms</p>
+              </div>
+              <!-- bathroom -->
+              <div class="bathroom flex flex-col">
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 aspect-square dark:text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    style="--darkreader-inline-stroke: currentColor;"
+                    data-darkreader-inline-stroke=""
+                    ><path
+                      d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.683 3 4 3.683 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"
+                    ></path><line x1="10" y1="5" x2="8" y2="7"></line><line
+                      x1="2"
+                      y1="12"
+                      x2="22"
+                      y2="12"></line><line x1="7" y1="19" x2="7" y2="21"
+                    ></line><line x1="17" y1="19" x2="17" y2="21"></line>
+                  </svg>
+
+                  <p class="text-lg text-dark font-bold dark:text-white">3</p>
+                </div>
+
+                <p class="text-sm text-ice-blue">Bathrooms</p>
+              </div>
+              <!-- living area -->
+              <div class="living-area flex flex-col">
+                <div class="flex items-center gap-2">
+                  <svg
+                    class="w-4 aspect-square dark:text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    style="--darkreader-inline-stroke: currentColor;"
+                    data-darkreader-inline-stroke=""
+                    ><path d="M5 3a2 2 0 0 0-2 2"></path><path
+                      d="M19 3a2 2 0 0 1 2 2"></path><path
+                      d="M21 19a2 2 0 0 1-2 2"></path><path
+                      d="M5 21a2 2 0 0 1-2-2"></path><path d="M9 3h1"
+                    ></path><path d="M9 21h1"></path><path d="M14 3h1"
+                    ></path><path d="M14 21h1"></path><path d="M3 9v1"
+                    ></path><path d="M21 9v1"></path><path d="M3 14v1"
+                    ></path><path d="M21 14v1"></path>
+                  </svg>
+                  <p class="text-lg text-dark font-bold dark:text-white">
+                    460m²
+                  </p>
+                </div>
+
+                <p class="text-sm text-ice-blue">Living Area</p>
+              </div>
+            </div>
+
+            <div
+              class="tags pb-6 mb-6 border-b border-gray-1 flex gap-2 flex-wrap"
+            >
+              <span
+                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                >Guest toilet</span
+              >
+              <span
+                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                >Open kitchen</span
+              >
+              <span
+                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                >Swimming Pool</span
+              >
+              <span
+                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                >Garden sharing</span
+              >
+              <span
+                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                >Kids playground</span
+              >
+            </div>
+
+            <div
+              class="property-info flex flex-col gap-4 pb-6 mb-6 border-b border-gray-1"
+            >
+              <div class="property-info-line flex items-center justify-between">
+                <p class="info-label text-ice-blue">Type</p>
+                <p class="info-value text-dark">Apartment</p>
+              </div>
+
+              <div class="property-info-line flex items-center justify-between">
+                <p class="info-label text-ice-blue">Status</p>
+                <p class="info-value text-dark">Available</p>
+              </div>
+
+              <div class="property-info-line flex items-center justify-between">
+                <p class="info-label text-ice-blue">Credit</p>
+                <p class="info-value text-dark">Yes</p>
+              </div>
+
+              <div class="property-info-line flex items-center justify-between">
+                <p class="info-label text-ice-blue">Discount</p>
+                <p class="info-value text-dark">5%</p>
+              </div>
+            </div>
+
+            <button
+              class="bg-primary mb-6 font-medium text-base text-white rounded-[.2rem] h-[44px] transition-all duration-300 py-2 px-4 flex justify-center cursor-pointer w-full hover:shadow-xl"
+            >
+              Apply Now</button
+            >
+
+            <div
+              id="small-map"
+              class="small-map w-full min-h-[220px] bg-ice-blue/10"
+              x-data="initSmallMap()"
+              x-init="initMap()"
+              data-long="-117.1627728"
+              data-lat="32.7174202"
+            >
             </div>
           </div>
         </div>

@@ -70,12 +70,8 @@ const { title = "", description = "", ...props } = Astro.props;
     </script>
 
     <script>
-      import {
-        MANSORY_THEME,
-        setDarkTheme,
-        setLightTheme,
-        themeIsDark,
-      } from "@utils/utils";
+      import { MANSORY_THEME } from "@/constants";
+      import { setDarkTheme, setLightTheme, themeIsDark } from "@utils/utils";
 
       window.addEventListener("DOMContentLoaded", () => {
         const themeToggles = [

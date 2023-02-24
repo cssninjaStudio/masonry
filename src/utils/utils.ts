@@ -1,6 +1,5 @@
 import { APP } from "@data/config";
-
-export const MANSORY_THEME = "mansory-theme";
+import { MANSORY_THEME } from "@/constants";
 
 // set page title
 export function setTitle(title: string) {

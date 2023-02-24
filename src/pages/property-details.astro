@@ -1,0 +1,42 @@
+---
+import LayoutSplit from "@layouts/LayoutSplit.astro";
+import { Icon } from "astro-icon";
+---
+
+<LayoutSplit title="Property Details">
+  <main id="PropertyDetails" class="dark:bg-dark-purple-2 p-12">
+    <div class="container pb-12 mb-12">
+      <section class="relative">
+        <nav class="breadcrumb mt-12 mb-6" aria-label="breadcrumbs">
+          <ul class="flex items-center">
+            <li class="flex items-center">
+              <a class="hover:text-primary pr -3 text-ice-blue" href="#">
+                <Icon class="h-4 aspect-square" name="lucide:home" />
+              </a>
+            </li>
+            <li
+              class="flex items-center before:content-['/'] before:text-ice-blue"
+            >
+              <a class="hover:text-primary px-3 text-ice-blue" href="#"
+                >Properties</a
+              >
+            </li>
+            <li
+              class="flex items-center before:content-['/'] before:text-ice-blue"
+            >
+              <a class="hover:text-primary px-3 text-ice-blue" href="#">Buy</a>
+            </li>
+            <li
+              class="is-active flex items-center before:content-['/'] before:text-ice-blue"
+            >
+              <a class="px-3 text-ice-blue" href="#" aria-current="page"
+                >Details</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+      </section>
+    </div>
+  </main>
+</LayoutSplit>

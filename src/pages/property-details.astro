@@ -16,9 +16,7 @@ import { Image } from "@astrojs/image/components";
                 <Icon class="h-4 aspect-square" name="lucide:home" />
               </a>
             </li>
-            <li
-              class="flex items-center before:content-['/'] before:text-ice-blue"
-            >
+            <li class="flex items-center">
               <a class="hover:text-primary px-3 text-ice-blue" href="#"
                 >Properties</a
               >
@@ -69,7 +67,10 @@ import { Image } from "@astrojs/image/components";
               class="modal-trigger gap-1 flex items-center font-medium"
               data-modal="listing-share-modal"
             >
-              <Icon class="h-4 aspect-square" name="lucide:share-2" />
+              <Icon
+                class="h-4 aspect-square dark:text-semi-white-3"
+                name="lucide:share-2"
+              />
               <span
                 class="relative text-dark dark:text-semi-white-3 after:content-[''] after:border-b after:border-gray-2 after:absolute after:left-0 after:w-full after:bottom-px"
                 >Share</span
@@ -79,7 +80,10 @@ import { Image } from "@astrojs/image/components";
               class="modal-trigger gap-1 flex items-center font-medium"
               data-modal="listing-wishlist-modal"
             >
-              <Icon class="h-4 aspect-square" name="lucide:heart" />
+              <Icon
+                class="h-4 aspect-square dark:text-semi-white-3"
+                name="lucide:heart"
+              />
               <span
                 class="relative text-dark dark:text-semi-white-3 after:content-[''] after:border-b after:border-gray-2 after:absolute after:left-0 after:w-full after:bottom-px"
                 >Save</span
@@ -171,7 +175,7 @@ import { Image } from "@astrojs/image/components";
                 </ul>
               </div>
 
-              <div x-show="activeTab === 'tab-1'" class="tab-content">
+              <div x-cloak x-show="activeTab === 'tab-1'" class="tab-content">
                 <p class="text-blue-gray text-base">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis
                   est tam dissimile homini. Sedulo, inquam, faciam. Quae cum
@@ -190,7 +194,7 @@ import { Image } from "@astrojs/image/components";
                 </p>
               </div>
 
-              <div x-show="activeTab === 'tab-2'" class="tab-content">
+              <div x-cloak x-show="activeTab === 'tab-2'" class="tab-content">
                 <div class="boxed-amenities grid grid-cols-4 gap-4">
                   <!-- Amenity -->
                   <div
@@ -362,7 +366,7 @@ import { Image } from "@astrojs/image/components";
                 </div>
               </div>
 
-              <div x-show="activeTab === 'tab-3'" class="tab-content">
+              <div x-cloak x-show="activeTab === 'tab-3'" class="tab-content">
                 <div class="property-comments">
                   <div class="reviews grid grid-cols-2 gap-6 max-w-[540px]">
                     <!--Review-->
@@ -813,23 +817,23 @@ import { Image } from "@astrojs/image/components";
               class="tags pb-6 mb-6 border-b border-gray-1 flex gap-2 flex-wrap"
             >
               <span
-                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                class="tag dark:bg-dark-purple-3 dark:text-ice-blue inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
                 >Guest toilet</span
               >
               <span
-                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                class="tag dark:bg-dark-purple-3 dark:text-ice-blue inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
                 >Open kitchen</span
               >
               <span
-                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                class="tag dark:bg-dark-purple-3 dark:text-ice-blue inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
                 >Swimming Pool</span
               >
               <span
-                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                class="tag dark:bg-dark-purple-3 dark:text-ice-blue inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
                 >Garden sharing</span
               >
               <span
-                class="tag inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
+                class="tag dark:bg-dark-purple-3 dark:text-ice-blue inline-block whitespace-nowrap leading-[2.5] px-3 rounded text-xs bg-semi-white-1 text-dark"
                 >Kids playground</span
               >
             </div>
@@ -839,22 +843,26 @@ import { Image } from "@astrojs/image/components";
             >
               <div class="property-info-line flex items-center justify-between">
                 <p class="info-label text-ice-blue">Type</p>
-                <p class="info-value text-dark">Apartment</p>
+                <p class="info-value dark:text-semi-white-3 text-dark">
+                  Apartment
+                </p>
               </div>
 
               <div class="property-info-line flex items-center justify-between">
                 <p class="info-label text-ice-blue">Status</p>
-                <p class="info-value text-dark">Available</p>
+                <p class="info-value dark:text-semi-white-3 text-dark">
+                  Available
+                </p>
               </div>
 
               <div class="property-info-line flex items-center justify-between">
                 <p class="info-label text-ice-blue">Credit</p>
-                <p class="info-value text-dark">Yes</p>
+                <p class="info-value dark:text-semi-white-3 text-dark">Yes</p>
               </div>
 
               <div class="property-info-line flex items-center justify-between">
                 <p class="info-label text-ice-blue">Discount</p>
-                <p class="info-value text-dark">5%</p>
+                <p class="info-value dark:text-semi-white-3 text-dark">5%</p>
               </div>
             </div>
 

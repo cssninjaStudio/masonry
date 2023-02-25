@@ -139,10 +139,10 @@ import { Image } from "@astrojs/image/components";
                 class="tabs mb-6 flex text-base justify-between overflow-hidden overflow-x-auto"
               >
                 <ul
-                  class="flex items-center flex-grow border-b border-gray-1 list-none"
+                  class="flex items-center flex-grow border-b dark:border-dark-purple-3 border-gray-1 list-none"
                 >
                   <li
-                    :class="activeTab === 'tab-1' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark'"
+                    :class="activeTab === 'tab-1' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark dark:[&>a]:text-semi-white-3'"
                   >
                     <a
                       @click.prevent="activeTab = 'tab-1'"
@@ -151,7 +151,7 @@ import { Image } from "@astrojs/image/components";
                     >
                   </li>
                   <li
-                    :class="activeTab === 'tab-2' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark'"
+                    :class="activeTab === 'tab-2' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark dark:[&>a]:text-semi-white-3'"
                   >
                     <a
                       @click.prevent="activeTab = 'tab-2'"
@@ -160,7 +160,7 @@ import { Image } from "@astrojs/image/components";
                     >
                   </li>
                   <li
-                    :class="activeTab === 'tab-3' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark'"
+                    :class="activeTab === 'tab-3' && 'is-active [&>a]:border-b-[3px] [&>a]:border-primary [&>a]:text-dark dark:[&>a]:text-semi-white-3'"
                   >
                     <a
                       @click.prevent="activeTab = 'tab-3'"
@@ -194,10 +194,10 @@ import { Image } from "@astrojs/image/components";
                 <div class="boxed-amenities grid grid-cols-4 gap-4">
                   <!-- Amenity -->
                   <div
-                    class="boxed-amenity text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
+                    class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
                   >
                     <div
-                      class="amenity-head font-bold gap-2 flex justify-center items-center text-dark"
+                      class="amenity-head dark:text-semi-white-3 font-bold gap-2 flex justify-center items-center text-dark"
                     >
                       <svg
                         class="h-6"
@@ -225,10 +225,10 @@ import { Image } from "@astrojs/image/components";
                   </div>
                   <!-- Amenity -->
                   <div
-                    class="boxed-amenity text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
+                    class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
                   >
                     <div
-                      class="amenity-head font-bold gap-2 flex justify-center items-center text-dark"
+                      class="amenity-head dark:text-semi-white-3 font-bold gap-2 flex justify-center items-center text-dark"
                     >
                       <svg
                         class="h-6"
@@ -255,10 +255,10 @@ import { Image } from "@astrojs/image/components";
                   </div>
                   <!-- Amenity -->
                   <div
-                    class="boxed-amenity text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
+                    class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
                   >
                     <div
-                      class="amenity-head font-bold gap-2 flex justify-center items-center text-dark"
+                      class="amenity-head dark:text-semi-white-3 font-bold gap-2 flex justify-center items-center text-dark"
                     >
                       <svg
                         class="h-6"
@@ -288,10 +288,10 @@ import { Image } from "@astrojs/image/components";
                   </div>
                   <!-- Amenity -->
                   <div
-                    class="boxed-amenity text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
+                    class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
                   >
                     <div
-                      class="amenity-head font-bold gap-2 flex justify-center items-center text-dark"
+                      class="amenity-head dark:text-semi-white-3 font-bold gap-2 flex justify-center items-center text-dark"
                     >
                       <Icon class="text-2xl h-6" name="lucide:car" />
                       <span>2</span>
@@ -302,10 +302,10 @@ import { Image } from "@astrojs/image/components";
                   </div>
                   <!-- Amenity -->
                   <div
-                    class="boxed-amenity text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
+                    class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
                   >
                     <div
-                      class="amenity-head font-bold gap-2 flex justify-center items-center text-dark"
+                      class="amenity-head dark:text-semi-white-3 font-bold gap-2 flex justify-center items-center text-dark"
                     >
                       <Icon class="text-2xl h-6" name="lucide:droplets" />
                       <span></span>
@@ -316,10 +316,10 @@ import { Image } from "@astrojs/image/components";
                   </div>
                   <!-- Amenity -->
                   <div
-                    class="boxed-amenity text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
+                    class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
                   >
                     <div
-                      class="amenity-head font-bold gap-2 flex justify-center items-center text-dark"
+                      class="amenity-head dark:text-semi-white-3 font-bold gap-2 flex justify-center items-center text-dark"
                     >
                       <Icon class="text-2xl h-6" name="lucide:sprout" />
                       <span></span>
@@ -330,10 +330,10 @@ import { Image } from "@astrojs/image/components";
                   </div>
                   <!-- Amenity -->
                   <div
-                    class="boxed-amenity text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
+                    class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
                   >
                     <div
-                      class="amenity-head font-bold gap-2 flex justify-center items-center text-dark"
+                      class="amenity-head dark:text-semi-white-3 font-bold gap-2 flex justify-center items-center text-dark"
                     >
                       <Icon
                         class="text-2xl h-6"
@@ -347,10 +347,10 @@ import { Image } from "@astrojs/image/components";
                   </div>
                   <!-- Amenity -->
                   <div
-                    class="boxed-amenity text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
+                    class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
                   >
                     <div
-                      class="amenity-head font-bold gap-2 flex justify-center items-center text-dark"
+                      class="amenity-head dark:text-semi-white-3 font-bold gap-2 flex justify-center items-center text-dark"
                     >
                       <Icon class="text-2xl h-6" name="lucide:webcam" />
                       <span></span>
@@ -362,6 +362,350 @@ import { Image } from "@astrojs/image/components";
                 </div>
               </div>
 
+              <div x-show="activeTab === 'tab-3'" class="tab-content">
+                <div class="property-comments">
+                  <div class="reviews grid grid-cols-2 gap-6 max-w-[540px]">
+                    <!--Review-->
+                    <div class="review-item">
+                      <div
+                        class="review-item-inner flex items-center justify-between max-w-[440px]"
+                      >
+                        <div class="review-category text-base text-blue-gray">
+                          <span>Design</span>
+                        </div>
+                        <div
+                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                        >
+                          <progress
+                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            value="86"
+                            max="100"
+                          >
+                            86%
+                          </progress>
+                          <span
+                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            >4.3</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!--Review-->
+                    <div class="review-item">
+                      <div
+                        class="review-item-inner flex items-center justify-between max-w-[440px]"
+                      >
+                        <div class="review-category text-base text-blue-gray">
+                          <span>Space</span>
+                        </div>
+                        <div
+                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                        >
+                          <progress
+                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            value="84"
+                            max="100"
+                          >
+                            84%
+                          </progress>
+                          <span
+                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            >4.2</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!--Review-->
+                    <div class="review-item">
+                      <div
+                        class="review-item-inner flex items-center justify-between max-w-[440px]"
+                      >
+                        <div class="review-category text-base text-blue-gray">
+                          <span>Equipments</span>
+                        </div>
+                        <div
+                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                        >
+                          <progress
+                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            value="90"
+                            max="100"
+                          >
+                            90%
+                          </progress>
+                          <span
+                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            >4.5</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!--Review-->
+                    <div class="review-item">
+                      <div
+                        class="review-item-inner flex items-center justify-between max-w-[440px]"
+                      >
+                        <div class="review-category text-base text-blue-gray">
+                          <span>Light</span>
+                        </div>
+                        <div
+                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                        >
+                          <progress
+                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            value="94"
+                            max="100"
+                          >
+                            94%
+                          </progress>
+                          <span
+                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            >4.7</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!--Review-->
+                    <div class="review-item">
+                      <div
+                        class="review-item-inner flex items-center justify-between max-w-[440px]"
+                      >
+                        <div class="review-category text-base text-blue-gray">
+                          <span>Location</span>
+                        </div>
+                        <div
+                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                        >
+                          <progress
+                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            value="90"
+                            max="100"
+                          >
+                            90%
+                          </progress>
+                          <span
+                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            >4.5</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <!--Review-->
+                    <div class="review-item">
+                      <div
+                        class="review-item-inner flex items-center justify-between max-w-[440px]"
+                      >
+                        <div class="review-category text-base text-blue-gray">
+                          <span>Price</span>
+                        </div>
+                        <div
+                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                        >
+                          <progress
+                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            value="86"
+                            max="100"
+                          >
+                            20%
+                          </progress>
+                          <span
+                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            >4.3</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comments pt-8">
+                    <div class="grid grid-cols-2 gap-y-8 gap-x-6">
+                      <!--Comment-->
+                      <div class="comment">
+                        <div class="comment-head gap-4 mb-6 flex items-center">
+                          <a>
+                            <Image
+                              class="h-[44px] w-[44px] rounded-full"
+                              height={400}
+                              width={400}
+                              src="/images/avatars/3.webp"
+                              alt="Visitor photo"
+                            />
+                          </a>
+                          <div class="meta">
+                            <h4
+                              class="dark:text-white text-base font-semibold font-TitilliumWeb text-dark"
+                            >
+                              Helena
+                            </h4>
+                            <span class="text-base text-ice-blue"
+                              >3 days ago</span
+                            >
+                          </div>
+                        </div>
+                        <p class="text-blue-gray text-[.9rem]">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Maximus dolor, inquit, brevis est. Comprehensum,
+                          quod cognitum non habet? Si longus, levis dictata
+                          sunt. Non risu potius quam oratione eiciendum? Istic
+                          sum, inquit. Ita prorsus, inquam.
+                        </p>
+                      </div>
+                      <!--Comment-->
+                      <div class="comment">
+                        <div class="comment-head gap-4 mb-6 flex items-center">
+                          <a>
+                            <Image
+                              class="h-[44px] w-[44px] rounded-full"
+                              height={310}
+                              width={310}
+                              src="/images/avatars/6.webp"
+                              alt="Visitor photo"
+                            />
+                          </a>
+                          <div class="meta">
+                            <h4
+                              class="dark:text-white text-base font-semibold font-TitilliumWeb text-dark"
+                            >
+                              Mathilda
+                            </h4>
+                            <span class="text-base text-ice-blue"
+                              >5 days ago</span
+                            >
+                          </div>
+                        </div>
+                        <p class="text-blue-gray text-[.9rem]">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Maximus dolor, inquit, brevis est. Comprehensum,
+                          quod cognitum non habet? Si longus, levis dictata
+                          sunt.
+                        </p>
+                      </div>
+                      <!--Comment-->
+                      <div class="comment">
+                        <div class="comment-head gap-4 mb-6 flex items-center">
+                          <a>
+                            <Image
+                              class="h-[44px] w-[44px] rounded-full"
+                              height={310}
+                              width={310}
+                              src="/images/avatars/5.webp"
+                              alt="Visitor photo"
+                            />
+                          </a>
+                          <div class="meta">
+                            <h4
+                              class="dark:text-white text-base font-semibold font-TitilliumWeb text-dark"
+                            >
+                              John
+                            </h4>
+                            <span class="text-base text-ice-blue"
+                              >a week ago</span
+                            >
+                          </div>
+                        </div>
+                        <p class="text-blue-gray text-[.9rem]">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Maximus dolor, inquit, brevis est.
+                        </p>
+                      </div>
+                      <!--Comment-->
+                      <div class="comment">
+                        <div class="comment-head gap-4 mb-6 flex items-center">
+                          <a>
+                            <Image
+                              class="h-[44px] w-[44px] rounded-full"
+                              height={350}
+                              width={350}
+                              src="/images/avatars/7.webp"
+                              alt="Visitor photo"
+                            />
+                          </a>
+                          <div class="meta">
+                            <h4
+                              class="dark:text-white text-base font-semibold font-TitilliumWeb text-dark"
+                            >
+                              Sara
+                            </h4>
+                            <span class="text-base text-ice-blue"
+                              >2 weeks ago</span
+                            >
+                          </div>
+                        </div>
+                        <p class="text-blue-gray text-[.9rem]">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Maximus dolor, inquit, brevis est. Comprehensum,
+                          quod cognitum non habet? Si longus, levis dictata
+                          sunt. Non risu potius quam oratione eiciendum? Istic
+                          sum, inquit.
+                        </p>
+                      </div>
+                      <!--Comment-->
+                      <div class="comment">
+                        <div class="comment-head gap-4 mb-6 flex items-center">
+                          <a>
+                            <Image
+                              class="h-[44px] w-[44px] rounded-full"
+                              height={205}
+                              width={205}
+                              src="/images/avatars/9.webp"
+                              alt="Visitor photo"
+                            />
+                          </a>
+                          <div class="meta">
+                            <h4
+                              class="dark:text-white text-base font-semibold font-TitilliumWeb text-dark"
+                            >
+                              Christina
+                            </h4>
+                            <span class="text-base text-ice-blue"
+                              >2 weeks ago</span
+                            >
+                          </div>
+                        </div>
+                        <p class="text-blue-gray text-[.9rem]">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Maximus dolor, inquit, brevis est. Comprehensum,
+                          quod cognitum non habet? Si longus, levis dictata
+                          sunt.
+                        </p>
+                      </div>
+                      <!--Comment-->
+                      <div class="comment">
+                        <div class="comment-head gap-4 mb-6 flex items-center">
+                          <a>
+                            <Image
+                              class="h-[44px] w-[44px] rounded-full"
+                              height={350}
+                              width={350}
+                              src="/images/avatars/11.webp"
+                              alt="Visitor photo"
+                            />
+                          </a>
+                          <div class="meta">
+                            <h4
+                              class="dark:text-white text-base font-semibold font-TitilliumWeb text-dark"
+                            >
+                              Michael
+                            </h4>
+                            <span class="text-base text-ice-blue"
+                              >2 weeks ago</span
+                            >
+                          </div>
+                        </div>
+                        <p class="text-blue-gray text-[.9rem]">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Maximus dolor, inquit, brevis est. Comprehensum,
+                          quod cognitum non habet? Si longus, levis dictata
+                          sunt.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="comments-action">
+                      <button class="button is-solid">See all comments</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 

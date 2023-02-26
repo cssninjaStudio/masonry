@@ -2,12 +2,16 @@
 import LayoutSplit from "@layouts/LayoutSplit.astro";
 import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
+import { property as properties } from "@data/property";
+import PropertyCard from "@components/ui/PropertyCard.astro";
 ---
 
 <LayoutSplit title="Property Details">
   <main id="PropertyDetails" class="dark:bg-dark-purple-2 p-12">
     <div class="container pb-12 mb-12">
-      <section class="property-details-wrapper relative">
+      <section
+        class="property-details-wrapper relative border-b border-gray-1 dark:border-dark-purple-6 pb-12"
+      >
         <!-- breadcrumb -->
         <nav class="breadcrumb mt-12 mb-6" aria-label="breadcrumbs">
           <ul class="flex items-center">
@@ -704,8 +708,11 @@ import { Image } from "@astrojs/image/components";
                       </div>
                     </div>
 
-                    <div class="comments-action">
-                      <button class="button is-solid">See all comments</button>
+                    <div class="comments-action mt-8">
+                      <button
+                        class="h-[44px] transition-all duration-300 text-base rounded-[.2rem] dark:bg-[#151529] border dark:border-[#222244] px-4 py-2 flex justify-center items-center text-dark dark:text-ice-blue"
+                        >See all comments</button
+                      >
                     </div>
                   </div>
                 </div>
@@ -885,6 +892,27 @@ import { Image } from "@astrojs/image/components";
           </div>
         </div>
       </section>
+
+      <!-- cards -->
+
+      <div class="mt-12">
+        <div class="flex flex-col">
+          <h2 class="dark:text-white text-2xl font-TitilliumWeb text-dark">
+            You might also like
+          </h2>
+          <p class="text-blue-gray text-base leading-6">
+            Based on your previous matches
+          </p>
+        </div>
+
+        <div class="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            properties
+              .slice(0, 3)
+              .map((property) => <PropertyCard {...property} />)
+          }
+        </div>
+      </div>
     </div>
   </main>
 

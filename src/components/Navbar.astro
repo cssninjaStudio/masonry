@@ -7,11 +7,17 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
 <div
   id="HeaderWrapper"
-  data-scrolled="false"
-  data-drop-menu="false"
-  class="fixed top-0 left-0 w-full z-[1000] [&>#header]:bg-white [&[data-scrolled='true']>#header_#RightLinks_li.search]:dark:border-dark-purple-3 [&[data-scrolled='true']>#header]:dark:bg-dark-purple-2 [&[data-scrolled='true']>#header]:dark:border-dark-purple-3 [&>#header]:lg:bg-transparent"
+  x-data="navbar"
+  x-on:scroll.window="scroll()"
+  x-on:mouseleave="megamenuOpened = false"
+  role="navigation"
+  aria-label="main navigation"
+  class="fixed top-0 left-0 w-full z-50"
 >
-  <div id="header">
+  <div
+    id="header"
+    :class="scrolled || megamenuOpened  ? 'bg-white border-b border-gray-1 dark:bg-dark-purple-2  [box-shadow:0_0_10px_0_rgba(0,0,0,.08)]  dark:border-dark-purple-3': 'lg:bg-transparent' "
+  >
     <header
       id="MainHeader"
       class="container flex justify-between shadow lg:shadow-none px-3 lg:px-0"
@@ -30,8 +36,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           <li>
             <a
               href="#"
-              data-megamenu-toggle
-              data-toggle="propertiesMega"
+              x-on:mouseover="megamenuOpened = true, openedMegamenu = 'megamenu-1'"
               class="py-2 px-3 leading-6 text-base group text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center gap-1"
               >Properties <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,8 +56,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           <li class="">
             <a
               href="#"
-              data-toggle="rentalsMega"
-              data-megamenu-toggle
+              x-on:mouseover="megamenuOpened = true, openedMegamenu = 'megamenu-2'"
               class="py-2 px-3 leading-6 group text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center gap-1"
               >Rentals <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,14 +87,16 @@ import MegaMenu from "./ui/MegaMenu.astro";
         <li class="h-max flex justify-center items-center">
           <a
             href="/"
-            class="py-2 leading-6 text-base text-white hover:text-dark dark:hover:text-white transition-all duration-300"
+            class="py-2 leading-6 text-base hover:text-dark dark:hover:text-white transition-all duration-300"
+            :class="scrolled ||  megamenuOpened ? 'text-blue-gray' : 'text-white'"
             >Sign In</a
           >
         </li>
 
         <!-- search -->
         <li
-          class="search h-max pl-6 flex justify-center items-center dark:border-dark-purple-3"
+          class="search pl-6 flex justify-center items-center border-l h-full dark:border-dark-purple-3"
+          :class="scrolled  ||  megamenuOpened ? 'border-gray-1': 'border-transparent' "
         >
           <a
             href=""
@@ -98,6 +104,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           >
             <svg
               class="w-4"
+              :class="{'text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300': scrolled  ||  megamenuOpened}"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -124,7 +131,11 @@ import MegaMenu from "./ui/MegaMenu.astro";
             href="/about"
             class="inline-block text-base text-white hover:text-dark dark:hover:text-white transition-all duration-300"
           >
-            <Icon name="lucide:heart" class="w-4 aspect-auto" />
+            <Icon
+              name="lucide:heart"
+              class="w-4 aspect-auto"
+              :class="{'text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300': scrolled  ||  megamenuOpened}"
+            />
           </a>
         </li>
 
@@ -133,17 +144,21 @@ import MegaMenu from "./ui/MegaMenu.astro";
           <button
             data-dark-mode="false"
             class="darkToggle relative w-9 aspect-square rounded-full border-gray-1 dark:border-dark-purple-3"
+            :class="scrolled  ||  megamenuOpened ? 'border [&>svg]:text-yellow' : '[&>svg]:text-white'"
+            @click="$store.app.toggleTheme()"
           >
             <!-- sun -->
             <Icon
               name="feather:sun"
-              class="lightIcon opacity-0 left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
+              class="lightIcon left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
+              :class="$store.app.isDark ? 'opacity-0 -translate-x-[45%] -translate-y-[150%]' : 'opacity-100  -translate-x-1/2 -translate-y-1/2' "
             />
 
             <!-- moon -->
             <Icon
               name="feather:moon"
-              class="darkIcon opacity-0 left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
+              class="darkIcon left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
+              :class="$store.app.isDark ? 'opacity-100  -translate-x-[45%] -translate-y-1/2' : 'opacity-0 -translate-x-[45%] -translate-y-[150%]' "
             />
           </button>
         </li>
@@ -153,6 +168,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           <a
             href="/register"
             class="h-[46px] min-w-[120px] font-medium text-sm leading-6 px-3.5 py-1.5 flex justify-center items-center transition-all duration-300 rounded bg-primary text-white"
+            :class="{'[box-shadow:rgba(46,49,255,0.42)_0px_14px_26px_-12px,rgba(0,0,0,0.12)_0px_4px_23px_0px,rgba(46,49,255,0.2)_0px_8px_10px_-5px]': scrolled}"
             >Register</a
           >
         </li>
@@ -162,6 +178,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
         <svg
           id="OpenIcon"
           class="pointer-events-none text-blue-gray w-8 aspect-auto"
+          :class="{'block': '!mobileOpen' }"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMid meet"
           viewBox="0 0 24 24"
@@ -173,6 +190,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
         <svg
           id="CloseIcon"
           class="pointer-events-none text-blue-gray w-8 aspect-auto"
+          :class="{'block': 'mobileOpen' }"
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="xMidYMid meet"
           viewBox="0 0 32 32"
@@ -189,7 +207,8 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
   <div
     id="MobileNav"
-    class="hidden pt-5 pb-8 px-3 dark:bg-dark-purple-2 bg-white"
+    class="pt-5 pb-8 px-3 dark:bg-dark-purple-2 bg-white"
+    :class="mobileOpen ? 'block' : 'hidden'"
   >
     <ul class="lg:hidden flex flex-col items-center gap-1 w-full">
       <li>
@@ -246,12 +265,14 @@ import MegaMenu from "./ui/MegaMenu.astro";
           id=""
           data-dark-mode="false"
           class="darkToggle relative w-9 aspect-square rounded-full"
+          @click="$store.app.toggleTheme()"
         >
           <!-- sun -->
           <Icon
             id=""
             name="feather:sun"
             class="lightIcon w-4 text-blue-gray aspect-auto absolute"
+            :class="$store.app.isDark ? 'opacity-0 -translate-x-[45%] -translate-y-[150%]' : 'opacity-100  -translate-x-1/2 -translate-y-1/2' "
           />
 
           <!-- moon -->
@@ -259,6 +280,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
             id=""
             name="feather:moon"
             class="darkIcon w-4 text-blue-gray aspect-auto absolute"
+            :class="$store.app.isDark ? 'opacity-100  -translate-x-[45%] -translate-y-1/2' : 'opacity-0 -translate-x-[45%] -translate-y-[150%]' "
           />
         </button>
       </li>
@@ -276,7 +298,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
 </div>
 
 <style>
-  [data-dark-mode="true"] .darkIcon {
+  /* [data-dark-mode="true"] .darkIcon {
     @apply opacity-100   -translate-x-[45%] -translate-y-1/2;
   }
   [data-dark-mode="false"] .lightIcon {
@@ -285,71 +307,117 @@ import MegaMenu from "./ui/MegaMenu.astro";
   [data-dark-mode="true"] .lightIcon,
   [data-dark-mode="false"] .darkIcon {
     @apply -translate-x-[45%] -translate-y-[150%];
-  }
+  } */
 
-  [data-scrolled="true"] header ul#RightLinks .darkToggle {
+  /* [data-scrolled="true"] header ul#RightLinks .darkToggle {
     @apply border;
-  }
-  [data-scrolled="true"] header ul#RightLinks .darkToggle svg {
+  } */
+  /* [data-scrolled="true"] header ul#RightLinks .darkToggle svg {
     @apply text-[#ffd770];
   }
 
   [data-scrolled="false"] header ul#RightLinks .darkToggle svg {
     @apply text-white;
-  }
+  } */
 
-  [data-drop-menu="true"] header button#MenuToggle #OpenIcon,
+  /* [data-drop-menu="true"] header button#MenuToggle #OpenIcon,
   [data-drop-menu="false"] header button#MenuToggle #CloseIcon {
     @apply hidden;
-  }
+  } */
 
-  [data-drop-menu="true"] #MobileNav {
+  /* [data-drop-menu="true"] #MobileNav {
     @apply block;
   }
   [data-drop-menu="false"] #MobileNav {
     @apply hidden;
-  }
-  [data-scrolled="true"] #header {
+  } */
+  /* [data-scrolled="true"] #header {
     @apply bg-white  border-b border-gray-1 dark:bg-dark-purple-2  [box-shadow:0_0_10px_0_rgba(0,0,0,.08)]  dark:border-dark-purple-3;
-  }
-  [data-scrolled="true"] header ul#RightLinks li:nth-child(2) {
+  } */
+  /* [data-scrolled="true"] header ul#RightLinks li:nth-child(2) {
     @apply border-l border-gray-1 dark:border-dark-purple-3 h-full;
-  }
+  } */
 
-  [data-scrolled="true"] header ul#RightLinks li:first-child a,
-  [data-scrolled="true"] header ul#RightLinks li svg {
+  /* [data-scrolled="true"] header ul#RightLinks li:first-child a, */
+  /* [data-scrolled="true"] header ul#RightLinks li svg {
     @apply text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300;
-  }
+  } */
 
-  [data-scrolled="true"] header ul#RightLinks li:last-child a {
+  /* [data-scrolled="true"] header ul#RightLinks li:last-child a {
     @apply [box-shadow:rgba(46,49,255,0.42)_0px_14px_26px_-12px,rgba(0,0,0,0.12)_0px_4px_23px_0px,rgba(46,49,255,0.2)_0px_8px_10px_-5px];
-  }
+  } */
 </style>
 
 <script>
-  window.addEventListener("DOMContentLoaded", () => {
-    const menuBtn = document.querySelector("#MenuToggle") as HTMLButtonElement;
-    const headWrapper = document.querySelector("#HeaderWrapper") as HTMLElement;
+  document.addEventListener("alpine:init", () => {
+    // Main Navbar Data
 
-    // SCROLL DETECTING
-    window.onscroll = function () {
-      if (window.scrollY >= 60) {
-        headWrapper.dataset.scrolled = "true";
-        headWrapper.dataset.pastThreshHold = "true";
-      } else {
-        headWrapper.dataset.scrolled = "false";
-      }
-    };
+    Alpine.data("navbar", () => ({
+      scrolled: false,
+      height: 60,
+      mobileOpen: false,
+      megamenuOpened: false,
+      openedMegamenu: "megamenu-1",
 
-    // TOGGLE MENU
-    menuBtn.onclick = function () {
-      const DROPPED = headWrapper.dataset.dropMenu === "true";
+      scroll() {
+        let scrollValue = window.scrollY;
+        if (scrollValue >= this.height) {
+          this.scrolled = true;
+        } else {
+          this.scrolled = false;
+        }
+        this.searchExpanded = false;
+      },
+      openMobileMenu() {
+        this.mobileOpen = !this.mobileOpen;
+      },
+      init() {
+        document
+          .querySelectorAll('.scroll-link[href^="#"]')
+          .forEach((trigger) => {
+            trigger.onclick = function (e) {
+              e.preventDefault();
+              let hash = this.getAttribute("href");
+              let target = document.querySelector(hash);
+              let headerOffset = 100;
+              let elementPosition = target.offsetTop;
+              let offsetPosition = elementPosition - headerOffset;
 
-      if (DROPPED) {
-        headWrapper.dataset.dropMenu = "false";
-      } else {
-        headWrapper.dataset.dropMenu = "true";
-      }
-    };
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              });
+            };
+          });
+      },
+    }));
   });
+</script>
+
+<script>
+  // window.addEventListener("DOMContentLoaded", () => {
+  //   const menuBtn = document.querySelector("#MenuToggle") as HTMLButtonElement;
+  //   const headWrapper = document.querySelector("#HeaderWrapper") as HTMLElement;
+
+  //   // SCROLL DETECTING
+  //   window.onscroll = function () {
+  //     if (window.scrollY >= 60) {
+  //       headWrapper.dataset.scrolled = "true";
+  //       headWrapper.dataset.pastThreshHold = "true";
+  //     } else {
+  //       headWrapper.dataset.scrolled = "false";
+  //     }
+  //   };
+
+  //   // TOGGLE MENU
+  //   menuBtn.onclick = function () {
+  //     const DROPPED = headWrapper.dataset.dropMenu === "true";
+
+  //     if (DROPPED) {
+  //       headWrapper.dataset.dropMenu = "false";
+  //     } else {
+  //       headWrapper.dataset.dropMenu = "true";
+  //     }
+  //   };
+  // });
 </script>

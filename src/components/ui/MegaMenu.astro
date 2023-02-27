@@ -7,11 +7,11 @@ import MegaMenuLink from "./MegaMenuLink.astro";
 <section
   id="MegaMenuWrapper"
   class="relative top-0 pointer-events-none transition-all bg-white dark:bg-dark-purple-2 grid duration-300"
-  data-hover-sustained="false"
+  :class="megamenuOpened ? 'translate-y-0  opacity-100 ' : 'translate-y-2.5 opacity-0' "
 >
   <div
     id="propertiesMega"
-    data-mega-menu-open="false"
+    x-show="openedMegamenu === 'megamenu-1'"
     class="mega pointer-events-none w-full py-[60px]"
   >
     <ul class="container flex gap-5">
@@ -126,7 +126,7 @@ import MegaMenuLink from "./MegaMenuLink.astro";
 
   <div
     id="rentalsMega"
-    data-mega-menu-open="false"
+    x-show="openedMegamenu === 'megamenu-2'"
     class="mega pointer-events-none w-full py-[60px]"
   >
     <ul class="container flex gap-5">
@@ -247,7 +247,7 @@ import MegaMenuLink from "./MegaMenuLink.astro";
   #MegaMenuWrapper > * {
     grid-area: megamenu;
   }
-  [data-hover-sustained="true"] {
+  /* [data-hover-sustained="true"] {
     @apply translate-y-0  opacity-100 pointer-events-auto;
   }
   .mega[data-mega-menu-open="true"] {
@@ -258,53 +258,53 @@ import MegaMenuLink from "./MegaMenuLink.astro";
   }
   .mega[data-mega-menu-open="false"] {
     @apply opacity-0 hidden;
-  }
+  } */
 </style>
 
 <script>
-  const megaMenuWrapper = document.querySelector("#MegaMenuWrapper");
-  const mainHeaderWrapper = document.querySelector("#HeaderWrapper");
+  // const megaMenuWrapper = document.querySelector("#MegaMenuWrapper");
+  // const mainHeaderWrapper = document.querySelector("#HeaderWrapper");
 
-  function addHeaderBackground() {
-    const isScrolled = mainHeaderWrapper.dataset.scrolled === "true";
+  // function addHeaderBackground() {
+  //   const isScrolled = mainHeaderWrapper.dataset.scrolled === "true";
 
-    if (!isScrolled) {
-      mainHeaderWrapper.dataset.scrolled = "true";
-    }
-  }
-  function removeHeaderBackground() {
-    if (!mainHeaderWrapper.dataset.pastThreshHold === "true") {
-      mainHeaderWrapper.dataset.scrolled = "false";
-    }
-  }
+  //   if (!isScrolled) {
+  //     mainHeaderWrapper.dataset.scrolled = "true";
+  //   }
+  // }
+  // function removeHeaderBackground() {
+  //   if (!mainHeaderWrapper.dataset.pastThreshHold === "true") {
+  //     mainHeaderWrapper.dataset.scrolled = "false";
+  //   }
+  // }
 
-  function closeOpenMenus() {
-    const openMenus = [
-      ...document.querySelectorAll("[data-mega-menu-open='true']"),
-    ];
+  // function closeOpenMenus() {
+  //   const openMenus = [
+  //     ...document.querySelectorAll("[data-mega-menu-open='true']"),
+  //   ];
 
-    openMenus.forEach((megaMenu) => (megaMenu.dataset.megaMenuOpen = "false"));
-  }
+  //   openMenus.forEach((megaMenu) => (megaMenu.dataset.megaMenuOpen = "false"));
+  // }
 
-  const megamenu = [...document.querySelectorAll("[data-megamenu-toggle]")];
+  // const megamenu = [...document.querySelectorAll("[data-megamenu-toggle]")];
 
-  mainHeaderWrapper.addEventListener("mouseleave", () => {
-    closeOpenMenus();
-    megaMenuWrapper.dataset.hoverSustained = "false";
-    removeHeaderBackground();
-  });
+  // mainHeaderWrapper.addEventListener("mouseleave", () => {
+  //   closeOpenMenus();
+  //   megaMenuWrapper.dataset.hoverSustained = "false";
+  //   removeHeaderBackground();
+  // });
 
-  megamenu.forEach((mega) => {
-    let id = `#${mega.dataset.toggle}`;
-    const menu = document.querySelector(id);
+  // megamenu.forEach((mega) => {
+  //   let id = `#${mega.dataset.toggle}`;
+  //   const menu = document.querySelector(id);
 
-    if (menu == null) return;
+  //   if (menu == null) return;
 
-    mega.addEventListener("mouseenter", () => {
-      closeOpenMenus();
-      megaMenuWrapper.dataset.hoverSustained = "true";
-      menu.dataset.megaMenuOpen = "true";
-      addHeaderBackground();
-    });
-  });
+  //   mega.addEventListener("mouseenter", () => {
+  //     closeOpenMenus();
+  //     megaMenuWrapper.dataset.hoverSustained = "true";
+  //     menu.dataset.megaMenuOpen = "true";
+  //     addHeaderBackground();
+  //   });
+  // });
 </script>

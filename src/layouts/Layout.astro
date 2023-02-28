@@ -64,45 +64,6 @@ const { title = "", description = "", ...props } = Astro.props;
     </script>
 
     <script>
-      // import { MANSORY_THEME } from "@/constants";
-
-      // import { setDarkTheme, setLightTheme, themeIsDark } from "@utils/utils";
-
-      // window.addEventListener("DOMContentLoaded", () => {
-      //   const themeToggles = [
-      //     ...document.querySelectorAll(".darkToggle"),
-      //   ] as HTMLButtonElement[];
-
-      // REMEMBER PREFERENCE OR AUTO DARK/LIGHT ON LOAD
-
-      // if (
-      //   themeIsDark() ||
-      //   (!(MANSORY_THEME in localStorage) &&
-      //     window.matchMedia("(prefers-color-scheme: dark)").matches)
-      // ) {
-      //   setDarkTheme();
-      //   themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "true"));
-      // } else {
-      //   setLightTheme();
-      //   themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "false"));
-      // }
-
-      // Handle theme toggle buttons
-      // themeToggles.forEach((toggle) => {
-      //   toggle.onclick = function () {
-      //     if (themeIsDark()) {
-      //       setLightTheme();
-      //       toggle.dataset.darkMode = "false";
-      //     } else {
-      //       setDarkTheme();
-      //       toggle.dataset.darkMode = "true";
-      //     }
-      //   };
-      // });
-      // });
-    </script>
-
-    <script>
       document.addEventListener("DOMContentLoaded", function () {
         // get all videos with a class of .lazy
         const lazyVideos = [].slice.call(

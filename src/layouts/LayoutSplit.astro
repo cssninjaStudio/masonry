@@ -34,7 +34,7 @@ const { title = "", description = "", ...props } = Astro.props;
 
     <slot name="head" />
   </head>
-  <body>
+  <body x-data :class="{'dark':$store.app.isDark}">
     <div id="Top"></div>
     <NavbarSplit />
     <slot />
@@ -43,38 +43,21 @@ const { title = "", description = "", ...props } = Astro.props;
 
     <script>
       import { MANSORY_THEME } from "@/constants";
-      import { setDarkTheme, setLightTheme, themeIsDark } from "@utils/utils";
 
-      window.addEventListener("DOMContentLoaded", () => {
-        const themeToggles = [
-          ...document.querySelectorAll(".darkToggle"),
-        ] as HTMLButtonElement[];
-
-        // REMEMBER PREFERENCE OR AUTO DARK/LIGHT ON LOAD
-
-        if (
-          themeIsDark() ||
-          (!(MANSORY_THEME in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
-        ) {
-          setDarkTheme();
-          themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "true"));
-        } else {
-          setLightTheme();
-          themeToggles.forEach((toggle) => (toggle.dataset.darkMode = "false"));
-        }
-
-        // Handle theme toggle buttons
-        themeToggles.forEach((toggle) => {
-          toggle.onclick = function () {
-            if (themeIsDark()) {
-              setLightTheme();
-              toggle.dataset.darkMode = "false";
-            } else {
-              setDarkTheme();
-              toggle.dataset.darkMode = "true";
-            }
-          };
+      document.addEventListener("alpine:init", () => {
+        Alpine.store("app", {
+          init() {
+            this.isDark =
+              MANSORY_THEME in localStorage
+                ? localStorage.getItem(MANSORY_THEME) === "dark"
+                : window.matchMedia("(prefers-color-scheme: dark)").matches;
+          },
+          toggleTheme() {
+            this.isDark = !this.isDark;
+            localStorage.setItem(MANSORY_THEME, this.isDark);
+          },
+          isDark: false,
+          isLoggedIn: false,
         });
       });
     </script>

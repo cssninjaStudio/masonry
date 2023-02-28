@@ -20,12 +20,12 @@ import MegaMenu from "./ui/MegaMenu.astro";
   >
     <header
       id="MainHeader"
-      class="container flex justify-start gap-3 shadow lg:shadow-none px-3 py-3 lg:px-0"
+      class="min-h-[70px] container flex justify-start items-stretch gap-3 shadow lg:shadow-none px-3 lg:px-0"
     >
       <div
-        class="brand flex justify-between lg:justify-start items-center w-full lg:w-auto"
+        class="brand flex justify-between lg:justify-start items-center w-full lg:w-auto min-h-[3.25rem]"
       >
-        <a href="/" class="flex gap-4 items-center">
+        <a href="/" class="flex gap-4 items-center py-2">
           <Logo class="h-10 aspect-square" />
           <p
             class="font-medium text-2xl font-TitilliumWeb text-dark dark:text-white"
@@ -69,15 +69,19 @@ import MegaMenu from "./ui/MegaMenu.astro";
       </div>
 
       <nav
-        class="absolute top-full bg-white lg:bg-transparent left-0 w-full lg:static lg:flex-1 items-center justify-between"
+        aria-label="Main Navigation"
+        class="absolute top-full bg-white lg:bg-transparent left-0 w-full lg:static lg:flex-grow items-stretch justify-between"
         :class="mobileOpen ? 'block pt-5 pb-8 lg:p-0 -translate-y-px border-b border-gray-1 dark:bg-dark-purple-2  [box-shadow:0_0_10px_0_rgba(0,0,0,.08)]  dark:border-dark-purple-3': 'hidden lg:flex'"
       >
-        <ul id="LeftLinks" class="flex flex-col lg:flex-row items-center">
-          <li>
+        <ul
+          id="LeftLinks"
+          class="flex flex-col lg:flex-row items-stretch [&>li>a]:h-full"
+        >
+          <li class="">
             <a
               href="#"
               x-on:mouseover="megamenuOpened = true, openedMegamenu = 'megamenu-1'"
-              class="py-2 px-3 leading-6 text-base group text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center gap-1"
+              class="py-2 px-3 leading-6 text-base group text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center justify-center gap-1"
               >Properties <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -97,7 +101,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
             <a
               href="#"
               x-on:mouseover="megamenuOpened = true, openedMegamenu = 'megamenu-2'"
-              class="py-2 px-3 leading-6 group text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center gap-1"
+              class="py-2 px-3 leading-6 group text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center justify-center gap-1"
               >Rentals <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -116,7 +120,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           <li>
             <a
               href="/about"
-              class="py-2 px-3 leading-6 text-base text-blue-gray hover:text-dark dark:hover:text-white block transition-all duration-300"
+              class="py-2 px-3 leading-6 grid place-items-center text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300"
               >About</a
             >
           </li>
@@ -124,9 +128,9 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
         <ul
           id="RightLinks"
-          class="flex flex-col lg:flex-row items-center gap-6"
+          class="flex flex-col lg:flex-row items-stretch gap-6 [&>li>a]:h-full [&>li>a]:grid [&>li>a]:place-items-center"
         >
-          <li class="h-max flex justify-center items-center">
+          <li class="">
             <a
               href="/"
               class="py-2 leading-6 text-base hover:text-dark dark:hover:text-white transition-all duration-300"
@@ -137,8 +141,8 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
           <!-- search -->
           <li
-            class="search lg:pl-6 hidden lg:flex justify-center items-center lg:border-l h-full dark:border-dark-purple-3"
-            :class="scrolled  ||  megamenuOpened ? 'border-gray-1': 'border-transparent' "
+            class="search lg:pl-6 hidden lg:block lg:border-l"
+            :class="scrolled  ||  megamenuOpened ? 'border-gray-1 dark:border-dark-purple-3': 'border-transparent' "
           >
             <a
               href=""
@@ -168,7 +172,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           </li>
 
           <!-- whishlist -->
-          <li class="h-max hidden lg:flex justify-center items-center">
+          <li class="hidden lg:block">
             <a
               href="/about"
               class="inline-block text-base text-white hover:text-dark dark:hover:text-white transition-all duration-300"
@@ -182,7 +186,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
           </li>
 
           <!-- dark/light mode switch -->
-          <li class="h-max flex justify-center items-center">
+          <li class="flex justify-center items-center">
             <button
               class="darkToggle relative w-9 aspect-square rounded-full border-gray-1 dark:border-dark-purple-3"
               :class="scrolled  ||  megamenuOpened || mobileOpen ? 'border [&>svg]:text-yellow' : '[&>svg]:text-white'"
@@ -205,10 +209,12 @@ import MegaMenu from "./ui/MegaMenu.astro";
           </li>
 
           <!-- register -->
-          <li class="h-max w-3/5 lg:w-auto">
+          <li
+            class="w-3/5 mx-auto lg:mx-0 lg:w-auto flex items-center justify-center"
+          >
             <a
               href="/register"
-              class="h-[46px] min-w-[120px] font-medium text-sm leading-6 px-3.5 py-1.5 flex justify-center items-center transition-all duration-300 rounded bg-primary text-white"
+              class="!h-[46px] w-full lg:w-auto min-w-[120px] font-medium text-sm leading-6 px-3.5 py-1.5 flex justify-center items-center transition-all duration-300 rounded bg-primary text-white"
               :class="{'[box-shadow:rgba(46,49,255,0.42)_0px_14px_26px_-12px,rgba(0,0,0,0.12)_0px_4px_23px_0px,rgba(46,49,255,0.2)_0px_8px_10px_-5px]': scrolled}"
               >Register</a
             >

@@ -70,8 +70,9 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
       <nav
         aria-label="Main Navigation"
-        class="absolute top-full bg-white lg:bg-transparent left-0 w-full lg:static lg:flex-grow items-stretch justify-between"
-        :class="mobileOpen ? 'block pt-5 pb-8 lg:p-0 -translate-y-px border-b border-gray-1 dark:bg-dark-purple-2  [box-shadow:0_0_10px_0_rgba(0,0,0,.08)]  dark:border-dark-purple-3': 'hidden lg:flex'"
+        x-cloak
+        class="absolute top-full bg-white lg:bg-transparent left-0 w-full lg:static px-3 lg:px-0 lg:flex-grow items-stretch justify-between"
+        :class="mobileOpen ? 'block pt-5 pb-8 lg:p-0 -translate-y-px border-b border-gray-1 dark:bg-dark-purple-2  [box-shadow:0_2px_10px_0_rgba(0,0,0,.08)]  dark:border-dark-purple-3': 'hidden lg:flex'"
       >
         <ul
           id="LeftLinks"
@@ -210,7 +211,7 @@ import MegaMenu from "./ui/MegaMenu.astro";
 
           <!-- register -->
           <li
-            class="w-3/5 mx-auto lg:mx-0 lg:w-auto flex items-center justify-center"
+            class="w-full md:w-3/5 mx-auto lg:mx-0 lg:w-auto flex items-center justify-center"
           >
             <a
               href="/register"

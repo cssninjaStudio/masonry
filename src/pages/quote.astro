@@ -56,6 +56,148 @@ import { Icon } from "astro-icon";
                 </div>
               </div>
 
+              <div
+                id="form-section-1"
+                class="inner-form relative min-h-[400px] flex flex-col justify-between"
+                x-cloak
+                x-show="activeWizardStep === 'wizard-step-1'"
+              >
+                <div class="title-block">
+                  <h3
+                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
+                  >
+                    1. What's the project type?
+                  </h3>
+                  <h4 class="text-center text-base text-ice-blue">
+                    Please select a project type to proceed
+                  </h4>
+                </div>
+                <div class="content-block py-5 md:py-0">
+                  <div
+                    class="project-types grid grid-cols-1 md:grid-cols-3 gap-4"
+                  >
+                    <div class="radio-box relative">
+                      <input
+                        x-on:change="selectProjectType()"
+                        type="radio"
+                        name="project_type"
+                        class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]"
+                      />
+                      <div
+                        class="radio-box-inner relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+                      >
+                        <div
+                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                        >
+                          <Icon
+                            class="h-3 w-3 stroke-[3px] stroke-white"
+                            name="feather:check"
+                          />
+                        </div>
+                        <img
+                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
+                          src="/images/icons/f1.svg"
+                          alt=""
+                        />
+                        <img
+                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
+                          src="/images/icons/f1-dark.svg"
+                          alt=""
+                        />
+                        <h3 class="text-dark text-lg mt-1.5 text-center">
+                          House project
+                        </h3>
+                        <p class="text-center text-ice-blue text-[.8rem]">
+                          I want my house to be reworked
+                        </p>
+                      </div>
+                    </div>
+                    <div class="radio-box relative">
+                      <input
+                        x-on:change="selectProjectType()"
+                        type="radio"
+                        name="project_type"
+                        class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]"
+                      />
+                      <div
+                        class="radio-box-inner relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+                      >
+                        <div
+                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                        >
+                          <Icon
+                            class="h-3 w-3 stroke-[3px] stroke-white"
+                            name="feather:check"
+                          />
+                        </div>
+                        <img
+                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
+                          src="/images/icons/f5.svg"
+                          alt=""
+                        />
+                        <img
+                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
+                          src="/images/icons/f5-dark.svg"
+                          alt=""
+                        />
+                        <h3 class="text-dark text-lg mt-1.5 text-center">
+                          Office project
+                        </h3>
+                        <p class="text-center text-ice-blue text-[.8rem]">
+                          I want my office to be reworked
+                        </p>
+                      </div>
+                    </div>
+                    <div class="radio-box relative">
+                      <input
+                        x-on:change="selectProjectType()"
+                        type="radio"
+                        name="project_type"
+                        class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]"
+                      />
+                      <div
+                        class="radio-box-inner relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+                      >
+                        <div
+                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                        >
+                          <Icon
+                            class="h-3 w-3 stroke-[3px] stroke-white"
+                            name="feather:check"
+                          />
+                        </div>
+                        <img
+                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
+                          src="/images/icons/f6.svg"
+                          alt=""
+                        />
+                        <img
+                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
+                          src="/images/icons/f6-dark.svg"
+                          alt=""
+                        />
+                        <h3 class="text-dark text-lg mt-1.5 text-center">
+                          Store project
+                        </h3>
+                        <p class="text-center text-ice-blue text-[.8rem]">
+                          I want my store to be reworked
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-block">
+                  <button
+                    @click="browseWizard($event)"
+                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
+                    data-step="wizard-step-2"
+                    :class="{ 'is-disabled': projectTypeSelected === false, '': projectTypeSelected === true  }"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

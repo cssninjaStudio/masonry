@@ -1,0 +1,69 @@
+---
+import LayoutSplit from "@layouts/LayoutSplit.astro";
+import { Icon } from "astro-icon";
+---
+
+<LayoutSplit title="Quote">
+  <main
+    id="Quote"
+    class="relative flex justify-between flex-col items-stretch min-h-screen bg-semi-white-1 dark:bg-dark-purple-1"
+  >
+    <img
+      class="wizard-cover absolute bottom-0 left-0 w-full z-0"
+      src="/images/illustrations/cityscape.svg"
+      alt="Wizard cover"
+    />
+
+    <section class="py-12 px-6 lg:px-12 flex items-center flex-grow">
+      <div class="container">
+        <div id="quote-section" class="form-section relative z-[2]">
+          <div
+            x-data="wizard"
+            class="outer-form py-12 mx-auto max-w-[840px] w-full"
+          >
+            <div class="form-content has-text-centered">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .is-loading {
+      @apply text-transparent pointer-events-none relative after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:animate-[spinAround_500ms_infinite_linear] after:border-[2px] after:rounded-full after:border-semi-white-3 after:border-t-transparent after:border-r-transparent after:block after:content-[''] after:h-4 after:w-4;
+    }
+  </style>
+  <script>
+    document.addEventListener("alpine:init", () => {
+      // Wizard Data
+      Alpine.data("wizard", () => ({
+        activeWizardStep: "wizard-step-0",
+        projectTypeSelected: false,
+        selectProjectType() {
+          this.projectTypeSelected = true;
+        },
+        servicesSelected: false,
+        selectServices() {
+          this.servicesSelected = true;
+        },
+        budgetSelected: false,
+        selectBudget() {
+          this.budgetSelected = true;
+        },
+        browseWizard(e) {
+          const targetStep = e.target.getAttribute("data-step");
+          e.target.classList.add("is-loading");
+          setTimeout(() => {
+            e.target.classList.remove("is-loading");
+            this.activeWizardStep = targetStep;
+          }, 1200);
+        },
+        browseBackWizard(e) {
+          const targetStep = e.target.getAttribute("data-step");
+          this.activeWizardStep = targetStep;
+        },
+      }));
+    });
+  </script>
+</LayoutSplit>

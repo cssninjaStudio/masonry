@@ -744,6 +744,181 @@ import { Icon } from "astro-icon";
                 </div>
               </div>
 
+              <div
+                id="form-section-4"
+                class="inner-form relative min-h-[400px] flex flex-col justify-between"
+                x-cloak
+                x-show="activeWizardStep === 'wizard-step-4'"
+              >
+                <div
+                  @click="browseBackWizard($event)"
+                  class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
+                  data-step="wizard-step-3"
+                >
+                  <Icon class="h-[18px] w-[18px]" name="feather:arrow-left" />
+                </div>
+                <div class="title-block">
+                  <h3
+                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
+                  >
+                    4. What's your scope?
+                  </h3>
+                  <h4 class="text-center text-base text-ice-blue">
+                    Tell us more about your project
+                  </h4>
+                </div>
+                <div class="content-block">
+                  <div class="project-scope mx-auto max-w-[350px] py-6">
+                    <div class="field mb-3 text-center">
+                      <div class="control">
+                        <textarea
+                          class="textarea dark:bg-dark-purple-5 max-h-[40em] min-h-[8em] transition-all duration-300 bg-white dark:border-dark-purple-7 border-gray-1 border-[.8px] p-3 text-blue-gray w-full rounded outline-none focus:outline-none focus:[box-shadow:rgba(0,0,0,0.06)_-1_3px_10px_0px] dark:focus:border-dark-purple-8 dark:hover:border-dark-purple-8 dark:placeholder:text-dark-purple-8"
+                          placeholder="Describe your project..."></textarea>
+                      </div>
+                      <small class="text-[.875rem] text-dark"
+                        >Minimum 5 words</small
+                      >
+                    </div>
+
+                    <div class="uploader-row mt-[30px]">
+                      <div
+                        class="uploaders flex justify-between p-3.5 dark:bg-dark-purple-3 rounded-xl"
+                      >
+                        <div class="uploader relative">
+                          <input
+                            class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer"
+                            id="uploader-1"
+                            type="file"
+                          />
+                          <label
+                            for="uploader-1"
+                            class="uploader-controls relative group h-[70px] w-[70px] flex justify-center items-center border-[1.8px] border-blue-gray border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-ice-blue"
+                          >
+                            <svg
+                              class="h-5 w-5 transition-all duration-300 text-blue-gray dark:text-dark-purple-8 group-hover:text-ice-blue"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              ><g
+                                id="fePlus0"
+                                fill="none"
+                                fill-rule="evenodd"
+                                stroke="none"
+                                stroke-width="1"
+                                ><g id="fePlus1" fill="currentColor"
+                                  ><path
+                                    id="fePlus2"
+                                    d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"
+                                  ></path></g
+                                ></g
+                              ></svg
+                            >
+                          </label>
+                        </div>
+                        <div class="uploader relative">
+                          <input
+                            class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer"
+                            id="uploader-2"
+                            type="file"
+                          />
+                          <label
+                            for="uploader-2"
+                            class="uploader-controls relative group h-[70px] w-[70px] flex justify-center items-center border-[1.8px] border-blue-gray border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-ice-blue"
+                          >
+                            <svg
+                              class="h-5 w-5 transition-all duration-300 text-blue-gray dark:text-dark-purple-8 group-hover:text-ice-blue"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              ><g
+                                id="fePlus0"
+                                fill="none"
+                                fill-rule="evenodd"
+                                stroke="none"
+                                stroke-width="1"
+                                ><g id="fePlus1" fill="currentColor"
+                                  ><path
+                                    id="fePlus2"
+                                    d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"
+                                  ></path></g
+                                ></g
+                              ></svg
+                            >
+                          </label>
+                        </div>
+                        <div class="uploader relative">
+                          <input
+                            class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer"
+                            id="uploader-3"
+                            type="file"
+                          />
+                          <label
+                            for="uploader-3"
+                            class="uploader-controls relative group h-[70px] w-[70px] flex justify-center items-center border-[1.8px] border-blue-gray border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-ice-blue"
+                          >
+                            <svg
+                              class="h-5 w-5 transition-all duration-300 text-blue-gray dark:text-dark-purple-8 group-hover:text-ice-blue"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              ><g
+                                id="fePlus0"
+                                fill="none"
+                                fill-rule="evenodd"
+                                stroke="none"
+                                stroke-width="1"
+                                ><g id="fePlus1" fill="currentColor"
+                                  ><path
+                                    id="fePlus2"
+                                    d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"
+                                  ></path></g
+                                ></g
+                              ></svg
+                            >
+                          </label>
+                        </div>
+                        <div class="uploader relative">
+                          <input
+                            class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer"
+                            id="uploader-4"
+                            type="file"
+                          />
+                          <label
+                            for="uploader-4"
+                            class="uploader-controls relative group h-[70px] w-[70px] flex justify-center items-center border-[1.8px] border-blue-gray border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-ice-blue"
+                          >
+                            <svg
+                              class="h-5 w-5 transition-all duration-300 text-blue-gray dark:text-dark-purple-8 group-hover:text-ice-blue"
+                              xmlns="http://www.w3.org/2000/svg"
+                              viewBox="0 0 24 24"
+                              ><g
+                                id="fePlus0"
+                                fill="none"
+                                fill-rule="evenodd"
+                                stroke="none"
+                                stroke-width="1"
+                                ><g id="fePlus1" fill="currentColor"
+                                  ><path
+                                    id="fePlus2"
+                                    d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"
+                                  ></path></g
+                                ></g
+                              ></svg
+                            >
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="button-block">
+                  <button
+                    @click="browseWizard($event)"
+                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
+                    data-step="wizard-step-5"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

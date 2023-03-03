@@ -22,6 +22,40 @@ import { Icon } from "astro-icon";
             class="outer-form py-12 mx-auto max-w-[840px] w-full"
           >
             <div class="form-content has-text-centered">
+              <div
+                id="form-section-0"
+                class="inner-form relative min-h-[400px] flex flex-col justify-between"
+                x-cloak
+                x-show="activeWizardStep === 'wizard-step-0'"
+              >
+                <div class="title-block">
+                  <h3
+                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
+                  >
+                    Let's get you a personalized quote
+                  </h3>
+                  <h4 class="text-center text-base text-ice-blue">
+                    Follow the instructions to enter the info we need
+                  </h4>
+                </div>
+                <div class="image-block">
+                  <img
+                    class="max-w-[210px] mx-auto"
+                    src="/images/illustrations/quote.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="button-block">
+                  <button
+                    @click="browseWizard($event)"
+                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
+                    data-step="wizard-step-1"
+                  >
+                    Start
+                  </button>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

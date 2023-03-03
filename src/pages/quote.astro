@@ -588,6 +588,162 @@ import { Icon } from "astro-icon";
                 </div>
               </div>
 
+              <div
+                id="form-section-3"
+                class="inner-form relative flex min-h-[400px] flex-col justify-between"
+                x-cloak
+                x-show="activeWizardStep === 'wizard-step-3'"
+              >
+                <div
+                  @click="browseBackWizard($event)"
+                  class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
+                  data-step="wizard-step-2"
+                >
+                  <Icon class="h-[18px] w-[18px]" name="feather:arrow-left" />
+                </div>
+                <div class="title-block">
+                  <h3
+                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
+                  >
+                    3. What's your budget?
+                  </h3>
+                  <h4 class="text-center text-base text-ice-blue">
+                    Please select a budget range
+                  </h4>
+                </div>
+                <div class="content-block py-5 md:py-0">
+                  <div
+                    class="budget-types grid grid-cols-1 md:grid-cols-3 gap-4"
+                  >
+                    <div class="radio-box relative">
+                      <input
+                        x-on:change="selectBudget()"
+                        type="radio"
+                        name="budget_type"
+                        class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer"
+                      />
+                      <div
+                        class="radio-box-inner dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+                      >
+                        <div
+                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                        >
+                          <Icon
+                            class="h-3 w-3 stroke-[3px] stroke-white"
+                            name="feather:check"
+                          />
+                        </div>
+                        <img
+                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
+                          src="/images/icons/f15.svg"
+                          alt=""
+                        />
+                        <img
+                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
+                          src="/images/icons/f15-dark.svg"
+                          alt=""
+                        />
+                        <h3
+                          class="text-[1.1rem] text-center mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
+                        >
+                          $0 - $10K
+                        </h3>
+                        <p class="text-[.8rem] text-center text-ice-blue">
+                          A small but nice budget
+                        </p>
+                      </div>
+                    </div>
+                    <div class="radio-box relative">
+                      <input
+                        x-on:change="selectBudget()"
+                        type="radio"
+                        name="budget_type"
+                        class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer"
+                      />
+                      <div
+                        class="radio-box-inner dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+                      >
+                        <div
+                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                        >
+                          <Icon
+                            class="h-3 w-3 stroke-[3px] stroke-white"
+                            name="feather:check"
+                          />
+                        </div>
+                        <img
+                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
+                          src="/images/icons/f16.svg"
+                          alt=""
+                        />
+                        <img
+                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
+                          src="/images/icons/f16-dark.svg"
+                          alt=""
+                        />
+                        <h3
+                          class="text-[1.1rem] mt-1.5 text-center font-TitilliumWeb text-dark dark:text-semi-white-3"
+                        >
+                          $11K - $35K
+                        </h3>
+                        <p class="text-[.8rem] text-center text-ice-blue">
+                          A considerable budget
+                        </p>
+                      </div>
+                    </div>
+                    <div class="radio-box relative">
+                      <input
+                        x-on:change="selectBudget()"
+                        type="radio"
+                        name="budget_type"
+                        class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer"
+                      />
+                      <div
+                        class="radio-box-inner dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
+                      >
+                        <div
+                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                        >
+                          <Icon
+                            class="h-3 w-3 stroke-[3px] stroke-white"
+                            name="feather:check"
+                          />
+                        </div>
+                        <img
+                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
+                          src="/images/icons/f17.svg"
+                          alt=""
+                        />
+                        <img
+                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
+                          src="/images/icons/f17-dark.svg"
+                          alt=""
+                        />
+                        <h3
+                          class="text-[1.1rem] text-center mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
+                        >
+                          $36K +
+                        </h3>
+                        <p class="text-[.8rem] text-center text-ice-blue">
+                          Wohoo! You rock!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="button-block">
+                  <button
+                    @click="browseWizard($event)"
+                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
+                    data-step="wizard-step-4"
+                    :class="{ 'is-disabled': budgetSelected === false,  '': budgetSelected === true }"
+                  >
+                    Next
+                  </button>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

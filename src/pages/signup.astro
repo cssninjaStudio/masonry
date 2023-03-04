@@ -10,7 +10,7 @@ import { Icon } from "astro-icon";
     id="Signup"
     class="signup-wrapper bg-semi-white-1 dark:bg-dark-blue relative"
   >
-    <header class="signup-nav absolute top-0 left-0 w-full px-3">
+    <header class="signup-nav absolute top-0 left-0 z-[5] w-full px-3">
       <div class="container">
         <div
           class="signup-nav-inner flex justify-between items-center gap-3 min-h-[4.5rem]"
@@ -24,7 +24,7 @@ import { Icon } from "astro-icon";
             </p>
           </a>
           <button
-            class="darkToggle relative w-9 aspect-square rounded-full border-gray-1 dark:border-dark-purple-3 border [&>svg]:text-yellow"
+            class="darkToggle cursor-pointer relative w-9 aspect-square rounded-full border-gray-1 dark:border-dark-purple-3 border [&>svg]:text-yellow"
             @click="$store.app.toggleTheme()"
           >
             <!-- sun -->

@@ -1,0 +1,246 @@
+---
+import { Image } from "@astrojs/image/components";
+import LayoutSplit from "@layouts/LayoutSplit.astro";
+import { Icon } from "astro-icon";
+---
+
+<LayoutSplit title="Account">
+  <main id="Account" class="py-12 px-6 md:px-12 dark:bg-dark-purple-1">
+    <section class="container">
+      <!-- account-header -->
+      <div class="flex flex-col md:flex-row items-center pt-16 gap-4">
+        <Image
+          height={280}
+          width={280}
+          class="h-[60px] w-[60px] rounded-full block min-w-[60px]"
+          src="/images/avatars/4.webp"
+          alt="avatar"
+        />
+        <!-- header-meta -->
+        <div class="">
+          <h2
+            class="dark:text-white font-TitilliumWeb text-center md:text-left text-dark font-light text-[2rem]"
+          >
+            Account
+          </h2>
+          <h4 class="text-blue-gray text-xl text-center md:text-left">
+            Welcome back, Henry M.
+          </h4>
+        </div>
+      </div>
+
+      <!-- cards -->
+      <div class="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!--Personal Info-->
+        <a
+          href="/settings"
+          class="card border border-gray-1 dark:border-dark-purple-6 dark:hover:border-primary hover:border-primary block transition-all duration-300"
+        >
+          <div class="card-content p-6 dark:bg-dark-purple-2">
+            <div class="card-icon">
+              <Icon class="h-8 text-danger" name="ph:heartbeat-duotone" />
+            </div>
+            <h3
+              class="dark:text-white text-dark font-light font-TitilliumWeb text-base mb-2"
+            >
+              <span class="icon-text font-semibold flex items-center">
+                <span>Personal Info</span>
+                <span class="icon transition-transform duration-300">
+                  <Icon name="chevron-right h-[18px] w-[18px]" />
+                </span>
+              </span>
+            </h3>
+            <p class="text-base text-blue-gray">
+              We want to know more about you. Let us know about all of your
+              personal details and how we can reach out to you.
+            </p>
+          </div>
+        </a>
+        <!--Account Security-->
+        <a
+          href="/settings"
+          class="card border border-gray-1 dark:border-dark-purple-6 dark:hover:border-primary hover:border-primary block transition-all duration-300"
+        >
+          <div class="card-content p-6 dark:bg-dark-purple-2">
+            <div class="card-icon">
+              <Icon class="h-8 text-success" name="ph:shield-check-duotone" />
+            </div>
+            <h3
+              class="dark:text-white text-dark font-light font-TitilliumWeb text-base mb-2"
+            >
+              <span class="icon-text font-semibold flex items-center">
+                <span>Account & Security</span>
+                <span class="icon transition-transform duration-300">
+                  <Icon name="chevron-right h-[18px] w-[18px]" />
+                </span>
+              </span>
+            </h3>
+            <p class="text-base text-blue-gray">
+              Update your password and secure your account. You can also enable
+              two-factor authentication.
+            </p>
+          </div>
+        </a>
+        <!--Payments-->
+        <a
+          href="/settings"
+          class="card border border-gray-1 dark:border-dark-purple-6 dark:hover:border-primary hover:border-primary block transition-all duration-300"
+        >
+          <div class="card-content p-6 dark:bg-dark-purple-2">
+            <div class="card-icon">
+              <Icon class="h-8 text-info" name="ph:credit-card-duotone" />
+            </div>
+            <h3
+              class="dark:text-white text-dark font-light font-TitilliumWeb text-base mb-2"
+            >
+              <span class="icon-text font-semibold flex items-center">
+                <span>Payments</span>
+                <span class="icon transition-transform duration-300">
+                  <Icon name="chevron-right h-[18px] w-[18px]" />
+                </span>
+              </span>
+            </h3>
+            <p class="text-base text-blue-gray">
+              View your payments and your transactions. Also view coupon codes,
+              gift cards and tax reports.
+            </p>
+          </div>
+        </a>
+        <!--Notifications-->
+        <a
+          href="/settings"
+          class="card border border-gray-1 dark:border-dark-purple-6 dark:hover:border-primary hover:border-primary block transition-all duration-300"
+        >
+          <div class="card-content p-6 dark:bg-dark-purple-2">
+            <div class="card-icon">
+              <Icon class="h-8 text-yellow" name="ph:bell-ringing-duotone" />
+            </div>
+            <h3
+              class="dark:text-white text-dark font-light font-TitilliumWeb text-base mb-2"
+            >
+              <span class="icon-text font-semibold flex items-center">
+                <span>Notifications</span>
+                <span class="icon transition-transform duration-300">
+                  <Icon name="chevron-right h-[18px] w-[18px]" />
+                </span>
+              </span>
+            </h3>
+            <p class="text-base text-blue-gray">
+              Decide of your notification preferences and the different ways
+              that people should use to reach out to you.
+            </p>
+          </div>
+        </a>
+        <!--Privacy-->
+        <a
+          href="/settings"
+          class="card border border-gray-1 dark:border-dark-purple-6 dark:hover:border-primary hover:border-primary block transition-all duration-300"
+        >
+          <div class="card-content p-6 dark:bg-dark-purple-2">
+            <div class="card-icon">
+              <Icon class="h-8 text-primary" name="ph:lock-duotone" />
+            </div>
+            <h3
+              class="dark:text-white text-dark font-light font-TitilliumWeb text-base mb-2"
+            >
+              <span class="icon-text font-semibold flex items-center">
+                <span>Privacy</span>
+                <span class="icon transition-transform duration-300">
+                  <Icon name="chevron-right h-[18px] w-[18px]" />
+                </span>
+              </span>
+            </h3>
+            <p class="text-base text-blue-gray">
+              Control all your connected apps and how they access your
+              information. Control what you share and who has access.
+            </p>
+          </div>
+        </a>
+        <!--Global Settings-->
+        <a
+          href="/settings"
+          class="card border border-gray-1 dark:border-dark-purple-6 dark:hover:border-primary hover:border-primary block transition-all duration-300"
+        >
+          <div class="card-content p-6 dark:bg-dark-purple-2">
+            <div class="card-icon">
+              <Icon class="h-8 text-purple" name="ph:gear-six-duotone" />
+            </div>
+            <h3
+              class="dark:text-white text-dark font-light font-TitilliumWeb text-base mb-2"
+            >
+              <span class="icon-text font-semibold flex items-center">
+                <span>Global Settings</span>
+                <span class="icon transition-transform duration-300">
+                  <Icon name="chevron-right h-[18px] w-[18px]" />
+                </span>
+              </span>
+            </h3>
+            <p class="text-base text-blue-gray">
+              Select your timezone, your main currency for payments and your
+              default language. You can change this whenever you want.
+            </p>
+          </div>
+        </a>
+        <!--Dashboard-->
+        <a
+          href="/settings"
+          class="card border border-gray-1 dark:border-dark-purple-6 dark:hover:border-primary hover:border-primary block transition-all duration-300"
+        >
+          <div class="card-content p-6 dark:bg-dark-purple-2">
+            <div class="card-icon">
+              <Icon class="h-8 text-success" name="ph:buildings-duotone" />
+            </div>
+            <h3
+              class="dark:text-white text-dark font-light font-TitilliumWeb text-base mb-2"
+            >
+              <span class="icon-text font-semibold flex items-center">
+                <span>Dashboard</span>
+                <span class="icon transition-transform duration-300">
+                  <Icon name="chevron-right h-[18px] w-[18px]" />
+                </span>
+              </span>
+            </h3>
+            <p class="text-base text-blue-gray">
+              Use our professional tools to manage your houses, your residences
+              and the transactions you offer on our platform.
+            </p>
+          </div>
+        </a>
+        <!--Premium-->
+        <a
+          href="/settings"
+          class="card border border-gray-1 dark:border-dark-purple-6 dark:hover:border-primary hover:border-primary block transition-all duration-300"
+        >
+          <div class="card-content p-6 dark:bg-dark-purple-2">
+            <div class="card-icon">
+              <Icon class="h-8 text-yellow" name="ph:crown-duotone" />
+            </div>
+            <h3
+              class="dark:text-white text-dark font-light font-TitilliumWeb text-base mb-2"
+            >
+              <span class="icon-text font-semibold flex items-center">
+                <span>Houseo Premium</span>
+                <span class="icon transition-transform duration-300">
+                  <Icon name="chevron-right h-[18px] w-[18px]" />
+                </span>
+              </span>
+            </h3>
+            <p class="text-base text-blue-gray">
+              Add a professional email account so you can start benefiting from
+              pro offers and business oriented housing.
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <div class="py-12 flex flex-col items-center">
+        <p class="text-base text-ice-blue mb-2">
+          Need yo disable your account?
+        </p>
+        <a class="slide-link text-base text-primary text-center"
+          >Disable Account</a
+        >
+      </div>
+    </section>
+  </main>
+</LayoutSplit>

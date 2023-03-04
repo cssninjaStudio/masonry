@@ -42,10 +42,95 @@ module.exports = {
           4: "#1e1e3b",
           5: "#151829",
           6: "#26264b",
+          7: "#283252",
+          8: "#333366",
         },
         gray: {
           1: "#e3e3e3",
           2: "#717171",
+          3: "#ceced2",
+        },
+      },
+      animation: {
+        gelatine: "gelatine 600ms both",
+        scaleAnimation: "scaleAnimation 1s ease-out 0s 1 both",
+        drawCircleFadeOut:
+          "drawCircle 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ,fadeOut 0.3s linear 0.9s 1 both ",
+        drawCheckFadeOut:
+          "drawCheck 1s cubic-bezier(0.77, 0, 0.175, 1) 0s 1 both ,fadeOut   0.3s linear 0.9s 1 both",
+        fadeIn: "fadeIn 0.3s linear 0.9s both",
+      },
+      keyframes: {
+        fadeOut: {
+          "0%": {
+            opacity: "1",
+          },
+
+          "100%": {
+            opacity: "0",
+          },
+        },
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+          },
+
+          "100%": {
+            opacity: "1",
+          },
+        },
+        scaleAnimation: {
+          "0%": {
+            opacity: "0",
+            transform: "scale(1.5)",
+          },
+
+          "100%": {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+
+        drawCircle: {
+          "0%": {
+            "stroke-dashoffset": "151px",
+          },
+
+          "100%": {
+            "stroke-dashoffset": "0",
+          },
+        },
+
+        drawCheck: {
+          "0%": {
+            "stroke-dashoffset": "36px",
+          },
+
+          "100%": {
+            "stroke-dashoffset": "0",
+          },
+        },
+        spinAround: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        gelatine: {
+          "from,to": {
+            transform: "scale(1, 1)",
+          },
+          "25%": {
+            transform: "scale(0.9, 1.1)",
+          },
+          "50%": {
+            transform: "scale(1.1, 0.9)",
+          },
+          "75%": {
+            transform: "scale(0.95, 1.05)",
+          },
         },
       },
     },

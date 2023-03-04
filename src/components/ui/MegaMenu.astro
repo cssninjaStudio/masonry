@@ -8,11 +8,11 @@ import MegaMenuLink from "./MegaMenuLink.astro";
   id="MegaMenuWrapper"
   class="absolute top-full w-full transition-all bg-white dark:bg-dark-purple-2 grid duration-300"
   :class="megamenuOpened ? 'translate-y-0  opacity-100 pointer-events-auto' : 'translate-y-2.5 opacity-0 pointer-events-none' "
+  x-cloak
 >
   <div
     id="propertiesMega"
     x-show="openedMegamenu === 'megamenu-1'"
-    x-cloak
     class="mega w-full py-[60px]"
   >
     <ul class="container flex gap-5">
@@ -128,7 +128,6 @@ import MegaMenuLink from "./MegaMenuLink.astro";
   <div
     id="rentalsMega"
     x-show="openedMegamenu === 'megamenu-2'"
-    x-cloak
     class="mega w-full py-[60px]"
   >
     <ul class="container flex gap-5">

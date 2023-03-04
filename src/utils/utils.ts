@@ -1,5 +1,4 @@
 import { APP } from "@data/config";
-import { MANSORY_THEME } from "@/constants";
 
 // set page title
 export function setTitle(title: string) {
@@ -19,21 +18,4 @@ export function currency(amount: number) {
       maximumFractionDigits: 0,
     }).format(amount) + " USD"
   );
-}
-
-export function setDarkTheme() {
-  document.documentElement.classList.add("dark");
-  localStorage.setItem(MANSORY_THEME, "dark");
-}
-
-export function setLightTheme() {
-  document.documentElement.classList.remove("dark");
-  localStorage.setItem(MANSORY_THEME, "light");
-}
-
-export function themeIsDark() {
-  return localStorage.getItem(MANSORY_THEME) === "dark";
-}
-export function themeIsLight() {
-  return localStorage.getItem(MANSORY_THEME) === "light";
 }

@@ -1,0 +1,143 @@
+---
+import Logo from "@components/ui/Logo.astro";
+import { APP } from "@data/config";
+import Layout from "@layouts/Minimal.astro";
+import { Icon } from "astro-icon";
+---
+
+<Layout title="Contact">
+  <main id="Contact" class="relative">
+    <div
+      class="contact-nav absolute top-0 left-0 px-4 z-[3] w-full h-[70px] flex items-center"
+    >
+      <div class="container">
+        <a href="/" class="flex gap-4 items-center">
+          <Logo class="h-10 aspect-square" />
+          <p
+            class="font-medium text-2xl font-TitilliumWeb text-dark dark:text-white"
+          >
+            {APP.name}
+          </p>
+        </a>
+      </div>
+    </div>
+    <div
+      id="hero-map"
+      class="contact-hero min-h-screen flex items-stretch flex-col dark:bg-dark-purple-1 justify-between relative z-[2]"
+      x-data="contact"
+      x-ref="heromap"
+      data-long="-118.44958367724455"
+      data-lat="34.016818496913956"
+    >
+      <div class="flex items-center flex-grow md:p-12 relative z-[2]">
+        <div class="container">
+          <div class="flex flex-col-reverse md:flex-row items-center">
+            <div class="p-3 md:w-1/2"></div>
+            <div class="p-3 md:w-1/2">
+              <div
+                class="card card-form p-12 max-w-[440px] mx-auto [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] bg-white dark:bg-dark-purple-2 border dark:border-dark-purple-6 rounded relative text-[#333333]"
+              >
+                <div class="head">
+                  <h2
+                    class="mb-6 text-xl dark:text-white font-semibold font-TitilliumWeb text-dark"
+                  >
+                    Wondering about something? Feel free to write us a message.
+                  </h2>
+                  <form class="flex flex-col gap-3">
+                    <div class="field">
+                      <div class="control relative">
+                        <input
+                          type="text"
+                          class="input w-full peer outline-none focus:outline-none p-3 dark:bg-dark-purple-5 border dark:hover:border-dark-purple-8 text-blue-gray placeholder:text-gray-1 dark:text-ice-blue dark:placeholder:text-dark-purple-8 dark:border-dark-purple-3 transition-all duration-300 rounded h-12 text-base"
+                          placeholder="Full Name"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="control relative">
+                        <input
+                          type="email"
+                          class="input w-full peer outline-none focus:outline-none p-3 dark:bg-dark-purple-5 border dark:hover:border-dark-purple-8 text-blue-gray placeholder:text-gray-1 dark:text-ice-blue dark:placeholder:text-dark-purple-8 dark:border-dark-purple-3 transition-all duration-300 rounded h-12 text-base"
+                          placeholder="Email Addrass"
+                        />
+                      </div>
+                    </div>
+                    <div class="field">
+                      <div class="control relative">
+                        <textarea
+                          class="textarea dark:bg-dark-purple-5 max-h-[40em] min-h-[8em] transition-all duration-300 bg-white dark:border-dark-purple-3 border-[.8px] p-3 text-blue-gray w-full rounded outline-none focus:outline-none focus:[box-shadow:rgba(0,0,0,0.06)_-1_3px_10px_0px] dark:focus:border-dark-purple-8 dark:hover:border-dark-purple-8 dark:placeholder:text-dark-purple-8"
+                          placeholder="Your message..."></textarea>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <div class="control">
+                        <a
+                          class="button min-h-[48px] bg-primary rounded-[.2rem] font-medium text-[.9rem] w-full px-4 py-2 flex justify-center items-center text-white transition-all duration-300"
+                          >Send Message</a
+                        >
+                      </div>
+                    </div>
+                    <a
+                      class="bottom-link text-[.85rem] font-medium text-primary mx-auto cursor-pointer"
+                      >We always reply!</a
+                    >
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- add mapbox styles to head / slot="head" -->
+  <link
+    slot="head"
+    href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
+    rel="stylesheet"
+  />
+
+  <!-- mapbox js -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"
+  ></script>
+
+  <!-- init mapbox map -->
+  <script>
+    import { MAPBOX_TOKEN } from "@/constants";
+
+    document.addEventListener("alpine:init", () => {
+      // Hero Map Data
+      Alpine.data("contact", () => ({
+        token: MAPBOX_TOKEN,
+        markerOptions: {
+          color: "red",
+        },
+        init() {
+          mapboxgl.accessToken = this.token;
+          const { long, lat } = this.$refs.heromap.dataset;
+          const longitude = parseFloat(long);
+
+          const latitude = parseFloat(lat);
+
+          const mainMap = new mapboxgl.Map({
+            container: this.$refs.heromap,
+            style: Alpine.store("app").isDark
+              ? "mapbox://styles/mapbox/dark-v10"
+              : "mapbox://styles/mapbox/light-v10",
+            center: [longitude, latitude],
+            zoom: 12,
+          });
+
+          mainMap.addControl(new mapboxgl.NavigationControl());
+
+          const marker = new mapboxgl.Marker(this.markerOptions)
+            .setLngLat([longitude, latitude])
+            .addTo(mainMap);
+        },
+      }));
+    });
+  </script>
+</Layout>

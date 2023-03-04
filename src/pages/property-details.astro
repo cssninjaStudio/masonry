@@ -939,8 +939,6 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
   <script>
     import { MAPBOX_TOKEN } from "@/constants";
 
-    import { themeIsDark } from "@utils/utils";
-
     document.addEventListener("alpine:init", () => {
       // Small Map Data
       Alpine.data("smallMap", () => ({
@@ -958,7 +956,7 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
 
           const smallMap = new mapboxgl.Map({
             container: this.$refs.smallmap,
-            style: themeIsDark()
+            style: Alpine.store("app").isDark
               ? "mapbox://styles/mapbox/dark-v10"
               : "mapbox://styles/mapbox/light-v10",
             center: [longitude, latitude],

@@ -42,19 +42,19 @@ const { title = "", description = "", ...props } = Astro.props;
     <Footer />
 
     <script>
-      import { MANSORY_THEME } from "@/constants";
+      import { MASONRY_THEME } from "@/constants";
 
       document.addEventListener("alpine:init", () => {
         Alpine.store("app", {
           init() {
             this.isDark =
-              MANSORY_THEME in localStorage
-                ? localStorage.getItem(MANSORY_THEME) === "dark"
+              MASONRY_THEME in localStorage
+                ? localStorage.getItem(MASONRY_THEME) === "dark"
                 : window.matchMedia("(prefers-color-scheme: dark)").matches;
           },
           toggleTheme() {
             this.isDark = !this.isDark;
-            localStorage.setItem(MANSORY_THEME, this.isDark);
+            localStorage.setItem(MASONRY_THEME, this.isDark ? "dark" : "light");
           },
           isDark: false,
           isLoggedIn: false,

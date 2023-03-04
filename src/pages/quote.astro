@@ -1088,7 +1088,7 @@ import { Icon } from "astro-icon";
 
   <style>
     .is-loading {
-      @apply text-transparent pointer-events-none relative after:absolute after:left-1/2 after:top-1/2 after:-translate-x-1/2 after:-translate-y-1/2 after:animate-[spinAround_500ms_infinite_linear] after:border-[2px] after:rounded-full after:border-semi-white-3 after:border-t-transparent after:border-r-transparent after:block after:content-[''] after:h-4 after:w-4;
+      @apply text-transparent pointer-events-none relative after:absolute after:left-[calc(50%-.5rem)] after:top-[calc(50%-.5rem)] after:animate-[spinAround_500ms_infinite_linear] after:border-[2px] after:rounded-full after:border-semi-white-3 after:border-t-transparent after:border-r-transparent after:block after:content-[''] after:h-4 after:w-4;
     }
   </style>
   <script>

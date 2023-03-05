@@ -956,7 +956,7 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
 
           const smallMap = new mapboxgl.Map({
             container: this.$refs.smallmap,
-            style: Alpine.store("app").isDark
+            style: this.$store.app.isDark
               ? "mapbox://styles/mapbox/dark-v10"
               : "mapbox://styles/mapbox/light-v10",
             center: [longitude, latitude],

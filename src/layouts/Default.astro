@@ -66,6 +66,10 @@ const { title = "", description = "", ...props } = Astro.props;
             this.isLoggedIn = true;
             localStorage.setItem(MASONRY_LOGGEDIN, "true");
           },
+          logout() {
+            this.isLoggedIn = false;
+            localStorage.setItem(MASONRY_LOGGEDIN, "false");
+          },
           isDark: false,
           isLoggedIn: false,
         });

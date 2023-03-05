@@ -2,14 +2,9 @@
 import { setDescription, setTitle } from "@utils/utils";
 import { SEO } from "astro-seo";
 import type { Props as IAstroSEO } from "astro-seo";
-import Navbar from "@components/Navbar.astro";
-import Footer from "@components/Footer.astro";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import ScrollTop from "@components/ui/ScrollTop.astro";
 import "@/styles/global.scss";
-import { APP } from "@data/config";
-import Logo from "@components/ui/Logo.astro";
-import { Icon } from "astro-icon";
 
 interface Props extends IAstroSEO {}
 const { title = "", description = "", ...props } = Astro.props;
@@ -42,6 +37,7 @@ const { title = "", description = "", ...props } = Astro.props;
     <div id="Top"></div>
 
     <slot />
+
     <ScrollTop />
 
     <script>

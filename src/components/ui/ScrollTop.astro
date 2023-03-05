@@ -1,76 +1,81 @@
 <div
-  id="ScrollToTop"
-  class="fixed bottom-8 right-8 h-12 grid place-items-center aspect-square transition-all duration-200 ease rounded-full z-[1000] opacity-0"
-  style="background: conic-gradient(#bc6bf5 5deg,#e5e5e5 0deg);"
+  class="progress-wrap group fixed right-[30px] bottom-[30px] h-[46px] w-[46px] cursor-pointer block rounded-full [box-shadow:inset_0_0_0_2px_rgba(0,_0,_0,_0.1)] z-[1000] opacity-0 translate-y-[15px] transition-all duration-200 ease-linear"
+  x-ref="progressWrap"
+  x-data="scrolltop"
+  @scroll.window="scroll()"
+  :class="scrolled ? 'active-progress opacity-100 visible translate-y-0' : 'invisible'"
+  @click="scrollTop()"
 >
-  <a
-    href="#Top"
-    class="bg-brand-blue h-[90%] w-[90%] bg-white dark:bg-dark-purple-2 rounded-full flex justify-center items-center"
-    ><svg
-      class="h-6 pointer-events-none fill-[#bc6bf5] -rotate-90"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      viewBox="0 0 24 24"
-    >
-      <path
-        d="M14 5.3417969C13.744125 5.3417969 13.487969 5.4412187 13.292969 5.6367188L13.207031 5.7226562C12.816031 6.1136563 12.816031 6.7467188 13.207031 7.1367188L17.070312 11L4 11C3.448 11 3 11.448 3 12C3 12.552 3.448 13 4 13L17.070312 13L13.207031 16.863281C12.816031 17.254281 12.816031 17.887344 13.207031 18.277344L13.292969 18.363281C13.683969 18.754281 14.317031 18.754281 14.707031 18.363281L20.363281 12.707031C20.754281 12.316031 20.754281 11.682969 20.363281 11.292969L14.707031 5.6367188C14.511531 5.4412187 14.255875 5.3417969 14 5.3417969 z"
-      ></path>
-    </svg>
-  </a>
+  <svg
+    class="progress-circle svg-content"
+    width="100%"
+    height="100%"
+    viewBox="-1 -1 102 102"
+  >
+    <path
+      x-ref="progressPath"
+      class="fill-none stroke-[#a424ff] stroke-[4] transition-all duration-200 ease-linear"
+      d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+  </svg>
+
+  <svg
+    class="inner-arrow group-hover:opacity-60 absolute font-extrabold text-center leading-6 text-base text-[#a424ff] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-6 cursor-pointer block z-[1] transition-all duration-200 ease-linear"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <line x1="12" y1="19" x2="12" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
+  </svg>
 </div>
 
 <script>
-  const scrollTop = document.querySelector("#ScrollToTop");
-  const targets = document.querySelectorAll("div");
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("scrolltop", () => ({
+      scrolled: false,
+      height: 60,
+      mobileOpen: false,
+      init() {
+        this.pathLength = this.$refs.progressPath.getTotalLength();
 
-  //progress
-  function updateProgress() {
-    let progress = document.documentElement.scrollTop;
+        this.$refs.progressPath.style.transition =
+          this.$refs.progressPath.style.WebkitTransition = "none";
 
-    let height =
-      Math.max(
-        document.body.scrollHeight,
-        document.documentElement.scrollHeight,
-        document.body.offsetHeight,
-        document.documentElement.offsetHeight,
-        document.body.clientHeight,
-        document.documentElement.clientHeight
-      ) - window.innerHeight;
+        this.$refs.progressPath.style.strokeDasharray =
+          this.pathLength + " " + this.pathLength;
 
-    let percentage = (progress / height) * 360;
+        this.$refs.progressPath.style.strokeDashoffset = this.pathLength;
 
-    scrollTop.style.background = `conic-gradient(#bc6bf5 ${percentage}deg,#e5e5e5 0deg)`;
-  }
+        this.$refs.progressPath.getBoundingClientRect();
 
-  //observer
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        updateProgress();
-
-        if (entry.isIntersecting) {
-          const scrollThreshold = 500;
-          if (
-            document.documentElement.scrollTop > scrollThreshold ||
-            document.body.scrollTop > scrollThreshold
-          ) {
-            //if its below the hero section or > 500px
-            scrollTop.classList.remove("opacity-0");
-            scrollTop.classList.remove("bottom-[500px]");
-            scrollTop.classList.add("opacity-100");
-            scrollTop.classList.add("bottom-14");
-          } else {
-            scrollTop.classList.add("opacity-0");
-            scrollTop.classList.remove("opacity-100");
-            scrollTop.classList.remove("bottom-14");
-            scrollTop.classList.add("bottom-[500px]");
-          }
+        this.$refs.progressPath.style.transition =
+          this.$refs.progressPath.style.WebkitTransition =
+            "stroke-dashoffset 10ms linear";
+      },
+      updateProgress() {
+        let scrollValue = window.scrollY;
+        let scrollHeight = document.body.scrollHeight - window.innerHeight;
+        let progress =
+          this.pathLength - (scrollValue * this.pathLength) / scrollHeight;
+        this.$refs.progressPath.style.strokeDashoffset = progress;
+      },
+      scroll() {
+        this.updateProgress();
+        let scrollValue = window.scrollY;
+        if (scrollValue >= this.height) {
+          this.scrolled = true;
+        } else {
+          this.scrolled = false;
         }
-      });
-    },
-    { rootMargin: "10px" }
-  );
-  targets.forEach((target) => {
-    observer.observe(target);
+      },
+      scrollTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return false;
+      },
+    }));
   });
 </script>

@@ -1,12 +1,12 @@
 ---
-import LayoutSplit from "@layouts/LayoutSplit.astro";
+import Layout from "@layouts/Split.astro";
 import { Icon } from "astro-icon";
 import { Image } from "@astrojs/image/components";
 import { property as properties } from "@data/property";
 import PropertyCard from "@components/ui/PropertyCard.astro";
 ---
 
-<LayoutSplit title="Property Details">
+<Layout title="Property Details">
   <main id="PropertyDetails" class="dark:bg-dark-purple-2 px-6 py-12 md:px-12">
     <div class="container pb-12 mb-12">
       <section
@@ -956,7 +956,7 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
 
           const smallMap = new mapboxgl.Map({
             container: this.$refs.smallmap,
-            style: Alpine.store("app").isDark
+            style: this.$store.app.isDark
               ? "mapbox://styles/mapbox/dark-v10"
               : "mapbox://styles/mapbox/light-v10",
             center: [longitude, latitude],
@@ -972,4 +972,4 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
       }));
     });
   </script>
-</LayoutSplit>
+</Layout>

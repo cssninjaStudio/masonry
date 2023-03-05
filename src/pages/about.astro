@@ -5,11 +5,11 @@ import IconMatrix from "@components/sections/IconMatrix.astro";
 import Logos from "@components/sections/Logos.astro";
 import PropertyGrid from "@components/sections/PropertyGrid.astro";
 import Testimonials from "@components/sections/Testimonials.astro";
-import LayoutSplit from "@layouts/LayoutSplit.astro";
+import Layout from "@layouts/Split.astro";
 import { Icon } from "astro-icon";
 ---
 
-<LayoutSplit title="About">
+<Layout title="About">
   <main id="About">
     <!-- HERO -->
     <section
@@ -435,4 +435,4 @@ import { Icon } from "astro-icon";
     <!-- ENGAGE/CTA-->
     <EngageCTA />
   </main>
-</LayoutSplit>
+</Layout>

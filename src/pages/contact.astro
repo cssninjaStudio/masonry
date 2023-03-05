@@ -124,7 +124,7 @@ import { Icon } from "astro-icon";
 
           const mainMap = new mapboxgl.Map({
             container: this.$refs.heromap,
-            style: Alpine.store("app").isDark
+            style: this.$store.app.isDark
               ? "mapbox://styles/mapbox/dark-v10"
               : "mapbox://styles/mapbox/light-v10",
             center: [longitude, latitude],

@@ -2,11 +2,12 @@
 import { setDescription, setTitle } from "@utils/utils";
 import { SEO } from "astro-seo";
 import type { Props as IAstroSEO } from "astro-seo";
-import NavbarSplit from "@components/NavbarSplit.astro";
+import Navbar from "@components/Navbar.astro";
 import Footer from "@components/Footer.astro";
 import { GoogleFontsOptimizer } from "astro-google-fonts-optimizer";
 import ScrollTop from "@components/ui/ScrollTop.astro";
 import "@/styles/global.scss";
+
 interface Props extends IAstroSEO {}
 const { title = "", description = "", ...props } = Astro.props;
 ---
@@ -36,13 +37,13 @@ const { title = "", description = "", ...props } = Astro.props;
   </head>
   <body x-data :class="{'dark':$store.app.isDark}">
     <div id="Top"></div>
-    <NavbarSplit />
+    <Navbar />
     <slot />
     <ScrollTop />
     <Footer />
 
     <script>
-      import { MASONRY_THEME } from "@/constants";
+      import { MASONRY_THEME, MASONRY_LOGGEDIN } from "@/constants";
 
       document.addEventListener("alpine:init", () => {
         Alpine.store("app", {
@@ -51,10 +52,19 @@ const { title = "", description = "", ...props } = Astro.props;
               MASONRY_THEME in localStorage
                 ? localStorage.getItem(MASONRY_THEME) === "dark"
                 : window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+            this.isLoggedIn =
+              MASONRY_LOGGEDIN in localStorage
+                ? localStorage.getItem(MASONRY_LOGGEDIN) === "true"
+                : false;
           },
           toggleTheme() {
             this.isDark = !this.isDark;
             localStorage.setItem(MASONRY_THEME, this.isDark ? "dark" : "light");
+          },
+          login() {
+            this.isLoggedIn = true;
+            localStorage.setItem(MASONRY_LOGGEDIN, "true");
           },
           isDark: false,
           isLoggedIn: false,

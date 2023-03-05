@@ -1,12 +1,12 @@
 ---
 import PropertySearch from "@components/ui/PropertySearch.astro";
-import LayoutSplit from "@layouts/LayoutSplit.astro";
+import Layout from "@layouts/Split.astro";
 import PropertyCard from "@components/ui/PropertyCard.astro";
 import { property as properties } from "@data/property";
 import { Icon } from "astro-icon";
 ---
 
-<LayoutSplit title="Properties">
+<Layout title="Properties">
   <main id="Properties">
     <!-- PROPERTY SEARCH -->
     <section
@@ -155,4 +155,4 @@ import { Icon } from "astro-icon";
       </div>
     </section>
   </main>
-</LayoutSplit>
+</Layout>

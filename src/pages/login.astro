@@ -161,7 +161,7 @@ import { Icon } from "astro-icon";
         login() {
           this.isLoading = true;
           setTimeout(() => {
-            this.$store.app.isLoggedIn = true;
+            this.$store.app.login();
             window.location.href = "/home";
           }, 1500);
         },

@@ -1,0 +1,125 @@
+---
+import { Image } from "@astrojs/image/components";
+import { Icon } from "astro-icon";
+---
+
+<div
+  class="account-dropdown relative"
+  :class="open && 'is-active'"
+  x-data="accountDropdown"
+  @click.away="close()"
+>
+  <div class="dropdown-trigger">
+    <button
+      class="button bg-transparent cursor-pointer flex items-center justify-center h-9 w-9 min-w-[2.25rem]"
+      aria-haspopup="true"
+      @click="toggle()"
+    >
+      <Image
+        height={280}
+        width={280}
+        class="h-9 w-9 min-h-[2.25rem] rounded-full pointer-events-none"
+        src="/images/avatars/4.webp"
+        alt="avatar"
+      />
+    </button>
+  </div>
+  <div
+    x-show="open"
+    x-cloak
+    class="dropdown-menu mt-2 min-w-[250px] top-full absolute right-0 z-20 bg-semi-white-3 dark:bg-dark-purple-2 [box-shadow:rgba(0,_0,_0,_0.06)_-1px_3px_10px_0px]"
+    role="menu"
+  >
+    <div class="dropdown-content border dark:border-none border-gray-1 p-2">
+      <div
+        class="dropdown-item hover:bg-semi-white-1 dark:hover:bg-dark-purple-3 px-2 cursor-pointer"
+      >
+        <a
+          href="/account"
+          class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent"
+        >
+          <Icon class="h-4 w-4 text-ice-blue" name="lucide:user" />
+          <div class="meta leading-[1.2]">
+            <h4
+              class="text-[.8rem] font-semibold text-dark font-TitilliumWeb dark:text-semi-white-3"
+            >
+              Account
+            </h4>
+            <p class="text-ice-blue text-[.8rem]">Manage account</p>
+          </div>
+        </a>
+      </div>
+      <div
+        class="dropdown-item hover:bg-semi-white-1 dark:hover:bg-dark-purple-3 px-2 cursor-pointer"
+      >
+        <a
+          href="/wishlist"
+          class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent"
+        >
+          <Icon class="h-4 w-4 text-ice-blue" name="lucide:heart" />
+          <div class="meta leading-[1.2]">
+            <h4
+              class="text-[.8rem] font-semibold text-dark font-TitilliumWeb dark:text-semi-white-3"
+            >
+              Wishlist
+            </h4>
+            <p class="text-ice-blue text-[.8rem]">View favorites</p>
+          </div>
+        </a>
+      </div>
+      <div
+        class="dropdown-item hover:bg-semi-white-1 dark:hover:bg-dark-purple-3 px-2 cursor-pointer"
+      >
+        <a
+          href="/settings"
+          class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent"
+        >
+          <Icon class="h-4 w-4 text-ice-blue" name="lucide:settings" />
+          <div class="meta leading-[1.2]">
+            <h4
+              class="text-[.8rem] font-semibold text-dark font-TitilliumWeb dark:text-semi-white-3"
+            >
+              Settings
+            </h4>
+            <p class="text-ice-blue text-[.8rem]">Manage preferences</p>
+          </div>
+        </a>
+      </div>
+      <hr
+        class="dropdown-divider my-2 h-px border-t border-gray-1 dark:border-dark-purple-6"
+      />
+      <div
+        class="dropdown-item hover:bg-semi-white-1 dark:hover:bg-dark-purple-3 px-2 cursor-pointer"
+      >
+        <a
+          class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent"
+          @click.prevent="$store.app.logout()"
+        >
+          <Icon class="h-4 w-4 text-ice-blue" name="feather:log-out" />
+          <div class="meta leading-[1.2]">
+            <h4
+              class="text-[.8rem] font-semibold text-dark font-TitilliumWeb dark:text-semi-white-3"
+            >
+              Logout
+            </h4>
+            <p class="text-ice-blue text-[.8rem]">Logout from account</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("alpine:init", () => {
+    Alpine.data("accountDropdown", () => ({
+      open: false,
+      toggle() {
+        this.open = !this.open;
+      },
+      close() {
+        this.open = false;
+      },
+    }));
+  });
+</script>

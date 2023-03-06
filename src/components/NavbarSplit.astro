@@ -191,8 +191,7 @@ import AccountMenu from "./ui/AccountMenu.astro";
           <!-- dark/light mode switch -->
           <li class="flex justify-center items-center">
             <button
-              class="darkToggle relative w-9 aspect-square rounded-full border-gray-1 dark:border-dark-purple-3"
-              :class="scrolled  ||  megamenuOpened || mobileOpen ? 'border [&>svg]:text-yellow' : '[&>svg]:text-blue-gray'"
+              class="darkToggle relative w-9 aspect-square rounded-full border [&>svg]:text-yellow border-gray-1 bg-white dark:bg-dark-purple-2 dark:border-dark-purple-3"
               @click="$store.app.toggleTheme()"
             >
               <!-- sun -->

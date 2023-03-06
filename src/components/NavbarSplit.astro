@@ -191,14 +191,14 @@ import AccountMenu from "./ui/AccountMenu.astro";
           <!-- dark/light mode switch -->
           <li class="flex justify-center items-center">
             <button
-              class="darkToggle relative w-9 aspect-square rounded-full border [&>svg]:text-yellow border-gray-1 bg-white dark:bg-dark-purple-2 dark:border-dark-purple-3"
+              class="darkToggle relative overflow-hidden w-9 aspect-square rounded-full border [&>svg]:text-yellow border-gray-1 bg-white dark:bg-dark-purple-2 dark:border-dark-purple-3"
               @click="$store.app.toggleTheme()"
             >
               <!-- sun -->
               <Icon
                 name="feather:sun"
                 class="lightIcon left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
-                :class="$store.app.isDark ? 'opacity-0 -translate-x-[45%] -translate-y-[150%]' : 'opacity-100  -translate-x-1/2 -translate-y-1/2' "
+                :class="$store.app.isDark ? 'opacity-0 -translate-x-[45%] translate-y-[150%]' : 'opacity-100  -translate-x-1/2 -translate-y-1/2' "
               />
 
               <!-- moon -->

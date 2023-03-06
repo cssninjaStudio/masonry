@@ -3,6 +3,7 @@ import { APP } from "@data/config";
 import { Icon } from "astro-icon";
 import Logo from "./ui/Logo.astro";
 import MegaMenu from "./ui/MegaMenu.astro";
+import AccountMenu from "./ui/AccountMenu.astro";
 ---
 
 <div
@@ -33,39 +34,46 @@ import MegaMenu from "./ui/MegaMenu.astro";
             {APP.name}
           </p>
         </a>
+        <div class="flex items-stretch gap-3">
+          <button
+            id="MenuToggle"
+            class="lg:hidden"
+            @click="mobileOpen = !mobileOpen"
+          >
+            <svg
+              id="OpenIcon"
+              class="pointer-events-none text-blue-gray w-8 aspect-auto"
+              x-show="!mobileOpen"
+              x-cloak
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 24 24"
+              ><path
+                fill="currentColor"
+                d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path>
+            </svg>
 
-        <button
-          id="MenuToggle"
-          class="lg:hidden"
-          @click="mobileOpen = !mobileOpen"
-        >
-          <svg
-            id="OpenIcon"
-            class="pointer-events-none text-blue-gray w-8 aspect-auto"
-            x-show="!mobileOpen"
-            x-cloak
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid meet"
-            viewBox="0 0 24 24"
-            ><path
-              fill="currentColor"
-              d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path>
-          </svg>
+            <svg
+              id="CloseIcon"
+              class="pointer-events-none text-blue-gray w-8 aspect-auto"
+              x-show="mobileOpen"
+              x-cloak
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="xMidYMid meet"
+              viewBox="0 0 32 32"
+              ><path
+                fill="currentColor"
+                d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z"
+              ></path>
+            </svg>
+          </button>
 
-          <svg
-            id="CloseIcon"
-            class="pointer-events-none text-blue-gray w-8 aspect-auto"
-            x-show="mobileOpen"
-            x-cloak
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid meet"
-            viewBox="0 0 32 32"
-            ><path
-              fill="currentColor"
-              d="M24 9.4L22.6 8L16 14.6L9.4 8L8 9.4l6.6 6.6L8 22.6L9.4 24l6.6-6.6l6.6 6.6l1.4-1.4l-6.6-6.6L24 9.4z"
-            ></path>
-          </svg>
-        </button>
+          <template x-if="$store.app.isLoggedIn">
+            <div class="lg:hidden flex items-center justify-center">
+              <AccountMenu />
+            </div>
+          </template>
+        </div>
       </div>
 
       <nav
@@ -131,19 +139,21 @@ import MegaMenu from "./ui/MegaMenu.astro";
           id="RightLinks"
           class="flex flex-col lg:flex-row items-stretch gap-6 [&>li>a]:h-full [&>li>a]:grid [&>li>a]:place-items-center"
         >
-          <li class="">
-            <a
-              href="/"
-              class="py-2 leading-6 text-base hover:text-dark dark:hover:text-white transition-all duration-300"
-              :class="scrolled ||  megamenuOpened ? 'text-blue-gray' : 'text-blue-gray lg:text-white'"
-              >Sign In</a
-            >
-          </li>
+          <template x-if="$store.app.isLoggedIn === false">
+            <li class="">
+              <a
+                href="/"
+                class="py-2 leading-6 text-base hover:text-dark dark:hover:text-white transition-all duration-300"
+                :class="scrolled ||  megamenuOpened ? 'text-blue-gray' : 'text-blue-gray lg:text-white'"
+                >Sign In</a
+              >
+            </li>
+          </template>
 
           <!-- search -->
           <li
-            class="search lg:pl-6 hidden lg:block lg:border-l"
-            :class="scrolled  ||  megamenuOpened ? 'border-gray-1 dark:border-dark-purple-3': 'border-transparent' "
+            class="search lg:pl-6 hidden lg:block"
+            :class="scrolled  ||  megamenuOpened ? 'border-gray-1 dark:border-dark-purple-3': 'border-transparent',{'lg:border-l':!$store.app.isLoggedIn}  "
           >
             <a
               href=""
@@ -209,17 +219,25 @@ import MegaMenu from "./ui/MegaMenu.astro";
             </button>
           </li>
 
-          <!-- register -->
-          <li
-            class="w-full md:w-3/5 mx-auto lg:mx-0 lg:w-auto flex items-center justify-center"
-          >
-            <a
-              href="/register"
-              class="!h-[46px] w-full lg:w-auto min-w-[120px] font-medium text-sm leading-6 px-3.5 py-1.5 flex justify-center items-center transition-all duration-300 rounded bg-primary text-white"
-              :class="{'[box-shadow:rgba(46,49,255,0.42)_0px_14px_26px_-12px,rgba(0,0,0,0.12)_0px_4px_23px_0px,rgba(46,49,255,0.2)_0px_8px_10px_-5px]': scrolled}"
-              >Register</a
+          <template x-if="$store.app.isLoggedIn === false">
+            <!-- register -->
+            <li
+              class="w-full md:w-3/5 mx-auto lg:mx-0 lg:w-auto flex items-center justify-center"
             >
-          </li>
+              <a
+                href="/register"
+                class="!h-[46px] w-full lg:w-auto min-w-[120px] font-medium text-sm leading-6 px-3.5 py-1.5 flex justify-center items-center transition-all duration-300 rounded bg-primary text-white"
+                :class="{'[box-shadow:rgba(46,49,255,0.42)_0px_14px_26px_-12px,rgba(0,0,0,0.12)_0px_4px_23px_0px,rgba(46,49,255,0.2)_0px_8px_10px_-5px]': scrolled}"
+                >Register</a
+              >
+            </li>
+          </template>
+
+          <template x-if="$store.app.isLoggedIn">
+            <div class="hidden lg:flex items-center justify-center">
+              <AccountMenu />
+            </div>
+          </template>
         </ul>
       </nav>
     </header>
@@ -249,6 +267,12 @@ import MegaMenu from "./ui/MegaMenu.astro";
       },
       openMobileMenu() {
         this.mobileOpen = !this.mobileOpen;
+      },
+      logout() {
+        setTimeout(() => {
+          this.$store.app.logout();
+          window.location.href = "/home";
+        }, 200);
       },
       init() {
         document

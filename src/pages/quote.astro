@@ -205,11 +205,14 @@ import { Icon } from "astro-icon";
                 x-show="activeWizardStep === 'wizard-step-2'"
               >
                 <div
-                  @click="browseBackWizard($event)"
+                  @click="browseBackWizard"
                   class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
                   data-step="wizard-step-1"
                 >
-                  <Icon class="h-[18px] w-[18px]" name="feather:arrow-left" />
+                  <Icon
+                    class="h-[18px] w-[18px] pointer-events-none"
+                    name="feather:arrow-left"
+                  />
                 </div>
                 <div class="title-block">
                   <h3
@@ -595,11 +598,14 @@ import { Icon } from "astro-icon";
                 x-show="activeWizardStep === 'wizard-step-3'"
               >
                 <div
-                  @click="browseBackWizard($event)"
+                  @click="browseBackWizard"
                   class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
                   data-step="wizard-step-2"
                 >
-                  <Icon class="h-[18px] w-[18px]" name="feather:arrow-left" />
+                  <Icon
+                    class="h-[18px] w-[18px] pointer-events-none"
+                    name="feather:arrow-left"
+                  />
                 </div>
                 <div class="title-block">
                   <h3
@@ -751,11 +757,14 @@ import { Icon } from "astro-icon";
                 x-show="activeWizardStep === 'wizard-step-4'"
               >
                 <div
-                  @click="browseBackWizard($event)"
+                  @click="browseBackWizard"
                   class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
                   data-step="wizard-step-3"
                 >
-                  <Icon class="h-[18px] w-[18px]" name="feather:arrow-left" />
+                  <Icon
+                    class="h-[18px] w-[18px] pointer-events-none"
+                    name="feather:arrow-left"
+                  />
                 </div>
                 <div class="title-block">
                   <h3
@@ -926,11 +935,14 @@ import { Icon } from "astro-icon";
                 x-show="activeWizardStep === 'wizard-step-5'"
               >
                 <div
-                  @click="browseBackWizard($event)"
+                  @click="browseBackWizard"
                   class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
                   data-step="wizard-step-4"
                 >
-                  <Icon class="h-[18px] w-[18px]" name="feather:arrow-left" />
+                  <Icon
+                    class="h-[18px] w-[18px] pointer-events-none"
+                    name="feather:arrow-left"
+                  />
                 </div>
                 <div class="title-block">
                   <h3

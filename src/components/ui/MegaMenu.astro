@@ -6,19 +6,25 @@ import MegaMenuLink from "./MegaMenuLink.astro";
 
 <section
   id="MegaMenuWrapper"
-  class="absolute top-full w-full transition-all bg-white dark:bg-dark-purple-2 grid duration-300"
+  class="absolute top-0 lg:top-full w-full transition-all bg-white dark:bg-dark-purple-2 grid duration-300"
   :class="megamenuOpened ? 'translate-y-0  opacity-100 pointer-events-auto' : 'translate-y-2.5 opacity-0 pointer-events-none' "
   x-cloak
 >
   <div
     id="propertiesMega"
     x-show="openedMegamenu === 'megamenu-1'"
-    class="mega w-full py-[60px]"
+    class="mega w-full py-[60px] relative"
   >
-    <ul class="container flex gap-5">
-      <li class="w-[35%]">
-        <div class="megamenu-block">
-          <div class="flex gap-4">
+    <button
+      class="close-button absolute top-2.5 right-2.5 md:top-6 md:right-6 h-10 w-10 lg:hidden grid place-content-center"
+      @click="megamenuOpened = !megamenuOpened"
+    >
+      <Icon class="h-7 w-7 dark:text-white" name="lucide:arrow-left" />
+    </button>
+    <ul class="container flex md:flex-row flex-col gap-5">
+      <li class="md:w-[35%]">
+        <div class="megamenu-block px-12 md:px-0 md:ml-12 lg:ml-0">
+          <div class="flex flex-col lg:flex-row gap-4">
             <div>
               <Icon
                 name="ph:buildings-duotone"
@@ -45,8 +51,8 @@ import MegaMenuLink from "./MegaMenuLink.astro";
           </div>
         </div>
       </li>
-      <li class="w-[15%]">
-        <div class="megamenu-block has-margin">
+      <li class="md:w-[15%]">
+        <div class="megamenu-block px-12 md:px-0">
           <h4
             class="text-sm font-TitilliumWeb font-semibold text-dark dark:text-white uppercase"
           >
@@ -68,17 +74,17 @@ import MegaMenuLink from "./MegaMenuLink.astro";
           </ul>
         </div>
       </li>
-      <li class="w-1/2">
-        <div class="megamenu-block flex gap-5">
+      <li class="md:w-1/2">
+        <div class="megamenu-block px-8 md:px-12 lg:px-0 flex gap-5">
           <a href="#" class="showcase-item">
             <Picture
-              class="h-[190px]"
+              class="lg:h-[190px]"
               alt="showcase"
               src="/images/photo/megamenu/1.webp"
               widths={[370, 380, 500]}
               aspectRatio={500 / 350}
               sizes={`(min-width: 1024px) 500px,
-              (min-width: 768px) 370px, 380px`}
+              (min-width: 768px) 370px, 100%`}
             />
             <div class="flex justify-between">
               <div>
@@ -97,13 +103,13 @@ import MegaMenuLink from "./MegaMenuLink.astro";
           </a>
           <a href="#" class="showcase-item">
             <Picture
-              class="h-[190px]"
+              class="lg:h-[190px]"
               alt="showcase"
               src="/images/photo/megamenu/2.webp"
               widths={[370, 380, 500]}
               aspectRatio={500 / 350}
               sizes={`(min-width: 1024px) 500px,
-              (min-width: 768px) 370px, 380px`}
+              (min-width: 768px) 370px, 100%`}
             />
             <div class="flex justify-between">
               <div>
@@ -128,12 +134,18 @@ import MegaMenuLink from "./MegaMenuLink.astro";
   <div
     id="rentalsMega"
     x-show="openedMegamenu === 'megamenu-2'"
-    class="mega w-full py-[60px]"
+    class="mega w-full py-[60px] relative"
   >
-    <ul class="container flex gap-5">
-      <li class="w-[35%]">
-        <div class="megamenu-block">
-          <div class="flex gap-4">
+    <button
+      class="close-button absolute top-2.5 right-2.5 md:top-6 md:right-6 h-10 w-10 lg:hidden grid place-content-center"
+      @click="megamenuOpened = !megamenuOpened"
+    >
+      <Icon class="h-7 w-7 dark:text-white" name="lucide:arrow-left" />
+    </button>
+    <ul class="container flex md:flex-row flex-col gap-5">
+      <li class="md:w-[35%]">
+        <div class="megamenu-block px-12 md:px-0 md:ml-12 lg:ml-0">
+          <div class="flex flex-col lg:flex-row gap-4">
             <div>
               <Icon
                 name="ph:house-duotone"
@@ -160,8 +172,8 @@ import MegaMenuLink from "./MegaMenuLink.astro";
           </div>
         </div>
       </li>
-      <li class="w-[15%]">
-        <div class="megamenu-block">
+      <li class="md:w-[15%]">
+        <div class="megamenu-block px-12 md:px-0">
           <h4
             class="text-sm font-TitilliumWeb font-semibold text-dark dark:text-white uppercase"
           >
@@ -183,17 +195,17 @@ import MegaMenuLink from "./MegaMenuLink.astro";
           </ul>
         </div>
       </li>
-      <li class="w-1/2">
-        <div class="megamenu-block flex gap-5">
+      <li class="md:w-1/2">
+        <div class="megamenu-block px-8 md:px-12 lg:px-0 flex gap-5">
           <a href="#" class="showcase-item">
             <Picture
-              class="h-[190px]"
+              class="lg:h-[190px]"
               alt="showcase"
               src="/images/photo/megamenu/3.webp"
               widths={[370, 380, 500]}
               aspectRatio={500 / 350}
               sizes={`(min-width: 1024px) 500px,
-              (min-width: 768px) 370px, 380px`}
+              (min-width: 768px) 370px, 100%`}
             />
             <div class="flex justify-between">
               <div>
@@ -212,13 +224,13 @@ import MegaMenuLink from "./MegaMenuLink.astro";
           </a>
           <a href="#" class="showcase-item">
             <Picture
-              class="h-[190px]"
+              class="lg:h-[190px]"
               alt="showcase"
               src="/images/photo/megamenu/4.webp"
               widths={[370, 380, 500]}
               aspectRatio={500 / 350}
               sizes={`(min-width: 1024px) 500px,
-              (min-width: 768px) 370px, 380px`}
+              (min-width: 768px) 370px, 100%`}
             />
             <div class="flex justify-between">
               <div>

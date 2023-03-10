@@ -89,6 +89,7 @@ import AccountMenu from "./ui/AccountMenu.astro";
             <a
               href="#"
               x-on:mouseover="megamenuOpened = true, openedMegamenu = 'megamenu-1'"
+              @click="megamenuOpened = true, openedMegamenu = 'megamenu-2'"
               class="py-2 px-3 leading-6 text-base group text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center justify-center gap-1"
               >Properties <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -109,6 +110,7 @@ import AccountMenu from "./ui/AccountMenu.astro";
             <a
               href="#"
               x-on:mouseover="megamenuOpened = true, openedMegamenu = 'megamenu-2'"
+              @click="megamenuOpened = true, openedMegamenu = 'megamenu-2'"
               class="py-2 px-3 leading-6 group text-base text-blue-gray hover:text-dark dark:hover:text-white transition-all duration-300 flex items-center justify-center gap-1"
               >Rentals <svg
                 xmlns="http://www.w3.org/2000/svg"

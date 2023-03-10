@@ -23,7 +23,9 @@ const props = Astro.props;
       />
     </div>
 
-    <div class="property-details p-5 bg-white dark:bg-dark-purple-2">
+    <div
+      class="property-details p-5 bg-white dark:bg-dark-purple-2 border dark:border-dark-purple-6 border-gray-1"
+    >
       <div class="flex flex-col">
         <h4
           class="text-dark font-bold text-xl dark:text-white font-TitilliumWeb"
@@ -34,7 +36,7 @@ const props = Astro.props;
           {props.address}
         </p>
       </div>
-      <hr class="h-px text-gray-1 my-5 dark:text-dark-purple-3" />
+      <hr class="h-px border-t border-gray-1 my-5 dark:border-dark-purple-6" />
       <div class="grid grid-cols-3">
         <!-- bedroom -->
         <div class="bedroom flex flex-col">

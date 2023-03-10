@@ -887,16 +887,16 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
               Apply Now</button
             >
 
-            <!-- mapbox map -->
-            <div
-              id="small-map"
-              class="small-map w-full min-h-[220px]"
-              x-data="smallMap"
-              x-ref="smallmap"
-              data-long="-117.1627728"
-              data-lat="32.7174202"
-            >
-            </div>
+            <!-- map -->
+            <iframe
+              class="min-h-[220px] w-full"
+              marginheight="0"
+              marginwidth="0"
+              title="map"
+              scrolling="no"
+              src="https://maps.google.com/maps?width=100%&height=100%&hl=en&q=Los%20Angeles+(Css%20Ninja)&center=-117.1627728,32.7174202&ie=UTF8&t=&z=14&iwloc=B&output=embed&zoom=12"
+              style="filter: grayscale(1) contrast(1.2) opacity(0.4)"
+              frameborder="0"></iframe>
           </div>
         </div>
       </section>
@@ -923,53 +923,4 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
       </div>
     </div>
   </main>
-
-  <!-- add mapbox styles to head / slot="head" -->
-  <link
-    slot="head"
-    href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
-    rel="stylesheet"
-  />
-
-  <!-- mapbox js -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"
-  ></script>
-
-  <!-- init mapbox map -->
-  <script>
-    import { MAPBOX_TOKEN } from "@/constants";
-
-    document.addEventListener("alpine:init", () => {
-      // Small Map Data
-      Alpine.data("smallMap", () => ({
-        token: MAPBOX_TOKEN,
-        markerOptions: {
-          color: "red",
-        },
-        init() {
-          mapboxgl.accessToken = this.token;
-
-          const { long, lat } = this.$refs.smallmap.dataset;
-          const longitude = parseFloat(long);
-
-          const latitude = parseFloat(lat);
-
-          const smallMap = new mapboxgl.Map({
-            container: this.$refs.smallmap,
-            style: this.$store.app.isDark
-              ? "mapbox://styles/mapbox/dark-v10"
-              : "mapbox://styles/mapbox/light-v10",
-            center: [longitude, latitude],
-            zoom: 12,
-          });
-
-          smallMap.addControl(new mapboxgl.NavigationControl());
-
-          const marker = new mapboxgl.Marker(this.markerOptions)
-            .setLngLat([longitude, latitude])
-            .addTo(smallMap);
-        },
-      }));
-    });
-  </script>
 </Layout>

@@ -2,11 +2,21 @@
 import Logo from "@components/ui/Logo.astro";
 import { APP } from "@data/config";
 import Layout from "@layouts/Minimal.astro";
-import { Icon } from "astro-icon";
 ---
 
 <Layout title="Contact">
   <main id="Contact" class="relative">
+    <!-- embed map -->
+    <iframe
+      class="h-full w-full absolute z-0 top-0 left-0"
+      marginheight="0"
+      marginwidth="0"
+      title="map"
+      scrolling="no"
+      src="https://maps.google.com/maps?width=100%&height=100%&hl=en&q=Los%20Angeles+(Css%20Ninja)&center=-118.44958367724455,34.016818496913956&ie=UTF8&t=&z=14&iwloc=B&output=embed&zoom=12"
+      style="filter: grayscale(1) contrast(1.2) opacity(0.4)"
+      frameborder="0"></iframe>
+
     <div
       class="contact-nav absolute top-0 left-0 px-4 z-[3] w-full h-[70px] flex items-center"
     >
@@ -24,10 +34,6 @@ import { Icon } from "astro-icon";
     <div
       id="hero-map"
       class="contact-hero min-h-screen flex items-stretch flex-col dark:bg-dark-purple-1 justify-between relative z-[2]"
-      x-data="contact"
-      x-ref="heromap"
-      data-long="-118.44958367724455"
-      data-lat="34.016818496913956"
     >
       <div class="flex items-center flex-grow md:p-12 relative z-[2]">
         <div class="container">
@@ -92,52 +98,4 @@ import { Icon } from "astro-icon";
       </div>
     </div>
   </main>
-
-  <!-- add mapbox styles to head / slot="head" -->
-  <link
-    slot="head"
-    href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css"
-    rel="stylesheet"
-  />
-
-  <!-- mapbox js -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"
-  ></script>
-
-  <!-- init mapbox map -->
-  <script>
-    import { MAPBOX_TOKEN } from "@/constants";
-
-    document.addEventListener("alpine:init", () => {
-      // Hero Map Data
-      Alpine.data("contact", () => ({
-        token: MAPBOX_TOKEN,
-        markerOptions: {
-          color: "red",
-        },
-        init() {
-          mapboxgl.accessToken = this.token;
-          const { long, lat } = this.$refs.heromap.dataset;
-          const longitude = parseFloat(long);
-
-          const latitude = parseFloat(lat);
-
-          const mainMap = new mapboxgl.Map({
-            container: this.$refs.heromap,
-            style: this.$store.app.isDark
-              ? "mapbox://styles/mapbox/dark-v10"
-              : "mapbox://styles/mapbox/light-v10",
-            center: [longitude, latitude],
-            zoom: 12,
-          });
-
-          mainMap.addControl(new mapboxgl.NavigationControl());
-
-          const marker = new mapboxgl.Marker(this.markerOptions)
-            .setLngLat([longitude, latitude])
-            .addTo(mainMap);
-        },
-      }));
-    });
-  </script>
 </Layout>

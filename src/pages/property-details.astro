@@ -7,7 +7,7 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
 ---
 
 <Layout title="Property Details">
-  <main id="PropertyDetails" class="dark:bg-dark-purple-2 px-6 py-12 md:px-12">
+  <main id="PropertyDetails" class="dark:bg-dark-purple-1 px-6 py-12 md:px-12">
     <div class="container pb-12 mb-12">
       <section
         class="property-details-wrapper relative border-b border-gray-1 dark:border-dark-purple-6 pb-12"
@@ -43,11 +43,11 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
         </nav>
 
         <!-- property details title -->
-        <div class="property-details-title flex items-end justify-between mb-6">
+        <div class="property-details-title flex flex-col md:flex-row items-end justify-between mb-6">
           <!-- left -->
-          <div class="left">
+          <div class="left mb-8 md:m-0">
             <h2
-              class="dark:text-semi-white-3 text-[2rem] font-light font-TitilliumWeb text-dark mb-2"
+              class="dark:text-semi-white-3 leading-9 text-[2rem] font-light font-TitilliumWeb text-dark mb-2"
             >
               High standing luxury apartment
             </h2>
@@ -207,7 +207,7 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
               </div>
 
               <div x-cloak x-show="activeTab === 'tab-2'" class="tab-content">
-                <div class="boxed-amenities grid grid-cols-4 gap-4">
+                <div class="boxed-amenities grid grid-cols-2 lg:grid-cols-4 gap-4">
                   <!-- Amenity -->
                   <div
                     class="boxed-amenity dark:border-dark-purple-6 text-center p-5 border border-gray-1 dark:bg-dark-purple-2"
@@ -390,17 +390,17 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
                           <span>Design</span>
                         </div>
                         <div
-                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                          class="review-rating  flex items-center flex-grow-[2] max-w-[140px]"
                         >
                           <progress
-                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            class="progress [&::-webkit-progress-bar]:bg-primary hidden lg:block w-full h-[.2rem]"
                             value="86"
                             max="100"
                           >
                             86%
                           </progress>
                           <span
-                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            class="rating-value ml-3 dark:text-semi-white-3 font-medium text-base text-dark"
                             >4.3</span
                           >
                         </div>
@@ -415,17 +415,17 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
                           <span>Space</span>
                         </div>
                         <div
-                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                          class="review-rating  flex items-center flex-grow-[2] max-w-[140px]"
                         >
                           <progress
-                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            class="progress [&::-webkit-progress-bar]:bg-primary hidden lg:block w-full h-[.2rem]"
                             value="84"
                             max="100"
                           >
                             84%
                           </progress>
                           <span
-                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            class="rating-value ml-3 dark:text-semi-white-3 font-medium text-base text-dark"
                             >4.2</span
                           >
                         </div>
@@ -440,17 +440,17 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
                           <span>Equipments</span>
                         </div>
                         <div
-                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                          class="review-rating  flex items-center flex-grow-[2] max-w-[140px]"
                         >
                           <progress
-                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            class="progress [&::-webkit-progress-bar]:bg-primary hidden lg:block w-full h-[.2rem]"
                             value="90"
                             max="100"
                           >
                             90%
                           </progress>
                           <span
-                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            class="rating-value ml-3 dark:text-semi-white-3 font-medium text-base text-dark"
                             >4.5</span
                           >
                         </div>
@@ -465,17 +465,17 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
                           <span>Light</span>
                         </div>
                         <div
-                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                          class="review-rating  flex items-center flex-grow-[2] max-w-[140px]"
                         >
                           <progress
-                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            class="progress [&::-webkit-progress-bar]:bg-primary hidden lg:block w-full h-[.2rem]"
                             value="94"
                             max="100"
                           >
                             94%
                           </progress>
                           <span
-                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            class="rating-value ml-3 dark:text-semi-white-3 font-medium text-base text-dark"
                             >4.7</span
                           >
                         </div>
@@ -490,17 +490,17 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
                           <span>Location</span>
                         </div>
                         <div
-                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                          class="review-rating  flex items-center flex-grow-[2] max-w-[140px]"
                         >
                           <progress
-                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            class="progress [&::-webkit-progress-bar]:bg-primary hidden lg:block w-full h-[.2rem]"
                             value="90"
                             max="100"
                           >
                             90%
                           </progress>
                           <span
-                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            class="rating-value ml-3 dark:text-semi-white-3 font-medium text-base text-dark"
                             >4.5</span
                           >
                         </div>
@@ -515,17 +515,17 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
                           <span>Price</span>
                         </div>
                         <div
-                          class="review-rating gap-3 flex items-center flex-grow-[2] max-w-[140px]"
+                          class="review-rating  flex items-center flex-grow-[2] max-w-[140px]"
                         >
                           <progress
-                            class="progress [&::-webkit-progress-bar]:bg-primary block w-full h-[.2rem]"
+                            class="progress [&::-webkit-progress-bar]:bg-primary hidden lg:block w-full h-[.2rem]"
                             value="86"
                             max="100"
                           >
                             20%
                           </progress>
                           <span
-                            class="rating-value dark:text-semi-white-3 font-medium text-base text-dark"
+                            class="rating-value ml-3 dark:text-semi-white-3 font-medium text-base text-dark"
                             >4.3</span
                           >
                         </div>
@@ -533,7 +533,7 @@ import PropertyCard from "@components/ui/PropertyCard.astro";
                     </div>
                   </div>
                   <div class="comments pt-8">
-                    <div class="grid grid-cols-2 gap-y-8 gap-x-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-8 gap-x-6">
                       <!--Comment-->
                       <div class="comment">
                         <div class="comment-head gap-4 mb-6 flex items-center">

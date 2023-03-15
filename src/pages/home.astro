@@ -183,7 +183,7 @@ import EngageCTA from "@components/sections/EngageCTA.astro";
 </Layout>
 
 <script>
-  import Swiper from "swiper";
+  import Swiper, { Autoplay } from "swiper";
   import "swiper/css";
 
   document.addEventListener("alpine:init", () => {
@@ -192,6 +192,7 @@ import EngageCTA from "@components/sections/EngageCTA.astro";
       swiper: null,
       init() {
         this.swiper = new Swiper(this.$refs.container, {
+          modules: [Autoplay],
           loop: true,
           autoplay: {
             delay: 5000,
@@ -229,9 +230,11 @@ import EngageCTA from "@components/sections/EngageCTA.astro";
       swiper: null,
       init() {
         this.swiper = new Swiper(this.$refs.container, {
+          modules: [Autoplay],
           loop: true,
           autoplay: {
             delay: 5000,
+            disableOnInteraction: false,
           },
           slidesPerView: 4,
           spaceBetween: 20,

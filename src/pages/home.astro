@@ -17,7 +17,9 @@ import EngageCTA from "@components/sections/EngageCTA.astro";
   <main id="Home">
     <section class="px-6 py-12 lg:px-12 dark:bg-dark-purple-1 lg:min-h-screen">
       <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-4 md:gap-12 pt-16 pb-8">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 items-center gap-4 md:gap-12 pt-16 pb-8"
+        >
           <h1
             class="font-TitilliumWeb dark:text-white font-normal text-4xl md:text-5xl text-left md:leading-[1.125] text-dark"
           >
@@ -35,11 +37,14 @@ import EngageCTA from "@components/sections/EngageCTA.astro";
     </section>
 
     <!-- TRANSACTION FLOW PROCESS -->
-    <section class="px-6 py-12 lg:px-12 dark:bg-dark-purple-1">
+
+    <section
+      class="px-6 py-12 lg:px-12 dark:bg-dark-purple-1 overflow-hidden md:overflow-auto"
+    >
       <div class="container">
-        <div class="max-w-[940px]">
+        <div class="lg:max-w-[940px]">
           <h2
-            class="font-TitilliumWeb dark:text-white font-light md:font-normal text-[2rem] leading-9 text-left md:leading-[1.125] text-dark is-3 is-narrow is-thin"
+            class="font-TitilliumWeb dark:text-white font-light md:font-normal text-[2rem] leading-9 text-left md:leading-[1.125] text-dark"
           >
             We make sure our lovely customers are always involved so, every
             transaction flow process in our company is a must for them.
@@ -70,9 +75,11 @@ import EngageCTA from "@components/sections/EngageCTA.astro";
 
     <!-- RECENT PROJECT -->
 
-    <section class="px-6 py-12 lg:px-12 dark:bg-dark-purple-1">
+    <section
+      class="px-6 py-12 lg:px-12 dark:bg-dark-purple-1 overflow-hidden md:overflow-auto"
+    >
       <div class="container">
-        <div class="section-title max-w-[940px]">
+        <div class="section-title lg:max-w-[940px]">
           <h2
             class="font-TitilliumWeb dark:text-white font-light text-[2rem] text-center md:text-left md:leading-[1.125] text-dark"
           >
@@ -95,7 +102,9 @@ import EngageCTA from "@components/sections/EngageCTA.astro";
 
     <!-- INVEST IN OUR PROJECTS -->
 
-    <section class="px-6 py-12 lg:px-12 dark:bg-dark-purple-1">
+    <section
+      class="px-6 py-12 lg:px-12 dark:bg-dark-purple-1 overflow-hidden md:overflow-auto"
+    >
       <div class="container">
         <div class="section-title max-w-[940px]">
           <h2
@@ -171,81 +180,81 @@ import EngageCTA from "@components/sections/EngageCTA.astro";
     <!-- ENGAGE/CTA-->
     <EngageCTA />
   </main>
-
-  <script>
-    import Swiper from "swiper";
-    import "swiper/css";
-
-    document.addEventListener("alpine:init", () => {
-      // Home Swiper Data
-      Alpine.data("homeSwiper", () => ({
-        swiper: null,
-        init() {
-          this.swiper = new Swiper(this.$refs.container, {
-            loop: true,
-            autoplay: {
-              delay: 5000,
-            },
-            slidesPerView: 1,
-            spaceBetween: 0,
-            effect: "fade",
-            fadeEffect: {
-              crossFade: true,
-            },
-            pagination: {
-              el: ".carousel-pagination",
-              type: "bullets",
-            },
-            breakpoints: {
-              640: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-              },
-              768: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-              },
-              1024: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-              },
-            },
-          });
-        },
-      }));
-
-      // ProjecstCarousel Data
-      Alpine.data("projectsSwiper", () => ({
-        swiper: null,
-        init() {
-          this.swiper = new Swiper(this.$refs.container, {
-            loop: true,
-            autoplay: {
-              delay: 5000,
-            },
-            slidesPerView: 4,
-            spaceBetween: 20,
-            pagination: {
-              el: ".carousel-pagination",
-              type: "bullets",
-            },
-            breakpoints: {
-              340: {
-                slidesPerView: 1.5,
-                spaceBetween: 20,
-              },
-              768: {
-                slidesPerView: 3,
-                spaceBetween: 20,
-              },
-              1024: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-              },
-            },
-          });
-        },
-      }));
-    });
-  </script>
 </Layout>
+
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+
+  document.addEventListener("alpine:init", () => {
+    // Home Swiper Data
+    Alpine.data("homeSwiper", () => ({
+      swiper: null,
+      init() {
+        this.swiper = new Swiper(this.$refs.container, {
+          loop: true,
+          autoplay: {
+            delay: 5000,
+          },
+          slidesPerView: 1,
+          spaceBetween: 0,
+          effect: "fade",
+          fadeEffect: {
+            crossFade: true,
+          },
+          pagination: {
+            el: ".carousel-pagination",
+            type: "bullets",
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            768: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+            1024: {
+              slidesPerView: 1,
+              spaceBetween: 0,
+            },
+          },
+        });
+      },
+    }));
+
+    // ProjecstCarousel Data
+    Alpine.data("projectsSwiper", () => ({
+      swiper: null,
+      init() {
+        this.swiper = new Swiper(this.$refs.container, {
+          loop: true,
+          autoplay: {
+            delay: 5000,
+          },
+          slidesPerView: 4,
+          spaceBetween: 20,
+          pagination: {
+            el: ".carousel-pagination",
+            type: "bullets",
+          },
+          breakpoints: {
+            340: {
+              slidesPerView: 1.5,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 20,
+            },
+          },
+        });
+      },
+    }));
+  });
+</script>

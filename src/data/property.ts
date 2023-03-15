@@ -103,6 +103,18 @@ export const projects: {
     title: "Tour Crayon",
     location: "Lyon - France",
   },
+  {
+    image: "/images/photo/buildings/carousel/5.webp",
+    flag: "/images/flags/spain.svg",
+    title: "Centro Nacional",
+    location: "Madrid - Spain",
+  },
+  {
+    image: "/images/photo/buildings/carousel/6.webp",
+    flag: "/images/flags/australia.svg",
+    title: "Convention Center",
+    location: "Melbourne - Australia",
+  },
 ];
 
 export const investProjects: {

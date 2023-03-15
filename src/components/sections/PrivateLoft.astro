@@ -7,7 +7,7 @@ import { Icon } from "astro-icon";
   class="py-12 px-6 lg:p-12 dark:bg-dark-purple-1 overflow-hidden md:overflow-auto"
 >
   <div class="container flex flex-col md:flex-row items-center">
-    <div class="w-full md:w-1/2 px-[5%] lg:pl-[98px] flex flex-col gap-2">
+    <div class="w-full md:w-1/2 md:px-[5%] lg:pl-[98px] flex flex-col gap-2">
       <span
         class="uppercase text-primary h-8 px-3 rounded border border-primary w-max grid place-items-center text-xs"
         >new offer</span
@@ -121,20 +121,22 @@ import { Icon } from "astro-icon";
         />
       </a>
     </div>
-    <div class="w-full md:w-1/2 relative pt-8 flex justify-center">
-      <Picture
-        class="h-full relative z-[2]"
-        alt="Coco Beach® private lofts"
-        src="/images/photo/building-clip-2.webp"
-        widths={[410]}
-        aspectRatio={789 / 828}
-        sizes={`(min-width: 1024px) 410px,
-        (min-width: 768px) 370px, 380px`}
-      />
-
+    <div class="w-full md:w-1/2">
       <div
-        class="absolute bottom-10 z-0 left-[42px] right-[42px] h-1/2 bg-[#eaeaff] dark:bg-[#121236]"
+        class="relative flex flex-col justify-end w-full max-w-[480px] min-h-[450px] -mt-8 mx-auto"
       >
+        <Picture
+          class="absolute -bottom-8 left-1/2 -translate-x-1/2 w-full max-w-[410px] z-[2]"
+          alt="Coco Beach® private lofts"
+          src="/images/photo/building-clip-2.webp"
+          widths={[410]}
+          aspectRatio={789 / 828}
+          sizes={`(min-width: 1024px) 410px,
+      (min-width: 768px) 370px, 380px`}
+        />
+
+        <div class="relative w-full pt-[45%] bg-[#eaeaff] dark:bg-[#121236]">
+        </div>
       </div>
     </div>
   </div>

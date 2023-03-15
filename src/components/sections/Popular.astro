@@ -9,7 +9,9 @@ interface Props {
 const { properties } = Astro.props;
 ---
 
-<section class="bg-white py-12 px-6 lg:p-12 dark:bg-dark-purple-1">
+<section
+  class="bg-white py-12 px-6 lg:p-12 dark:bg-dark-purple-1 overflow-hidden md:overflow-auto"
+>
   <div class="container flex flex-col">
     <!-- HEADER -->
     <div class="flex justify-between md:items-center">

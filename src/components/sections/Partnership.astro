@@ -3,7 +3,9 @@ import { Picture, Image } from "@astrojs/image/components";
 import { Icon } from "astro-icon";
 ---
 
-<section class="md:py-12 py-8 px-5 lg:p-12 dark:bg-dark-purple-1">
+<section
+  class="md:py-12 py-8 px-5 lg:p-12 dark:bg-dark-purple-1 overflow-hidden md:overflow-auto"
+>
   <div class="container flex flex-col md:flex-row gap-6 items-center">
     <div class="md:w-1/2 flex md:justify-center">
       <div class="max-w-[340px] relative">
@@ -19,7 +21,7 @@ import { Icon } from "astro-icon";
 
         <!-- composition -->
         <div
-          class="absolute z-[2] border border-gray-500/20 -right-3 md:-right-12 -bottom-8 p-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] w-[280px] bg-white dark:bg-dark-purple-2"
+          class="absolute z-[2] border border-gray-500/20 -right-12 md:-right-12 -bottom-8 p-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] w-[280px] bg-white dark:bg-dark-purple-2"
         >
           <p
             class="mb-2 flex justify-between items-center text-dark dark:text-white font-TitilliumWeb text-base font-semibold"
@@ -51,7 +53,11 @@ import { Icon } from "astro-icon";
       </div>
     </div>
     <div class="md:w-1/2 p-3 md:pr-[98px]">
-      <h3 class="title-2 font-light">A robust partnership</h3>
+      <h3
+        class="dark:text-white font-TitilliumWeb text-dark text-[2rem] leading-9 font-light"
+      >
+        A robust partnership
+      </h3>
       <p class="text-blue-gray text-base py-2">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Illud non
         continuo, ut aeque incontentae. Duo Reges: constructio interrete. Si qua

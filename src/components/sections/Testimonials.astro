@@ -8,10 +8,16 @@ interface Props {
 const { centerText = false } = Astro.props;
 ---
 
-<section class="py-12 px-6 lg:p-12 dark:bg-dark-purple-1">
+<section
+  class="py-12 px-6 lg:p-12 dark:bg-dark-purple-1 overflow-hidden md:overflow-auto"
+>
   <div class="container flex flex-col">
     <div class:list={["mb-8", { "flex flex-col items-center": centerText }]}>
-      <h1 class="dark:text-white font-TitilliumWeb text-dark text-[2rem] leading-9">What they say about us</h1>
+      <h1
+        class="dark:text-white font-TitilliumWeb text-dark text-[2rem] leading-9"
+      >
+        What they say about us
+      </h1>
       {
         centerText && (
           <p class="text-xl text-[#9da0b4] text-center">

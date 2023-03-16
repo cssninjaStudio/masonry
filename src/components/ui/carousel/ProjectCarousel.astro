@@ -35,7 +35,7 @@ import PolkaDots from "../PolkaDots.astro";
       <div class="swiper-wrapper">
         <!-- Slides -->
         {
-          projects.map((project) => (
+          [...projects, ...projects].map((project) => (
             <div class="swiper-slide">
               <a class="slide-inner">
                 <div class="slide-content relative">

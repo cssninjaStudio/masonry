@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import compress from "astro-compress";
 // import image from "@astrojs/image";
 import alpinejs from "@astrojs/alpinejs";
 import icon from "astro-icon";
@@ -19,6 +18,5 @@ export default defineConfig({
     // }),
     icon(),
     alpinejs(),
-    compress(),
   ],
 });

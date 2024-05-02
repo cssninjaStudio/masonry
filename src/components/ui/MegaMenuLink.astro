@@ -1,15 +1,15 @@
 ---
 interface Props {
-  title: string;
-  href?: string;
+  title: string
+  href?: string
 }
 
-const { title, href = "#" } = Astro.props;
+const { title, href = '#' } = Astro.props
 ---
 
 <a
   href={href}
-  class="relative after:content-[''] after:absolute after:h-[2px] after:bg-primary after:transition-['width'] after:duration-300 after:w-0 after:hover:w-full after:-bottom-[0.15rem] after:left-0 text-base text-ice-blue hover:text-primary transition-colors duration-300"
+  class="relative after:content-[''] after:absolute after:h-[2px] after:bg-primary-500 after:transition-['width'] after:duration-300 after:w-0 after:hover:w-full after:-bottom-[0.15rem] after:left-0 text-base text-muted-400 hover:text-primary-500 transition-colors duration-300"
 >
   <span>{title}</span>
 </a>

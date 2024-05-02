@@ -1,31 +1,23 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon/components'
 interface Props {
-  options: string[];
-  placeholder: string;
-  id: string;
+  options: string[]
+  placeholder: string
+  id: string
 }
-const { id = "", options, placeholder = "" } = Astro.props;
+const { id = '', options, placeholder = '' } = Astro.props
 ---
 
-<div
-  id={id + "Select"}
-  data-open="false"
-  aria-label="Select Box"
-  class="select relative w-full md:w-max min-w-[250px]"
->
+<div id={id + 'Select'} data-open="false" aria-label="Select Box" class="select relative w-full md:w-max min-w-[250px]">
   <!-- options -->
   {
     options.length > 0 && (
       <div
         aria-label="Select Option"
-        class="options bg-white dark:bg-dark-purple-2 shadow-sm border transition-all duration-200 z-20 border-gray-300 text-gray-600 rounded-xl absolute top-full mt-2 left-0 w-full overflow-hidden"
+        class="options bg-white dark:bg-muted-900 shadow-sm border transition-all duration-200 z-20 border-muted-300 dark:border-muted-800 text-muted-600 rounded-lg mt-2 p-2 absolute top-full start-0 w-full overflow-hidden"
       >
         {options.map((option) => (
-          <div
-            class="option py-2 px-3 hover:bg-gray-100 dark:text-[#93A5BE]  cursor-pointer"
-            data-option={option}
-          >
+          <div class="option py-2 px-3 rounded-md hover:bg-muted-100 dark:hover:bg-muted-800 text-muted-400 hover:text-muted-700 dark:hover:text-muted-100 cursor-pointer" data-option={option}>
             {option}
           </div>
         ))}
@@ -33,64 +25,52 @@ const { id = "", options, placeholder = "" } = Astro.props;
     )
   }
 
-  <div
-    class="flex justify-between items-center gap-2 dark:bg-dark-purple-2 bg-white px-4 py-4 rounded-lg cursor-pointer w-full h-full relative z-20"
-  >
-    <Icon name="lucide:home" class="w-5 aspect-auto text-[#93A5BE]" />
+  <div class="flex justify-between items-center gap-2 bg-white dark:bg-muted-900 px-4 py-4 rounded-lg cursor-pointer w-full h-full relative z-20">
+    <Icon name="lucide:home" class="size-4 text-muted-400" />
     <!-- input -->
     <input
       aria-label="Select Input"
       id={id}
       name={id}
       type="text"
-      class="focus:outline-none cursor-pointer dark:bg-dark-purple-2 text-[#93A5BE] flex-1"
+      class="peer focus:outline-none cursor-pointer dark:bg-muted-900 text-muted-700 dark:text-muted-300 placeholder:text-muted-300 dark:placeholder:text-muted-600 flex-1"
       placeholder={placeholder}
       readonly
     />
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke-width="1.5"
-      stroke="#93A5BE"
-      class="w-5 h-5 transition-all duration-200"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
-    </svg>
+    <Icon name="lucide:chevron-down" class="size-4 text-muted-400 transition-all duration-200" />
   </div>
 </div>
 
 <style>
-  [data-open="false"] .options {
+  [data-open='false'] .options {
     @apply max-h-0 opacity-0;
   }
-  [data-open="true"] .options {
+  [data-open='true'] .options {
     @apply max-h-[200px] opacity-100;
   }
-  [data-open="true"] svg:last-child {
+  [data-open='true'] svg:last-child {
     @apply rotate-180;
   }
 </style>
 
 <script>
-  [...document.querySelectorAll(".option")].forEach((option) => {
-    option.addEventListener("click", () => {
-      option.parentElement.nextElementSibling.querySelector("input").value =
-        option.dataset.option;
-    });
-  });
-  [...document.querySelectorAll(".select")].forEach((select) => {
-    select.addEventListener("click", () => {
-      const OPEN = select.dataset.open === "true";
+  ;[...document.querySelectorAll('.option')].forEach((option) => {
+    option.addEventListener('click', () => {
+      //@ts-ignore
+      option.parentElement.nextElementSibling.querySelector('input').value = option.dataset.option
+    })
+  })
+  ;[...document.querySelectorAll('.select')].forEach((select) => {
+    select.addEventListener('click', () => {
+      //@ts-ignore
+      const OPEN = select.dataset.open === 'true'
       if (OPEN) {
-        select.dataset.open = "false";
+        //@ts-ignore
+        select.dataset.open = 'false'
       } else {
-        select.dataset.open = "true";
+        //@ts-ignore
+        select.dataset.open = 'true'
       }
-    });
-  });
+    })
+  })
 </script>

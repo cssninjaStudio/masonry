@@ -1,51 +1,52 @@
 ---
-import Hero from "@components/sections/Hero.astro";
-import Popular from "@components/sections/Popular.astro";
-import { property } from "@data/property";
-import Layout from "@layouts/Default.astro";
-import PrivateLoft from "@components/sections/PrivateLoft.astro";
-import WhatWeDo from "@components/sections/WhatWeDo.astro";
-import Partnership from "@components/sections/Partnership.astro";
-import Ranking from "@components/sections/Ranking.astro";
-import Talented from "@components/sections/Talented.astro";
-import Testimonials from "@components/sections/Testimonials.astro";
-import Logos from "@components/sections/Logos.astro";
-import EngageCTA from "@components/sections/EngageCTA.astro";
+import Layout from '@layouts/Minimal.astro'
+import DemoCta from '@components/demo/DemoCta.astro'
+import DemoFaq from '@components/demo/DemoFaq.astro'
+import DemoFeatures from '@components/demo/DemoFeatures.astro'
+import DemoFooter from '@components/demo/DemoFooter.astro'
+import DemoHero from '@components/demo/DemoHero.astro'
+import DemoNavbar from '@components/demo/DemoNavbar.astro'
+import DemoPurchase from '@components/demo/DemoPurchase.astro'
+import DemoScreenshot from '@components/demo/DemoScreenshot.astro'
+import DemoTechs from '@components/demo/DemoTechs.astro'
 ---
 
-<Layout title="Home">
-  <main id="Home">
-    <!-- HERO -->
-    <Hero />
+<Layout title="Masonry">
+  <DemoNavbar />
+  <DemoHero />
 
-    <!-- POPULAR 3-->
-    <Popular properties={property.slice(0, 3)} />
+  <section class="w-full py-12 px-4 bg-white dark:bg-muted-900">
+    <div class="w-full max-w-7xl mx-auto">
+      <!--Layout-->
+      <div class="w-full flex flex-col ltablet:flex-row lg:flex-row gap-0 ltablet:gap-10 lg:gap-28">
+        <!--Column-->
+        <div class="w-full ltablet:w-8/12 lg:w-8/12">
+          <!--Techs-->
+          <DemoTechs />
 
-    <!-- COCO BEACH -->
-    <PrivateLoft />
+          <!--Features-->
+          <DemoFeatures />
 
-    <!-- WHAT WE CAN DO -->
-    <WhatWeDo />
+          <!--Template demos-->
+          <DemoScreenshot />
 
-    <!-- POPULAR 6 -->
-    <Popular properties={property.slice(3)} />
+          <!--FAQ-->
+          <DemoFaq />
+        </div>
+        <!--Column-->
+        <div class="w-full ltablet:w-4/12 lg:w-4/12">
+          <div class="h-full pt-10">
+            <!--Purchase card-->
+            <DemoPurchase />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- TALENTED -->
-    <Talented />
+  <!--Call to action-->
+  <DemoCta />
 
-    <!-- RANKING -->
-    <Ranking />
-
-    <!-- PARTNERSHIP -->
-    <Partnership />
-
-    <!-- WHAT THEY SAY -->
-    <Testimonials />
-
-    <!-- LOGOS -->
-    <Logos />
-
-    <!-- ENGAGE/CTA-->
-    <EngageCTA />
-  </main>
+  <!--Demo footer-->
+  <DemoFooter />
 </Layout>

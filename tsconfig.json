@@ -9,6 +9,6 @@
       "@data/*": ["src/data/*"],
       "@/*": ["src/*"]
     },
-    "types": ["@astrojs/image/client"]
+    "types": ["astro/client"]
   }
 }

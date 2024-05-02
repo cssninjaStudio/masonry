@@ -1,8 +1,9 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import compress from "astro-compress";
-import image from "@astrojs/image";
+// import image from "@astrojs/image";
 import alpinejs from "@astrojs/alpinejs";
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,9 +14,10 @@ export default defineConfig({
   },
   integrations: [
     tailwind(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
+    // image({
+      // serviceEntryPoint: "@astrojs/image/sharp",
+    // }),
+    icon(),
     alpinejs(),
     compress(),
   ],

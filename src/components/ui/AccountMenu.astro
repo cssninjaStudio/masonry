@@ -1,108 +1,48 @@
 ---
-import { Image } from "@astrojs/image/components";
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon/components'
 ---
 
-<div
-  class="account-dropdown relative"
-  :class="open && 'is-active'"
-  x-data="accountDropdown"
-  @click.away="close()"
->
+<div class="relative" :class="open && 'is-active'" x-data="accountDropdown" @click.away="close()">
   <div class="dropdown-trigger">
-    <button
-      class="button bg-transparent cursor-pointer flex items-center justify-center h-9 w-9 min-w-[2.25rem]"
-      aria-haspopup="true"
-      @click="toggle()"
-    >
-      <Image
-        height={280}
-        width={280}
-        class="h-9 w-9 min-h-[2.25rem] rounded-full pointer-events-none"
-        src="/images/avatars/4.webp"
-        alt="avatar"
-      />
+    <button class="button bg-transparent cursor-pointer flex items-center justify-center h-9 w-9 shrink-0" aria-haspopup="true" @click="toggle()">
+      <img height={280} width={280} class="h-9 w-9 shrink-0 rounded-full pointer-events-none" src="/images/avatars/4.webp" alt="avatar" />
     </button>
   </div>
-  <div
-    x-show="open"
-    x-cloak
-    class="dropdown-menu mt-2 min-w-[250px] top-full absolute right-0 z-20 bg-semi-white-3 dark:bg-dark-purple-2 [box-shadow:rgba(0,_0,_0,_0.06)_-1px_3px_10px_0px]"
-    role="menu"
-  >
-    <div class="dropdown-content border dark:border-none border-gray-1 p-2">
-      <div
-        class="dropdown-item hover:bg-semi-white-1 dark:hover:bg-dark-purple-3 px-2 cursor-pointer"
-      >
-        <a
-          href="/account"
-          class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent"
-        >
-          <Icon class="h-4 w-4 text-ice-blue" name="lucide:user" />
-          <div class="meta leading-[1.2]">
-            <h4
-              class="text-[.8rem] font-semibold text-dark font-TitilliumWeb dark:text-semi-white-3"
-            >
-              Account
-            </h4>
-            <p class="text-ice-blue text-[.8rem]">Manage account</p>
+  <div x-show="open" x-cloak class="mt-2 min-w-64 top-full absolute right-0 z-20 bg-white dark:bg-muted-950 shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20" role="menu">
+    <div class="border dark:border-muted-800 border-muted-200 p-2">
+      <div class="hover:bg-muted-100 dark:hover:bg-muted-800 rounded px-2 cursor-pointer transition-colors duration-300 group/item">
+        <a href="/account" class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent">
+          <Icon class="size-4 group-hover/item:text-primary-500 text-muted-400" name="lucide:user" />
+          <div class="leading-tight">
+            <h4 class="text-sm font-semibold text-muted-900 font-sans dark:muted-100">Account</h4>
+            <p class="text-muted-400 text-xs">Manage account</p>
           </div>
         </a>
       </div>
-      <div
-        class="dropdown-item hover:bg-semi-white-1 dark:hover:bg-dark-purple-3 px-2 cursor-pointer"
-      >
-        <a
-          href="/wishlist"
-          class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent"
-        >
-          <Icon class="h-4 w-4 text-ice-blue" name="lucide:heart" />
-          <div class="meta leading-[1.2]">
-            <h4
-              class="text-[.8rem] font-semibold text-dark font-TitilliumWeb dark:text-semi-white-3"
-            >
-              Wishlist
-            </h4>
-            <p class="text-ice-blue text-[.8rem]">View favorites</p>
+      <div class="hover:bg-muted-100 dark:hover:bg-muted-800 rounded px-2 cursor-pointer transition-colors duration-300 group/item">
+        <a href="/wishlist" class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent">
+          <Icon class="size-4 group-hover/item:text-primary-500 text-muted-400" name="lucide:heart" />
+          <div class="leading-tight">
+            <h4 class="text-sm font-semibold text-muted-900 font-sans dark:muted-100">Wishlist</h4>
+            <p class="text-muted-400 text-xs">View favorites</p>
           </div>
         </a>
       </div>
-      <div
-        class="dropdown-item hover:bg-semi-white-1 dark:hover:bg-dark-purple-3 px-2 cursor-pointer"
-      >
-        <a
-          href="/settings"
-          class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent"
-        >
-          <Icon class="h-4 w-4 text-ice-blue" name="lucide:settings" />
-          <div class="meta leading-[1.2]">
-            <h4
-              class="text-[.8rem] font-semibold text-dark font-TitilliumWeb dark:text-semi-white-3"
-            >
-              Settings
-            </h4>
-            <p class="text-ice-blue text-[.8rem]">Manage preferences</p>
+      <div class="hover:bg-muted-100 dark:hover:bg-muted-800 rounded px-2 cursor-pointer transition-colors duration-300 group/item">
+        <a href="/settings" class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent">
+          <Icon class="size-4 group-hover/item:text-primary-500 text-muted-400" name="lucide:settings" />
+          <div class="leading-tight">
+            <h4 class="text-sm font-semibold text-muted-900 font-sans dark:muted-100">Settings</h4>
+            <p class="text-muted-400 text-xs">Manage preferences</p>
           </div>
         </a>
       </div>
-      <hr
-        class="dropdown-divider my-2 h-px border-t border-gray-1 dark:border-dark-purple-6"
-      />
-      <div
-        class="dropdown-item hover:bg-semi-white-1 dark:hover:bg-dark-purple-3 px-2 cursor-pointer"
-      >
-        <a
-          class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent"
-          @click.prevent="$store.app.logout()"
-        >
-          <Icon class="h-4 w-4 text-ice-blue" name="feather:log-out" />
-          <div class="meta leading-[1.2]">
-            <h4
-              class="text-[.8rem] font-semibold text-dark font-TitilliumWeb dark:text-semi-white-3"
-            >
-              Logout
-            </h4>
-            <p class="text-ice-blue text-[.8rem]">Logout from account</p>
+      <div class="hover:bg-muted-100 dark:hover:bg-muted-800 rounded px-2 cursor-pointer transition-colors duration-300 group/item">
+        <a class="menu-option flex gap-3 items-center p-2 cursor-pointer bg-transparent" @click.prevent="$store.app.logout()">
+          <Icon class="size-4 group-hover/item:text-primary-500 text-muted-400" name="lucide:log-out" />
+          <div class="leading-tight">
+            <h4 class="text-sm font-semibold text-muted-900 font-sans dark:muted-100">Logout</h4>
+            <p class="text-muted-400 text-xs">Logout from account</p>
           </div>
         </a>
       </div>
@@ -111,15 +51,16 @@ import { Icon } from "astro-icon";
 </div>
 
 <script>
-  document.addEventListener("alpine:init", () => {
-    Alpine.data("accountDropdown", () => ({
+  document.addEventListener('alpine:init', () => {
+    //@ts-ignore
+    Alpine.data('accountDropdown', () => ({
       open: false,
       toggle() {
-        this.open = !this.open;
+        this.open = !this.open
       },
       close() {
-        this.open = false;
+        this.open = false
       },
-    }));
-  });
+    }))
+  })
 </script>

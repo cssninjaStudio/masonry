@@ -1,1138 +1,606 @@
 ---
-import Layout from "@layouts/Split.astro";
-import { Icon } from "astro-icon";
+import { Icon } from 'astro-icon/components'
+import Layout from '@layouts/Split.astro'
+import Section from '@components/Section.astro'
+import Container from '@components/Container.astro'
 ---
 
 <Layout title="Quote">
-  <main
-    id="Quote"
-    class="relative flex justify-between flex-col items-stretch min-h-screen bg-semi-white-1 dark:bg-dark-purple-1"
-  >
-    <img
-      class="wizard-cover absolute bottom-0 left-0 w-full z-0"
-      src="/images/illustrations/cityscape.svg"
-      alt="Wizard cover"
-    />
-
-    <section class="py-12 px-6 lg:px-12 flex items-center flex-grow">
-      <div class="container">
-        <div id="quote-section" class="form-section relative z-[2]">
-          <div
-            x-data="wizard"
-            class="outer-form py-12 mx-auto max-w-[840px] w-full"
-          >
-            <div class="form-content has-text-centered">
-              <div
-                id="form-section-0"
-                class="inner-form relative min-h-[400px] flex flex-col justify-between"
-                x-cloak
-                x-show="activeWizardStep === 'wizard-step-0'"
-              >
-                <div class="title-block">
-                  <h3
-                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
-                  >
-                    Let's get you a personalized quote
-                  </h3>
-                  <h4 class="text-center text-base text-ice-blue">
-                    Follow the instructions to enter the info we need
-                  </h4>
+  <main id="Quote" class="relative flex justify-between flex-col items-stretch min-h-screen bg-muted-50 dark:bg-muted-900">
+    <Section gray={true}>
+      <div class="flex items-center flex-grow">
+        <Container>
+          <div id="quote-section" class="relative z-[2] pt-16">
+            <div x-data="wizard" class="py-12 mx-auto max-w-4xl w-full">
+              <div class="has-text-centered">
+                <div id="form-section-0" class="relative min-h-[400px] flex flex-col justify-center" x-cloak x-show="activeWizardStep === 'wizard-step-0'">
+                  <div class="relative">
+                    <h3 class="dark:text-white text-3xl mb-2 text-center font-sans text-muted-900">Let's get you a personalized quote</h3>
+                    <h4 class="text-center text-base text-muted-500 dark:text-muted-400">Follow the instructions to enter the info we need</h4>
+                  </div>
+                  <div class="mt-4">
+                    <button
+                      @click="browseWizard($event)"
+                      class="min-w-56 bg-primary-500 h-11 py-2 px-4 flex items-center justify-center mx-auto text-center font-medium text-base text-white rounded cursor-pointer transition-all duration-300"
+                      data-step="wizard-step-1"
+                    >
+                      Start
+                    </button>
+                  </div>
                 </div>
-                <div class="image-block">
-                  <img
-                    class="max-w-[210px] mx-auto"
-                    src="/images/illustrations/quote.svg"
-                    alt=""
-                  />
+                <div id="form-section-1" class="relative min-h-[400px] flex flex-col justify-between" x-cloak x-show="activeWizardStep === 'wizard-step-1'">
+                  <div class="relative">
+                    <h3 class="dark:text-white text-3xl mb-2 text-center font-sans text-muted-900">1. What's the project type?</h3>
+                    <h4 class="text-center text-base text-muted-500 dark:text-muted-400">Please select a project type to proceed</h4>
+                  </div>
+                  <div class="py-5 md:py-0">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div class="relative">
+                        <input x-on:change="selectProjectType()" type="radio" name="project_type" class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]" />
+                        <div
+                          class="relative py-10 px-6 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f1.svg" alt="" />
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f1-dark.svg" alt="" />
+                          <h3 class="text-muted-900 dark:text-white text-lg mt-1.5 text-center">House project</h3>
+                          <p class="text-center text-muted-500 dark:text-muted-400 text-xs">I want my house to be reworked</p>
+                        </div>
+                      </div>
+                      <div class="relative">
+                        <input x-on:change="selectProjectType()" type="radio" name="project_type" class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]" />
+                        <div
+                          class="relative py-10 px-6 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f5.svg" alt="" />
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f5-dark.svg" alt="" />
+                          <h3 class="text-muted-900 dark:text-white text-lg mt-1.5 text-center">Office project</h3>
+                          <p class="text-center text-muted-500 dark:text-muted-400 text-xs">I want my office to be reworked</p>
+                        </div>
+                      </div>
+                      <div class="relative">
+                        <input x-on:change="selectProjectType()" type="radio" name="project_type" class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]" />
+                        <div
+                          class="relative py-10 px-6 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f6.svg" alt="" />
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f6-dark.svg" alt="" />
+                          <h3 class="text-muted-900 dark:text-white text-lg mt-1.5 text-center">Store project</h3>
+                          <p class="text-center text-muted-500 dark:text-muted-400 text-xs">I want my store to be reworked</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="button-block">
+                    <button
+                      @click="browseWizard($event)"
+                      class="min-w-56 bg-primary-500 h-11 py-2 px-4 flex items-center justify-center mx-auto text-center font-medium text-base text-white rounded cursor-pointer transition-all duration-300"
+                      data-step="wizard-step-2"
+                      :class="{ 'is-disabled': projectTypeSelected === false, '': projectTypeSelected === true  }"
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
-                <div class="button-block">
-                  <button
-                    @click="browseWizard($event)"
-                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
+                <div id="form-section-2" class="relative min-h-[400px] flex flex-col justify-between" x-cloak x-show="activeWizardStep === 'wizard-step-2'">
+                  <div
+                    @click="browseBackWizard"
+                    class="absolute z-20 top-0.5 left-0 h-9 w-9 rounded-full border border-muted-200 dark:border-muted-800 shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-500 text-muted-500 dark:text-muted-400 dark:hover:text-primary-500"
                     data-step="wizard-step-1"
                   >
-                    Start
-                  </button>
-                </div>
-              </div>
-
-              <div
-                id="form-section-1"
-                class="inner-form relative min-h-[400px] flex flex-col justify-between"
-                x-cloak
-                x-show="activeWizardStep === 'wizard-step-1'"
-              >
-                <div class="title-block">
-                  <h3
-                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
-                  >
-                    1. What's the project type?
-                  </h3>
-                  <h4 class="text-center text-base text-ice-blue">
-                    Please select a project type to proceed
-                  </h4>
-                </div>
-                <div class="content-block py-5 md:py-0">
-                  <div
-                    class="project-types grid grid-cols-1 md:grid-cols-3 gap-4"
-                  >
-                    <div class="radio-box relative">
-                      <input
-                        x-on:change="selectProjectType()"
-                        type="radio"
-                        name="project_type"
-                        class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]"
-                      />
-                      <div
-                        class="radio-box-inner relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
+                    <Icon class="size-4 pointer-events-none" name="lucide:arrow-left" />
+                  </div>
+                  <div class="relative">
+                    <h3 class="dark:text-white text-3xl mb-2 text-center font-sans text-muted-900">2. What do you need?</h3>
+                    <h4 class="text-center text-base text-muted-500 dark:text-muted-400">Please select some services you need</h4>
+                  </div>
+                  <div class="relative">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 py-6">
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
                         <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
                         >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f1.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f1-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Furniture design</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Handcrafted</span>
+                          </div>
                         </div>
-                        <img
-                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f1.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f1-dark.svg"
-                          alt=""
-                        />
-                        <h3 class="text-dark text-lg mt-1.5 text-center">
-                          House project
-                        </h3>
-                        <p class="text-center text-ice-blue text-[.8rem]">
-                          I want my house to be reworked
-                        </p>
                       </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        x-on:change="selectProjectType()"
-                        type="radio"
-                        name="project_type"
-                        class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]"
-                      />
-                      <div
-                        class="radio-box-inner relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
                         <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
                         >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f7.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f7-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Decoration</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Homemade</span>
+                          </div>
                         </div>
-                        <img
-                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f5.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f5-dark.svg"
-                          alt=""
-                        />
-                        <h3 class="text-dark text-lg mt-1.5 text-center">
-                          Office project
-                        </h3>
-                        <p class="text-center text-ice-blue text-[.8rem]">
-                          I want my office to be reworked
-                        </p>
                       </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        x-on:change="selectProjectType()"
-                        type="radio"
-                        name="project_type"
-                        class="peer appearance-none w-full h-full cursor-pointer absolute top-0 left-0 z-[1]"
-                      />
-                      <div
-                        class="radio-box-inner relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
                         <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
                         >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f8.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f8-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Light Works</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Illuminated</span>
+                          </div>
                         </div>
-                        <img
-                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f6.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f6-dark.svg"
-                          alt=""
-                        />
-                        <h3 class="text-dark text-lg mt-1.5 text-center">
-                          Store project
-                        </h3>
-                        <p class="text-center text-ice-blue text-[.8rem]">
-                          I want my store to be reworked
-                        </p>
+                      </div>
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
+                        <div
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f9.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f9-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Custom Windows</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Carbon fiber</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
+                        <div
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f10.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f10-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Custom Seats</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Alpaga</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
+                        <div
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f11.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f11-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Tables</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Fine woods</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
+                        <div
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f12.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f12-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Closets & Shelves</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Fine Woods</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
+                        <div
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f13.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f13-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Sound Design</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Hi Fi & Stereo</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="relative">
+                        <input class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer" x-on:change="selectServices()" type="checkbox" />
+                        <div
+                          class="gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
+                        >
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
+                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f14.svg" alt="" />
+                          <img class="max-w-12 grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f14-dark.svg" alt="" />
+                          <div class="meta leading-tight text-left">
+                            <h3 class="text-xs mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">Kitchen Design</h3>
+                            <span class="text-xs text-muted-500 dark:text-muted-400">Fully chromed</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div class="button-block">
+                    <button
+                      @click="browseWizard($event)"
+                      class="min-w-56 bg-primary-500 h-11 py-2 px-4 flex items-center justify-center mx-auto text-center font-medium text-base text-white rounded cursor-pointer transition-all duration-300"
+                      data-step="wizard-step-3"
+                      :class="{  'is-disabled': servicesSelected === false,  '': servicesSelected === true }"
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
-                <div class="button-block">
-                  <button
-                    @click="browseWizard($event)"
-                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
+                <div id="form-section-3" class="relative flex min-h-[400px] flex-col justify-between" x-cloak x-show="activeWizardStep === 'wizard-step-3'">
+                  <div
+                    @click="browseBackWizard"
+                    class="absolute z-20 top-0.5 left-0 h-9 w-9 rounded-full border border-muted-200 dark:border-muted-800 shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-500 text-muted-500 dark:text-muted-400 dark:hover:text-primary-500"
                     data-step="wizard-step-2"
-                    :class="{ 'is-disabled': projectTypeSelected === false, '': projectTypeSelected === true  }"
                   >
-                    Next
-                  </button>
-                </div>
-              </div>
-
-              <div
-                id="form-section-2"
-                class="inner-form relative min-h-[400px] flex flex-col justify-between"
-                x-cloak
-                x-show="activeWizardStep === 'wizard-step-2'"
-              >
-                <div
-                  @click="browseBackWizard"
-                  class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
-                  data-step="wizard-step-1"
-                >
-                  <Icon
-                    class="h-[18px] w-[18px] pointer-events-none"
-                    name="feather:arrow-left"
-                  />
-                </div>
-                <div class="title-block">
-                  <h3
-                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
-                  >
-                    2. What do you need?
-                  </h3>
-                  <h4 class="text-center text-base text-ice-blue">
-                    Please select some services you need
-                  </h4>
-                </div>
-                <div class="content-block">
-                  <div
-                    class="services-types grid grid-cols-2 md:grid-cols-3 gap-4 py-6"
-                  >
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
+                    <Icon class="size-4 pointer-events-none" name="lucide:arrow-left" />
+                  </div>
+                  <div class="relative">
+                    <h3 class="dark:text-white text-3xl mb-2 text-center font-sans text-muted-900">3. What's your budget?</h3>
+                    <h4 class="text-center text-base text-muted-500 dark:text-muted-400">Please select a budget range</h4>
+                  </div>
+                  <div class="py-5 md:py-0">
+                    <div class="budget-types grid grid-cols-1 md:grid-cols-3 gap-4">
+                      <div class="relative">
+                        <input x-on:change="selectBudget()" type="radio" name="budget_type" class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer" />
                         <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                          class="dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
                         >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f1.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f1-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
                           >
-                            Furniture design
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue"
-                            >Handcrafted</span
-                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f15.svg" alt="" />
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f15-dark.svg" alt="" />
+                          <h3 class="text-[1.1rem] text-center mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">$0 - $10K</h3>
+                          <p class="text-xs text-center text-muted-500 dark:text-muted-400">A small but nice budget</p>
                         </div>
                       </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
+                      <div class="relative">
+                        <input x-on:change="selectBudget()" type="radio" name="budget_type" class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer" />
                         <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                          class="dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
                         >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f7.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f7-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
                           >
-                            Decoration
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue"
-                            >Homemade</span
-                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f16.svg" alt="" />
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f16-dark.svg" alt="" />
+                          <h3 class="text-[1.1rem] mt-1.5 text-center font-sans text-muted-900 dark:text-semi-white-3">$11K - $35K</h3>
+                          <p class="text-xs text-center text-muted-500 dark:text-muted-400">A considerable budget</p>
                         </div>
                       </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
+                      <div class="relative">
+                        <input x-on:change="selectBudget()" type="radio" name="budget_type" class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer" />
                         <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
+                          class="dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-muted-200 bg-white dark:bg-muted-950 peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20"
                         >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f8.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f8-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
+                          <div
+                            class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary-500 shadow-lg shadow-primary-500/20 animate-gelatine"
                           >
-                            Light Works
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue"
-                            >Illuminated</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f9.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f9-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
-                          >
-                            Custom Windows
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue"
-                            >Carbon fiber</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f10.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f10-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
-                          >
-                            Custom Seats
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue">Alpaga</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f11.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f11-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
-                          >
-                            Tables
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue"
-                            >Fine woods</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f12.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f12-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
-                          >
-                            Closets & Shelves
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue"
-                            >Fine Woods</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f13.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f13-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
-                          >
-                            Sound Design
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue"
-                            >Hi Fi & Stereo</span
-                          >
-                        </div>
-                      </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        class="absolute top-0 left-0 h-full w-full opacity-0 cursor-pointer z-[1] peer"
-                        x-on:change="selectServices()"
-                        type="checkbox"
-                      />
-                      <div
-                        class="radio-box-inner gap-4 dark:bg-dark-purple-2 relative flex items-center p-5 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f14.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[3rem] grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f14-dark.svg"
-                          alt=""
-                        />
-                        <div class="meta leading-[1.1] text-left">
-                          <h3
-                            class="text-[.85rem] mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
-                          >
-                            Kitchen Design
-                          </h3>
-                          <span class="text-[.8rem] text-ice-blue"
-                            >Fully chromed</span
-                          >
+                            <Icon class="h-3 w-3 stroke-[3px] stroke-white" name="lucide:check" />
+                          </div>
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden" src="/images/icons/f17.svg" alt="" />
+                          <img class="max-w-16 mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block" src="/images/icons/f17-dark.svg" alt="" />
+                          <h3 class="text-[1.1rem] text-center mt-1.5 font-sans text-muted-900 dark:text-semi-white-3">$36K +</h3>
+                          <p class="text-xs text-center text-muted-500 dark:text-muted-400">Wohoo! You rock!</p>
                         </div>
                       </div>
                     </div>
                   </div>
+                  <div class="button-block">
+                    <button
+                      @click="browseWizard($event)"
+                      class="min-w-56 bg-primary-500 h-11 py-2 px-4 flex items-center justify-center mx-auto text-center font-medium text-base text-white rounded cursor-pointer transition-all duration-300"
+                      data-step="wizard-step-4"
+                      :class="{ 'is-disabled': budgetSelected === false,  '': budgetSelected === true }"
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
-                <div class="button-block">
-                  <button
-                    @click="browseWizard($event)"
-                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
+                <div id="form-section-4" class="relative min-h-[400px] flex flex-col justify-between" x-cloak x-show="activeWizardStep === 'wizard-step-4'">
+                  <div
+                    @click="browseBackWizard"
+                    class="absolute z-20 top-0.5 left-0 h-9 w-9 rounded-full border border-muted-200 dark:border-muted-800 shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-500 text-muted-500 dark:text-muted-400 dark:hover:text-primary-500"
                     data-step="wizard-step-3"
-                    :class="{  'is-disabled': servicesSelected === false,  '': servicesSelected === true }"
                   >
-                    Next
-                  </button>
-                </div>
-              </div>
-
-              <div
-                id="form-section-3"
-                class="inner-form relative flex min-h-[400px] flex-col justify-between"
-                x-cloak
-                x-show="activeWizardStep === 'wizard-step-3'"
-              >
-                <div
-                  @click="browseBackWizard"
-                  class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
-                  data-step="wizard-step-2"
-                >
-                  <Icon
-                    class="h-[18px] w-[18px] pointer-events-none"
-                    name="feather:arrow-left"
-                  />
-                </div>
-                <div class="title-block">
-                  <h3
-                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
-                  >
-                    3. What's your budget?
-                  </h3>
-                  <h4 class="text-center text-base text-ice-blue">
-                    Please select a budget range
-                  </h4>
-                </div>
-                <div class="content-block py-5 md:py-0">
-                  <div
-                    class="budget-types grid grid-cols-1 md:grid-cols-3 gap-4"
-                  >
-                    <div class="radio-box relative">
-                      <input
-                        x-on:change="selectBudget()"
-                        type="radio"
-                        name="budget_type"
-                        class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer"
-                      />
-                      <div
-                        class="radio-box-inner dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
+                    <Icon class="size-4 pointer-events-none" name="lucide:arrow-left" />
+                  </div>
+                  <div class="relative">
+                    <h3 class="dark:text-white text-3xl mb-2 text-center font-sans text-muted-900">4. What's your scope?</h3>
+                    <h4 class="text-center text-base text-muted-500 dark:text-muted-400">Tell us more about your project</h4>
+                  </div>
+                  <div class="relative">
+                    <div class="mx-auto max-w-[350px] py-6">
+                      <div class="mb-3 text-center">
+                        <div class="relative">
+                          <textarea
+                            class="max-h-[40em] min-h-[8em] w-full peer outline-none focus:outline-none p-3 dark:bg-muted-950 border border-muted-200 hover:border-muted-300 dark:hover:border-muted-700 text-muted-600 placeholder:text-muted-200 dark:text-muted-100 dark:placeholder:text-muted-700 dark:border-muted-800 transition-all duration-300 rounded text-base"
+                            placeholder="Describe your project..."></textarea>
                         </div>
-                        <img
-                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f15.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f15-dark.svg"
-                          alt=""
-                        />
-                        <h3
-                          class="text-[1.1rem] text-center mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
-                        >
-                          $0 - $10K
-                        </h3>
-                        <p class="text-[.8rem] text-center text-ice-blue">
-                          A small but nice budget
-                        </p>
+                        <small class="text-xs text-muted-900">Minimum 5 words</small>
                       </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        x-on:change="selectBudget()"
-                        type="radio"
-                        name="budget_type"
-                        class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer"
-                      />
-                      <div
-                        class="radio-box-inner dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
+                      <div class="mt-8">
+                        <div class="flex justify-between p-3.5 bg-muted-100 dark:bg-muted-950 rounded-xl">
+                          <div class="relative">
+                            <input class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer" id="uploader-1" type="file" />
+                            <label
+                              for="uploader-1"
+                              class="relative group size-[70px] flex justify-center items-center border-2 border-muted-400 dark:border-muted-600 dark:hover:border-muted-500 border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-muted-500 dark:text-muted-400"
+                            >
+                              <svg
+                                class="h-5 w-5 transition-all duration-300 text-muted-400 dark:text-muted-600 group-hover:text-muted-500 dark:group-hover:text-muted-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                ><g id="fePlus0" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"
+                                  ><g id="fePlus1" fill="currentColor"><path id="fePlus2" d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"></path></g></g
+                                ></svg
+                              >
+                            </label>
+                          </div>
+                          <div class="relative">
+                            <input class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer" id="uploader-2" type="file" />
+                            <label
+                              for="uploader-2"
+                              class="relative group size-[70px] flex justify-center items-center border-2 border-muted-400 dark:border-muted-600 dark:hover:border-muted-500 border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-muted-500 dark:text-muted-400"
+                            >
+                              <svg
+                                class="h-5 w-5 transition-all duration-300 text-muted-400 dark:text-muted-600 group-hover:text-muted-500 dark:group-hover:text-muted-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                ><g id="fePlus0" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"
+                                  ><g id="fePlus1" fill="currentColor"><path id="fePlus2" d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"></path></g></g
+                                ></svg
+                              >
+                            </label>
+                          </div>
+                          <div class="relative">
+                            <input class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer" id="uploader-3" type="file" />
+                            <label
+                              for="uploader-3"
+                              class="relative group size-[70px] flex justify-center items-center border-2 border-muted-400 dark:border-muted-600 dark:hover:border-muted-500 border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-muted-500 dark:text-muted-400"
+                            >
+                              <svg
+                                class="h-5 w-5 transition-all duration-300 text-muted-400 dark:text-muted-600 group-hover:text-muted-500 dark:group-hover:text-muted-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                ><g id="fePlus0" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"
+                                  ><g id="fePlus1" fill="currentColor"><path id="fePlus2" d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"></path></g></g
+                                ></svg
+                              >
+                            </label>
+                          </div>
+                          <div class="relative">
+                            <input class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer" id="uploader-4" type="file" />
+                            <label
+                              for="uploader-4"
+                              class="relative group size-[70px] flex justify-center items-center border-2 border-muted-400 dark:border-muted-600 dark:hover:border-muted-500 border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-muted-500 dark:text-muted-400"
+                            >
+                              <svg
+                                class="h-5 w-5 transition-all duration-300 text-muted-400 dark:text-muted-600 group-hover:text-muted-500 dark:group-hover:text-muted-500"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                ><g id="fePlus0" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"
+                                  ><g id="fePlus1" fill="currentColor"><path id="fePlus2" d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"></path></g></g
+                                ></svg
+                              >
+                            </label>
+                          </div>
                         </div>
-                        <img
-                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f16.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f16-dark.svg"
-                          alt=""
-                        />
-                        <h3
-                          class="text-[1.1rem] mt-1.5 text-center font-TitilliumWeb text-dark dark:text-semi-white-3"
-                        >
-                          $11K - $35K
-                        </h3>
-                        <p class="text-[.8rem] text-center text-ice-blue">
-                          A considerable budget
-                        </p>
-                      </div>
-                    </div>
-                    <div class="radio-box relative">
-                      <input
-                        x-on:change="selectBudget()"
-                        type="radio"
-                        name="budget_type"
-                        class="absolute top-0 right-0 w-full h-full cursor-pointer appearance-none z-[1] peer"
-                      />
-                      <div
-                        class="radio-box-inner dark:bg-dark-purple-2 relative py-10 px-6 transition-all duration-300 border-px border-gray-1 bg-white peer-checked:[&>img]:grayscale-0 peer-checked:[&>img]:opacity-100 peer-checked:[&>.selection-dot]:flex peer-checked:[box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px]"
-                      >
-                        <div
-                          class="selection-dot right-2.5 text-white absolute top-2.5 h-[26px] w-[26px] rounded-full hidden justify-center items-center bg-primary [box-shadow:rgba(46,_49,_255,_0.42)_0px_14px_26px_-12px,_rgba(0,_0,_0,_0.12)_0px_4px_23px_0px,_rgba(46,_49,_255,_0.2)_0px_8px_10px_-5px] animate-gelatine"
-                        >
-                          <Icon
-                            class="h-3 w-3 stroke-[3px] stroke-white"
-                            name="feather:check"
-                          />
-                        </div>
-                        <img
-                          class="light-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 dark:hidden"
-                          src="/images/icons/f17.svg"
-                          alt=""
-                        />
-                        <img
-                          class="dark-image-block max-w-[4.25rem] mx-auto grayscale opacity-80 transition-all duration-300 hidden dark:block"
-                          src="/images/icons/f17-dark.svg"
-                          alt=""
-                        />
-                        <h3
-                          class="text-[1.1rem] text-center mt-1.5 font-TitilliumWeb text-dark dark:text-semi-white-3"
-                        >
-                          $36K +
-                        </h3>
-                        <p class="text-[.8rem] text-center text-ice-blue">
-                          Wohoo! You rock!
-                        </p>
                       </div>
                     </div>
                   </div>
+                  <div class="relative">
+                    <button
+                      @click="browseWizard($event)"
+                      class="min-w-56 bg-primary-500 h-11 py-2 px-4 flex items-center justify-center mx-auto text-center font-medium text-base text-white rounded cursor-pointer transition-all duration-300"
+                      data-step="wizard-step-5"
+                    >
+                      Next
+                    </button>
+                  </div>
                 </div>
-
-                <div class="button-block">
-                  <button
-                    @click="browseWizard($event)"
-                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
+                <div id="form-section-5" class="relative min-h-[400px] flex flex-col justify-between" x-cloak x-show="activeWizardStep === 'wizard-step-5'">
+                  <div
+                    @click="browseBackWizard"
+                    class="absolute z-20 top-0.5 left-0 h-9 w-9 rounded-full border border-muted-200 dark:border-muted-800 shadow-lg shadow-muted-300/30 dark:shadow-muted-800/20 grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary-500 dark:hover:border-primary-500 hover:border-primary-500 text-muted-500 dark:text-muted-400 dark:hover:text-primary-500"
                     data-step="wizard-step-4"
-                    :class="{ 'is-disabled': budgetSelected === false,  '': budgetSelected === true }"
                   >
-                    Next
-                  </button>
-                </div>
-              </div>
-
-              <div
-                id="form-section-4"
-                class="inner-form relative min-h-[400px] flex flex-col justify-between"
-                x-cloak
-                x-show="activeWizardStep === 'wizard-step-4'"
-              >
-                <div
-                  @click="browseBackWizard"
-                  class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
-                  data-step="wizard-step-3"
-                >
-                  <Icon
-                    class="h-[18px] w-[18px] pointer-events-none"
-                    name="feather:arrow-left"
-                  />
-                </div>
-                <div class="title-block">
-                  <h3
-                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
-                  >
-                    4. What's your scope?
-                  </h3>
-                  <h4 class="text-center text-base text-ice-blue">
-                    Tell us more about your project
-                  </h4>
-                </div>
-                <div class="content-block">
-                  <div class="project-scope mx-auto max-w-[350px] py-6">
-                    <div class="field mb-3 text-center">
-                      <div class="control">
-                        <textarea
-                          class="textarea dark:bg-dark-purple-5 max-h-[40em] min-h-[8em] transition-all duration-300 bg-white dark:border-dark-purple-7 border-gray-1 border-[.8px] p-3 text-blue-gray w-full rounded outline-none focus:outline-none focus:[box-shadow:rgba(0,0,0,0.06)_-1_3px_10px_0px] dark:focus:border-dark-purple-8 dark:hover:border-dark-purple-8 dark:placeholder:text-dark-purple-8"
-                          placeholder="Describe your project..."></textarea>
+                    <Icon class="size-4 pointer-events-none" name="lucide:arrow-left" />
+                  </div>
+                  <div class="relative">
+                    <h3 class="dark:text-white text-3xl mb-2 text-center font-sans text-muted-900">5. Personal Info</h3>
+                    <h4 class="text-center text-base text-muted-500 dark:text-muted-400">Let us know your contact details</h4>
+                  </div>
+                  <div class="relative">
+                    <div class="contact-details max-w-[350px] mx-auto flex flex-col gap-3">
+                      <div class="relative">
+                        <div class="relative">
+                          <input
+                            type="text"
+                            class="w-full peer outline-none focus:outline-none p-3 pl-12 dark:bg-muted-950 border border-muted-200 hover:border-muted-300 dark:hover:border-muted-700 text-muted-600 placeholder:text-muted-200 dark:text-muted-100 dark:placeholder:text-muted-700 dark:border-muted-800 transition-all duration-300 rounded h-12 text-base"
+                            placeholder="Full Name"
+                          />
+                          <div class="peer-focus:[&>svg]:text-primary-500 absolute left-0 top-0 grid place-items-center h-12 w-12">
+                            <Icon class="h-4 w-4 text-muted-300 dark:text-muted-600 stroke-[1.6px] transition-all duration-300" name="lucide:user" />
+                          </div>
+                        </div>
                       </div>
-                      <small class="text-[.875rem] text-dark"
-                        >Minimum 5 words</small
-                      >
-                    </div>
-
-                    <div class="uploader-row mt-[30px]">
-                      <div
-                        class="uploaders flex justify-between p-3.5 dark:bg-dark-purple-3 rounded-xl"
-                      >
-                        <div class="uploader relative">
+                      <div class="relative">
+                        <div class="relative">
                           <input
-                            class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer"
-                            id="uploader-1"
-                            type="file"
+                            type="text"
+                            class="w-full peer outline-none focus:outline-none p-3 pl-12 dark:bg-muted-950 border border-muted-200 hover:border-muted-300 dark:hover:border-muted-700 text-muted-600 placeholder:text-muted-200 dark:text-muted-100 dark:placeholder:text-muted-700 dark:border-muted-800 transition-all duration-300 rounded h-12 text-base"
+                            placeholder="Email Address"
                           />
-                          <label
-                            for="uploader-1"
-                            class="uploader-controls relative group h-[70px] w-[70px] flex justify-center items-center border-[1.8px] border-blue-gray border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-ice-blue"
-                          >
-                            <svg
-                              class="h-5 w-5 transition-all duration-300 text-blue-gray dark:text-dark-purple-8 group-hover:text-ice-blue"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              ><g
-                                id="fePlus0"
-                                fill="none"
-                                fill-rule="evenodd"
-                                stroke="none"
-                                stroke-width="1"
-                                ><g id="fePlus1" fill="currentColor"
-                                  ><path
-                                    id="fePlus2"
-                                    d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"
-                                  ></path></g
-                                ></g
-                              ></svg
-                            >
-                          </label>
+                          <div class="peer-focus:[&>svg]:text-primary-500 absolute left-0 top-0 grid place-items-center h-12 w-12">
+                            <Icon class="h-4 w-4 text-muted-300 dark:text-muted-600 stroke-[1.6px] transition-all duration-300" name="lucide:mail" />
+                          </div>
                         </div>
-                        <div class="uploader relative">
+                      </div>
+                      <div class="relative">
+                        <div class="relative">
                           <input
-                            class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer"
-                            id="uploader-2"
-                            type="file"
+                            type="text"
+                            class="w-full peer outline-none focus:outline-none p-3 pl-12 dark:bg-muted-950 border border-muted-200 hover:border-muted-300 dark:hover:border-muted-700 text-muted-600 placeholder:text-muted-200 dark:text-muted-100 dark:placeholder:text-muted-700 dark:border-muted-800 transition-all duration-300 rounded h-12 text-base"
+                            placeholder="Phone Number"
                           />
-                          <label
-                            for="uploader-2"
-                            class="uploader-controls relative group h-[70px] w-[70px] flex justify-center items-center border-[1.8px] border-blue-gray border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-ice-blue"
-                          >
-                            <svg
-                              class="h-5 w-5 transition-all duration-300 text-blue-gray dark:text-dark-purple-8 group-hover:text-ice-blue"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              ><g
-                                id="fePlus0"
-                                fill="none"
-                                fill-rule="evenodd"
-                                stroke="none"
-                                stroke-width="1"
-                                ><g id="fePlus1" fill="currentColor"
-                                  ><path
-                                    id="fePlus2"
-                                    d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"
-                                  ></path></g
-                                ></g
-                              ></svg
-                            >
-                          </label>
-                        </div>
-                        <div class="uploader relative">
-                          <input
-                            class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer"
-                            id="uploader-3"
-                            type="file"
-                          />
-                          <label
-                            for="uploader-3"
-                            class="uploader-controls relative group h-[70px] w-[70px] flex justify-center items-center border-[1.8px] border-blue-gray border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-ice-blue"
-                          >
-                            <svg
-                              class="h-5 w-5 transition-all duration-300 text-blue-gray dark:text-dark-purple-8 group-hover:text-ice-blue"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              ><g
-                                id="fePlus0"
-                                fill="none"
-                                fill-rule="evenodd"
-                                stroke="none"
-                                stroke-width="1"
-                                ><g id="fePlus1" fill="currentColor"
-                                  ><path
-                                    id="fePlus2"
-                                    d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"
-                                  ></path></g
-                                ></g
-                              ></svg
-                            >
-                          </label>
-                        </div>
-                        <div class="uploader relative">
-                          <input
-                            class="appearance-none h-full w-full opacity-0 absolute top-0 left-0 -z-[1] cursor-pointer"
-                            id="uploader-4"
-                            type="file"
-                          />
-                          <label
-                            for="uploader-4"
-                            class="uploader-controls relative group h-[70px] w-[70px] flex justify-center items-center border-[1.8px] border-blue-gray border-dashed cursor-pointer transition-all duration-300 rounded-lg hover:border-ice-blue"
-                          >
-                            <svg
-                              class="h-5 w-5 transition-all duration-300 text-blue-gray dark:text-dark-purple-8 group-hover:text-ice-blue"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              ><g
-                                id="fePlus0"
-                                fill="none"
-                                fill-rule="evenodd"
-                                stroke="none"
-                                stroke-width="1"
-                                ><g id="fePlus1" fill="currentColor"
-                                  ><path
-                                    id="fePlus2"
-                                    d="M13 13v7a1 1 0 0 1-2 0v-7H4a1 1 0 0 1 0-2h7V4a1 1 0 0 1 2 0v7h7a1 1 0 0 1 0 2h-7Z"
-                                  ></path></g
-                                ></g
-                              ></svg
-                            >
-                          </label>
+                          <div class="peer-focus:[&>svg]:text-primary-500 absolute left-0 top-0 grid place-items-center h-12 w-12">
+                            <Icon class="h-4 w-4 text-muted-300 dark:text-muted-600 stroke-[1.6px] transition-all duration-300" name="lucide:phone" />
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="button-block">
-                  <button
-                    @click="browseWizard($event)"
-                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
-                    data-step="wizard-step-5"
-                  >
-                    Next
-                  </button>
-                </div>
-              </div>
-
-              <div
-                id="form-section-5"
-                class="inner-form relative min-h-[400px] flex flex-col justify-between"
-                x-cloak
-                x-show="activeWizardStep === 'wizard-step-5'"
-              >
-                <div
-                  @click="browseBackWizard"
-                  class="back-block absolute top-0.5 left-0 h-9 w-9 rounded-full border border-gray-1 dark:border-dark-purple-6 [box-shadow:rgba(0,0,0,0.06)_-1px_3px_10px_0px] grid place-items-center transition-all duration-300 cursor-pointer hover:text-primary dark:hover:border-primary hover:border-primary text-ice-blue"
-                  data-step="wizard-step-4"
-                >
-                  <Icon
-                    class="h-[18px] w-[18px] pointer-events-none"
-                    name="feather:arrow-left"
-                  />
-                </div>
-                <div class="title-block">
-                  <h3
-                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
-                  >
-                    5. Personal Info
-                  </h3>
-                  <h4 class="text-center text-base text-ice-blue">
-                    Let us know your contact details
-                  </h4>
-                </div>
-                <div class="content-block">
-                  <div
-                    class="contact-details max-w-[350px] mx-auto flex flex-col gap-3"
-                  >
-                    <div class="field">
-                      <div class="control relative">
-                        <input
-                          class="w-full peer outline-none focus:outline-none p-3 pl-10 dark:bg-dark-purple-5 border dark:hover:border-dark-purple-8 text-blue-gray placeholder:text-gray-1 dark:text-ice-blue dark:placeholder:text-dark-purple-8 dark:border-dark-purple-3 transition-all duration-300 rounded h-10 text-base"
-                          type="text"
-                          placeholder="Full Name *"
-                        />
-                        <div
-                          class="form-icon peer-focus:[&>svg]:text-primary h-10 w-10 absolute left-0 top-0 grid place-items-center"
-                        >
-                          <Icon
-                            class="h-[18px] w-[18px] text-gray-3 dark:text-blue-gray stroke-[1.6px] transition-all duration-300"
-                            name="feather:user"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="field">
-                      <div class="control relative">
-                        <input
-                          class="w-full peer outline-none focus:outline-none p-3 pl-10 dark:bg-dark-purple-5 border dark:hover:border-dark-purple-8 text-blue-gray placeholder:text-gray-1 dark:text-ice-blue dark:placeholder:text-dark-purple-8 dark:border-dark-purple-3 transition-all duration-300 rounded h-10 text-base"
-                          type="text"
-                          placeholder="Email *"
-                        />
-                        <div
-                          class="form-icon peer-focus:[&>svg]:text-primary h-10 w-10 absolute left-0 top-0 grid place-items-center"
-                        >
-                          <Icon
-                            class="h-[18px] w-[18px] text-gray-3 dark:text-blue-gray stroke-[1.6px] transition-all duration-300"
-                            name="feather:mail"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="field">
-                      <div class="control relative">
-                        <input
-                          class="w-full peer outline-none focus:outline-none p-3 pl-10 dark:bg-dark-purple-5 border dark:hover:border-dark-purple-8 text-blue-gray placeholder:text-gray-1 dark:text-ice-blue dark:placeholder:text-dark-purple-8 dark:border-dark-purple-3 transition-all duration-300 rounded h-10 text-base"
-                          type="text"
-                          placeholder="Phone Number *"
-                        />
-                        <div
-                          class="form-icon peer-focus:[&>svg]:text-primary h-10 w-10 absolute left-0 top-0 grid place-items-center"
-                        >
-                          <Icon
-                            class="h-[18px] w-[18px] text-gray-3 dark:text-blue-gray stroke-[1.6px] transition-all duration-300"
-                            name="feather:phone"
-                          />
-                        </div>
-                      </div>
-                    </div>
+                  <div class="relative">
+                    <button
+                      @click="browseWizard($event)"
+                      class="min-w-56 bg-primary-500 h-11 py-2 px-4 flex items-center justify-center mx-auto text-center font-medium text-base text-white rounded cursor-pointer transition-all duration-300"
+                      data-step="wizard-step-6"
+                    >
+                      Finish
+                    </button>
                   </div>
                 </div>
-                <div class="button-block">
-                  <button
-                    @click="browseWizard($event)"
-                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button"
-                    data-step="wizard-step-6"
-                  >
-                    Finish
-                  </button>
-                </div>
-              </div>
-
-              <div
-                id="form-section-6"
-                class="inner-form relative min-h-[400px] flex flex-col justify-between"
-                x-cloak
-                x-show="activeWizardStep === 'wizard-step-6'"
-              >
-                <div class="title-block">
-                  <h3
-                    class="dark:text-white text-[2rem] mb-2 text-center font-TitilliumWeb text-dark"
-                  >
-                    Congratz! We're done!
-                  </h3>
-                  <h4 class="text-center text-base text-ice-blue">
-                    You just finished entering all the info we need
-                  </h4>
-                </div>
-                <div class="content-block">
-                  <div
-                    class="success-box text-center max-w-[410px] mx-auto p-6 bg-white dark:bg-dark-purple-2 border dark:border-dark-purple-6 border-gray-1"
-                  >
-                    <svg
-                      class="SuccessAnimation mx-auto animate-scaleAnimation"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="70"
-                      height="70"
-                      viewBox="0 0 70 70"
-                    >
-                      <path
-                        class="SuccessAnimationResult animate-fadeIn fill-primary opacity-0"
-                        fill="#D8D8D8"
-                        d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z"
-                      ></path>
-                      <circle
-                        class="SuccessAnimationCircle animate-drawCircleFadeOut stroke-primary [stroke-dasharray:151px_151px]"
-                        cx="35"
-                        cy="35"
-                        r="24"
-                        stroke="#979797"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        fill="transparent"></circle>
-                      <polyline
-                        class="SuccessAnimationCheck animate-drawCheckFadeOut stroke-primary [stroke-dasharray:36px_36px]"
-                        stroke="#979797"
-                        stroke-width="2"
-                        points="23 34 34 43 47 27"
-                        fill="transparent"></polyline>
-                    </svg>
-                    <h3
-                      class="success-title font-semibold text-[1.1rem] text-dark dark:text-semi-white-3 text-center"
-                    >
-                      Application registered
-                    </h3>
-                    <p
-                      class="success-text text-[.95rem] mx-auto max-w-[450px] text-center text-ice-blue"
-                    >
-                      We've registered your project. One of our counselors will
-                      get in touch with you very soon.
-                    </p>
+                <div id="form-section-6" class="relative min-h-[400px] flex flex-col justify-center" x-cloak x-show="activeWizardStep === 'wizard-step-6'">
+                  <div class="relative">
+                    <h3 class="dark:text-white text-3xl mb-2 text-center font-sans text-muted-900">Congratz! We're done!</h3>
+                    <h4 class="text-center text-base text-muted-500 dark:text-muted-400">You just finished entering all the info we need</h4>
                   </div>
-                </div>
-                <div class="button-block is-vhidden">
-                  <button
-                    class="button min-w-[180px] bg-primary h-[44px] cursor-pointer transition-all duration-300 py-2 px-4 flex justify-center mx-auto text-center font-medium text-base text-white rounded-[.2rem] wizard-button is-disabled"
-                  >
-                    End
-                  </button>
+                  <div class="relative mt-4">
+                    <div class="text-center max-w-[410px] mx-auto p-6 bg-white dark:bg-muted-950 border dark:border-muted-800 border-muted-200">
+                      <svg class="SuccessAnimation mx-auto animate-scaleAnimation" xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+                        <path
+                          class="SuccessAnimationResult animate-fadeIn fill-primary-500 opacity-0"
+                          fill="#D8D8D8"
+                          d="M35,60 C21.1928813,60 10,48.8071187 10,35 C10,21.1928813 21.1928813,10 35,10 C48.8071187,10 60,21.1928813 60,35 C60,48.8071187 48.8071187,60 35,60 Z M23.6332378,33.2260427 L22.3667622,34.7739573 L34.1433655,44.40936 L47.776114,27.6305926 L46.223886,26.3694074 L33.8566345,41.59064 L23.6332378,33.2260427 Z"
+                        ></path>
+                        <circle
+                          class="SuccessAnimationCircle animate-drawCircleFadeOut stroke-primary-500 [stroke-dasharray:151px_151px]"
+                          cx="35"
+                          cy="35"
+                          r="24"
+                          stroke="#979797"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          fill="transparent"></circle>
+                        <polyline
+                          class="SuccessAnimationCheck animate-drawCheckFadeOut stroke-primary-500 [stroke-dasharray:36px_36px]"
+                          stroke="#979797"
+                          stroke-width="2"
+                          points="23 34 34 43 47 27"
+                          fill="transparent"></polyline>
+                      </svg>
+                      <h3 class="font-sans font-semibold text-xl text-muted-900 dark:text-white text-center mb-2">Application registered</h3>
+                      <p class="text-sm mx-auto max-w-md text-center text-muted-500 dark:text-muted-400">We've registered your project. One of our counselors will get in touch with you very soon.</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
-    </section>
+    </Section>
   </main>
 
   <style>
     .is-loading {
-      @apply text-transparent pointer-events-none relative after:absolute after:left-[calc(50%-.5rem)] after:top-[calc(50%-.5rem)] after:animate-[spinAround_500ms_infinite_linear] after:border-[2px] after:rounded-full after:border-semi-white-3 after:border-t-transparent after:border-r-transparent after:block after:content-[''] after:h-4 after:w-4;
+      @apply text-transparent pointer-events-none relative after:absolute after:left-[calc(50%-.5rem)] after:top-[calc(50%-.5rem)] after:animate-[spinAround_500ms_infinite_linear] after:border-[2px] after:rounded-full after:border-muted-200 after:border-t-transparent after:border-r-transparent after:block after:content-[''] after:h-4 after:w-4;
     }
   </style>
   <script>
-    document.addEventListener("alpine:init", () => {
-      // Wizard Data
-      Alpine.data("wizard", () => ({
-        activeWizardStep: "wizard-step-0",
+    document.addEventListener('alpine:init', () => {
+      //@ts-ignore
+      Alpine.data('wizard', () => ({
+        activeWizardStep: 'wizard-step-0',
         projectTypeSelected: false,
         selectProjectType() {
-          this.projectTypeSelected = true;
+          this.projectTypeSelected = true
         },
         servicesSelected: false,
         selectServices() {
-          this.servicesSelected = true;
+          this.servicesSelected = true
         },
         budgetSelected: false,
         selectBudget() {
-          this.budgetSelected = true;
+          this.budgetSelected = true
         },
-        browseWizard(e) {
-          const targetStep = e.target.getAttribute("data-step");
-          e.target.classList.add("is-loading");
+        browseWizard(e: any) {
+          const targetStep = e.target.getAttribute('data-step')
+          e.target.classList.add('is-loading')
           setTimeout(() => {
-            e.target.classList.remove("is-loading");
-            this.activeWizardStep = targetStep;
-          }, 1200);
+            e.target.classList.remove('is-loading')
+            this.activeWizardStep = targetStep
+          }, 1200)
         },
-        browseBackWizard(e) {
-          const targetStep = e.target.getAttribute("data-step");
-          this.activeWizardStep = targetStep;
+        browseBackWizard(e: any) {
+          const targetStep = e.target.getAttribute('data-step')
+          this.activeWizardStep = targetStep
         },
-      }));
-    });
+      }))
+    })
   </script>
 </Layout>

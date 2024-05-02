@@ -1,66 +1,48 @@
 ---
-import { projects } from "@data/property";
-import { Icon } from "astro-icon";
-import PolkaDots from "../PolkaDots.astro";
+import { projects } from '@data/properties'
+import { Icon } from 'astro-icon/components'
+import PolkaDots from '../PolkaDots.astro'
 ---
 
-<div class="projects-carousel relative">
+<div class="relative">
   <!-- Polka dots -->
   <div class="absolute top-3 -left-11"><PolkaDots /></div>
   <div class="absolute -bottom-10 -right-11"><PolkaDots /></div>
 
-  <div x-data="projectsSwiper" class="carousel-container relative z-[2]">
-    <div class="carousel-controls flex justify-end mb-6">
+  <div x-data="projectsSwiper" class="relative z-[2]">
+    <div class="flex justify-end mb-6">
       <button
         @click="swiper.slidePrev()"
-        class="flex justify-center items-center outline-none h-8 aspect-square text-lg rounded-full cursor-pointer transition-colors duration-300 bg-none hover:bg-semi-white-1 hover:dark:bg-dark-purple-3 group"
+        class="flex justify-center items-center outline-none h-8 aspect-square text-lg rounded-md cursor-pointer transition-colors duration-300 bg-none hover:bg-muted-100 hover:dark:bg-muted-800 group"
       >
-        <Icon
-          class="text-ice-blue group-hover:text-dark pointer-events-none dark:group-hover:text-white h-6 aspect-auto"
-          name="lucide:arrow-left"
-        />
+        <Icon class="text-muted-500 group-hover:text-muted-900 pointer-events-none dark:group-hover:text-white size-4 aspect-auto" name="lucide:arrow-left" />
       </button>
 
       <button
         @click="swiper.slideNext()"
-        class="flex justify-center items-center outline-none h-8 aspect-square text-lg rounded-full cursor-pointer transition-colors duration-300 bg-none hover:bg-semi-white-1 hover:dark:bg-dark-purple-3 group"
+        class="flex justify-center items-center outline-none h-8 aspect-square text-lg rounded-md cursor-pointer transition-colors duration-300 bg-none hover:bg-muted-100 hover:dark:bg-muted-800 group"
       >
-        <Icon
-          class="text-ice-blue group-hover:text-dark pointer-events-none dark:group-hover:text-white h-6 aspect-auto"
-          name="lucide:arrow-right"
-        />
+        <Icon class="text-muted-500 group-hover:text-muted-900 pointer-events-none dark:group-hover:text-white size-4 aspect-auto" name="lucide:arrow-right" />
       </button>
     </div>
-    <div class="swiper-container overflow-hidden" x-ref="container">
+    <div class="overflow-hidden" x-ref="container">
       <div class="swiper-wrapper">
         <!-- Slides -->
         {
           [...projects, ...projects].map((project) => (
             <div class="swiper-slide">
-              <a class="slide-inner">
-                <div class="slide-content relative">
-                  <img
-                    class="h-[352px] lg:h-[390px] w-full object-cover"
-                    src={project.image}
-                    alt={project.title}
-                  />
-                  <div class="slide-overlay-content hover:opacity-100 absolute top-0 h-full w-full opacity-0 transition-opacity duration-300 left-0">
-                    <div class="slide-overlay absolute top-0 h-full w-full bg-gradient-to-t from-[#161616] z-0 left-0">
-                      <div class="slide-icon absolute top-6 left-6 flex items-center justify-center h-10 aspect-square rounded-full bg-dark-purple-2">
-                        <img
-                          src={project.flag}
-                          class="h-8 aspect-square rounded-full"
-                          alt="Slide icon"
-                        />
+              <a>
+                <div class="relative">
+                  <img class="h-[352px] lg:h-[390px] w-full object-cover" src={project.image} alt={project.title} />
+                  <div class="hover:opacity-100 absolute top-0 h-full w-full opacity-0 transition-opacity duration-300 start-0">
+                    <div class="absolute top-0 h-full w-full bg-gradient-to-t from-muted-900 z-0 start-0">
+                      <div class="absolute top-6 start-6 flex items-center justify-center h-10 aspect-square rounded-full bg-muted-900">
+                        <img src={project.flag} class="size-8 aspect-square rounded-full" alt="Slide icon" />
                       </div>
-                      <div class="overlay-content relative h-full w-full flex flex-col justify-end">
-                        <div class="text-content p-6">
-                          <h3 class="font-TitilliumWeb dark:text-white font-light  text-dark text-xl ">
-                            {project.title}
-                          </h3>
-                          <p class="opacity-70 text-[#fcfcfc] text-base">
-                            {project.location}
-                          </p>
+                      <div class="relative h-full w-full flex flex-col justify-end">
+                        <div class="p-6">
+                          <h3 class="font-sans text-white font-medium text-xl">{project.title}</h3>
+                          <p class="opacity-70 text-muted-200 text-sm">{project.location}</p>
                         </div>
                       </div>
                     </div>

@@ -1,49 +1,54 @@
-# Welcome to [Astro](https://astro.build)
+# 👋 Masonry
+> Masonry is a Real Estate UI template built by [cssninjaStudio](https://cssninja.io).
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/s/github/withastro/astro/tree/latest/examples/basics)
+## ✌️ preview
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Check out the live demo by clicking [here](https://masonry.cssninja.io/). 
+Masonry is built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com) and [Alpine JS](https://github.com/alpinejs/alpine).
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+## 👍 Features
 
-## 🚀 Project Structure
+* Astro v4.x
+* Tailwind CSS v3.x
+* Alpine v3.x
 
-Inside of your Astro project, you'll see the following folders and files:
+## 👌 Usage
 
-```
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Default.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+1. Install depedencies
+
+```sh
+pnpm i
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+2. Run in dev mode
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```sh
+pnpm dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+3. Or build source
 
-## 🧞 Commands
+```sh
+pnpm build
+```
 
-All commands are run from the root of the project, from a terminal:
+## 🍔 Issues
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+If you've found an issue or a bug, you can report it in the issues section of this repository. Please try to follow these simple guidelines to report your issue:
 
-## 👀 Want to learn more?
+* Issue definition
+* Expected behaviour
+* Actual behaviour
+* steps to reproduce
+* Already tried fixes (if relevant)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🎉 More
+
+Find more premium website and webapp templates on [Css Ninja](https://cssninja.io/).
+
+## 🚀 About Us
+
+Css Ninja is a web design studio. We build handcrafted and polished templates that will give some hype to your startup or to your next project.
+
+
+

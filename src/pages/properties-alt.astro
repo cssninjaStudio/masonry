@@ -5,11 +5,12 @@ import Layout from '@layouts/Split.astro'
 import Section from '@components/Section.astro'
 import Container from '@components/Container.astro'
 import PropertySearch from '@components/ui/PropertySearch.astro'
-import PropertyCard from '@components/ui/PropertyCard.astro'
+import PropertyCard from '@components/ui/PropertyCardAlt.astro'
 ---
 
 <Layout title="Properties">
   <main id="Properties">
+
     <!--Properties-->
     <Section gray={true}>
       <Container>
@@ -43,7 +44,7 @@ import PropertyCard from '@components/ui/PropertyCard.astro'
         </div>
 
         <!-- property cards -->
-        <div class="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="py-8 grid grid-cols-1 md:grid-cols-2 ltablet:grid-cols-3 lg:grid-cols-4 gap-6">
           {properties.map((property) => <PropertyCard {...property} />)}
         </div>
 

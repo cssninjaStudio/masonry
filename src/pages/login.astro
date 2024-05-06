@@ -8,7 +8,7 @@ import { Icon } from 'astro-icon/components'
 
 <Layout title="Login">
   <main id="Login" class="bg-muted-50 dark:bg-muted-900 relative">
-    <header class="absolute top-0 left-0 z-[5] w-full px-3">
+    <header class="absolute top-0 start-0 z-[5] w-full px-3">
       <Container>
         <div class="flex justify-between items-center gap-3 min-h-[4.5rem]">
           <a href="/" class="flex gap-4 items-center">
@@ -24,7 +24,7 @@ import { Icon } from 'astro-icon/components'
             <!-- sun -->
             <Icon
               name="lucide:sun"
-              class="lightIcon left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
+              class="lightIcon start-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
               x-cloak
               :class="$store.app.isDark ? 'opacity-0 -translate-x-[45%] -translate-y-[150%]' : 'opacity-100  -translate-x-1/2 -translate-y-1/2' "
             />
@@ -32,7 +32,7 @@ import { Icon } from 'astro-icon/components'
             <!-- moon -->
             <Icon
               name="lucide:moon"
-              class="darkIcon left-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
+              class="darkIcon start-1/2 aspect-auto absolute top-1/2 [&>*]:fill-current transition-all duration-300"
               x-cloak
               :class="$store.app.isDark ? 'opacity-100  -translate-x-[45%] -translate-y-1/2' : 'opacity-0 -translate-x-[45%] -translate-y-[150%]' "
             />
@@ -57,10 +57,10 @@ import { Icon } from 'astro-icon/components'
                   <div class="relative">
                     <input
                       type="text"
-                      class="w-full peer outline-none focus:outline-none p-3 pl-12 dark:bg-muted-900 border border-muted-200 hover:border-muted-300 dark:hover:border-muted-700 text-muted-600 placeholder:text-muted-200 dark:text-muted-100 dark:placeholder:text-muted-700 dark:border-muted-800 transition-all duration-300 rounded h-12 text-base"
+                      class="w-full peer outline-none focus:outline-none p-3 ps-12 dark:bg-muted-900 border border-muted-200 hover:border-muted-300 dark:hover:border-muted-700 text-muted-600 placeholder:text-muted-200 dark:text-muted-100 dark:placeholder:text-muted-700 dark:border-muted-800 transition-all duration-300 rounded h-12 text-base"
                       placeholder="Enter your email"
                     />
-                    <div class="peer-focus:[&>svg]:text-primary-500 absolute left-0 top-0 grid place-items-center h-12 w-12">
+                    <div class="peer-focus:[&>svg]:text-primary-500 absolute start-0 top-0 grid place-items-center h-12 w-12">
                       <Icon class="h-4 w-4 text-muted-300 dark:text-muted-600 stroke-[1.6px] transition-all duration-300" name="lucide:mail" />
                     </div>
                   </div>
@@ -70,10 +70,10 @@ import { Icon } from 'astro-icon/components'
                   <div class="relative">
                     <input
                       type="password"
-                      class="w-full peer outline-none focus:outline-none p-3 pl-12 dark:bg-muted-900 border border-muted-200 hover:border-muted-300 dark:hover:border-muted-700 text-muted-600 placeholder:text-muted-200 dark:text-muted-100 dark:placeholder:text-muted-700 dark:border-muted-800 transition-all duration-300 rounded h-12 text-base"
+                      class="w-full peer outline-none focus:outline-none p-3 ps-12 dark:bg-muted-900 border border-muted-200 hover:border-muted-300 dark:hover:border-muted-700 text-muted-600 placeholder:text-muted-200 dark:text-muted-100 dark:placeholder:text-muted-700 dark:border-muted-800 transition-all duration-300 rounded h-12 text-base"
                       placeholder="Enter your password"
                     />
-                    <div class="peer-focus:[&>svg]:text-primary-500 absolute left-0 top-0 grid place-items-center h-12 w-12">
+                    <div class="peer-focus:[&>svg]:text-primary-500 absolute start-0 top-0 grid place-items-center h-12 w-12">
                       <Icon class="h-4 w-4 text-muted-300 dark:text-muted-600 stroke-[1.6px] transition-all duration-300" name="lucide:lock" />
                     </div>
                   </div>
@@ -86,7 +86,7 @@ import { Icon } from 'astro-icon/components'
                         class="relative inline-block w-[48px] h-[28px] bg-muted-100 dark:bg-muted-900 border border-muted-200 dark:border-muted-800 peer-focus:outline-none after:border rounded-full peer-checked:bg-primary-500 transition-all duration-300 ease-linear before:content-[''] before:absolute before:w-[42px] before:h-[22px] before:dark:bg-muted-900 before:rounded-full before:bg-muted-100 before:[transform:translate3d(2px,2px,0)_scale3d(1,1,1)] before:transition-all before:duration-[0.25s] before:ease-linear after:content-[''] after:absolute after:w-[22px] after:h-[22px] after:bg-white after:rounded-full after:shadow-md after:[transform:translate3d(2px,2px,0)] peer-checked:before:[transform:translate3d(18px,2px,0)_scale3d(0,0,0)] peer-checked:after:[transform:translate3d(22px,2px,0)] after:transition-all after:duration-[0.2s] after:ease-in-out"
                       >
                       </div>
-                      <span class="ml-3 text-sm font-medium text-muted-400">Remember me</span>
+                      <span class="ms-3 text-sm font-medium text-muted-400">Remember me</span>
                     </label>
                   </div>
                 </div>
@@ -115,7 +115,7 @@ import { Icon } from 'astro-icon/components'
 
   <style>
     .is-loading {
-      @apply text-transparent pointer-events-none relative after:absolute after:left-[calc(50%-.5rem)] after:top-[calc(50%-.5rem)] after:animate-[spinAround_500ms_infinite_linear] after:border-[2px] after:rounded-full after:border-muted-200 after:border-t-transparent after:border-r-transparent after:block after:content-[''] after:h-4 after:w-4;
+      @apply text-transparent pointer-events-none relative after:absolute after:start-[calc(50%-.5rem)] after:top-[calc(50%-.5rem)] after:animate-[spinAround_500ms_infinite_linear] after:border-[2px] after:rounded-full after:border-muted-200 after:border-t-transparent after:border-r-transparent after:block after:content-[''] after:h-4 after:w-4;
     }
   </style>
 

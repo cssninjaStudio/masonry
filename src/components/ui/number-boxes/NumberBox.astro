@@ -18,7 +18,7 @@ const { number, title, text = sampleText } = Astro.props
   <div class="p-8 pb-3">
     <span class="text-lg text-muted-700 dark:text-muted-500">{number}</span>
   </div>
-  <div class="px-8 before:absolute before:w-[5px] before:bg-primary-500 before:h-full relative before:left-0 before:top-0">
+  <div class="px-8 before:absolute before:w-[5px] before:bg-primary-500 before:h-full relative before:start-0 before:top-0">
     <h3 class="dark:text-white font-sans text-muted-900 font-semibold text-2xl">
       {title}
     </h3>
@@ -29,9 +29,9 @@ const { number, title, text = sampleText } = Astro.props
   <div class="mt-auto p-8 pt-0">
     <a
       href="#"
-      class="inline-flex group items-center text-primary-500 relative after:content-[''] after:absolute after:h-[2px] after:bg-primary-500 after:transition-['width'] after:duration-300 after:w-0 after:hover:w-full after:-bottom-[0.15rem] after:left-0"
+      class="inline-flex group items-center text-primary-500 relative after:content-[''] after:absolute after:h-[2px] after:bg-primary-500 after:transition-['width'] after:duration-300 after:w-0 after:hover:w-full after:-bottom-[0.15rem] after:start-0"
     >
-      <span class="whitespace-nowrap mr-1">Learn More</span>
+      <span class="whitespace-nowrap me-1">Learn More</span>
       <Icon name="lucide:arrow-right" class="group-hover:translate-x-1 transition-transform duration-300 h-5 aspect-auto text-primary-500 fill-primary" />
     </a>
   </div>

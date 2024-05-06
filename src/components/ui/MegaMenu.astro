@@ -10,12 +10,12 @@ import MegaMenuLink from './MegaMenuLink.astro'
   x-cloak
 >
   <div id="propertiesMega" x-show="openedMegamenu === 'megamenu-1'" class="w-full py-[60px] relative">
-    <button class="absolute top-2.5 right-2.5 h-10 w-10 lg:hidden grid place-content-center" @click="megamenuOpened = !megamenuOpened">
+    <button class="absolute top-2.5 end-2.5 h-10 w-10 lg:hidden grid place-content-center" @click="megamenuOpened = !megamenuOpened">
       <Icon class="h-6 w-6 text-muted-500 dark:text-white" name="lucide:arrow-left" />
     </button>
     <ul class="w-full max-w-7xl mx-auto flex ltablet:flex-row lg:flex-row flex-col gap-x-5 gap-y-10">
       <li class="ltablet:w-[30%] lg:w-[30%]">
-        <div class="px-12 ltablet:px-0 lg:px-0 ltablet:ml-10 lg:ml-0">
+        <div class="px-12 ltablet:px-0 lg:px-0 ltablet:ms-10 lg:ms-0">
           <div class="flex flex-col lg:flex-row gap-4">
             <div>
               <Icon name="ph:buildings-duotone" class="size-8 aspect-square text-primary-500" />
@@ -79,12 +79,12 @@ import MegaMenuLink from './MegaMenuLink.astro'
   </div>
 
   <div id="rentalsMega" x-show="openedMegamenu === 'megamenu-2'" class="w-full py-[60px] relative">
-    <button class="absolute top-2.5 right-2.5 h-10 w-10 lg:hidden grid place-content-center" @click="megamenuOpened = !megamenuOpened">
+    <button class="absolute top-2.5 end-2.5 h-10 w-10 lg:hidden grid place-content-center" @click="megamenuOpened = !megamenuOpened">
       <Icon class="h-6 w-6 text-muted-500 dark:text-white" name="lucide:arrow-left" />
     </button>
     <ul class="w-full max-w-7xl mx-auto flex ltablet:flex-row lg:flex-row flex-col gap-x-5 gap-y-10">
       <li class="ltablet:w-[30%] lg:w-[30%]">
-        <div class="px-12 ltablet:px-0 lg:px-0 ltablet:ml-10 lg:ml-0">
+        <div class="px-12 ltablet:px-0 lg:px-0 ltablet:ms-10 lg:ms-0">
           <div class="flex flex-col lg:flex-row gap-4">
             <div>
               <Icon name="ph:house-duotone" class="size-8 aspect-square text-primary-500" />

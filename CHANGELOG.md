@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/cssninjaStudio/masonry/compare/v1.0.0...v1.1.0) (2026-09-30)
+
+
+### ⚖️ License
+
+* relicense under MIT ([49d50d3](https://github.com/cssninjaStudio/masonry/commit/49d50d3a36d77fca1b0b8d1b4788488fe0e2aa6c))
+
 ## [1.0.0](https://github.com/cssninjaStudio/masonry/compare/v0.0.1...v1.0.0) (2024-05-07)
 
 ### 0.0.1 (2024-05-07)
